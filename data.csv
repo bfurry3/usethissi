@@ -52,7 +52,7 @@ Voice and TTS,Alt,Speechify,Read docs aloud plus a voice studio,unverified,unver
 Research,Alt,Google AI Studio,"Free playground for Gemini models, including Argon",Yes,Pay-as-you-go API (Argon $2/$10 per 1M tokens intro),https://aistudio.google.com,None found
 Set up or run AI agents,Alt,Roboflow Agent,Computer-vision agent that builds and deploys vision apps; MCP for Cursor and Claude Code,unverified,unverified (waitlist/product),https://roboflow.com/blog/roboflow-agent,unverified
 Set up or run AI agents,Alt,CopilotKit CLiF,Continual learning from full-stack agent+user trajectories (early access),unverified,unverified (demo / early access),https://www.copilotkit.ai/clif,unverified
-Voice and TTS,Alt,Fish Audio,Expressive TTS and cloning; Drama 3 for mid-sentence emotion control,"Yes (free tier, personal use)",unverified,https://fish.audio,unverified
+Voice and TTS,Alt,Fish Audio,Expressive TTS/cloning; Drama 3 directed emotion (open weights + API),Yes (open weights under Community License; web/app),$10/M chars Drama 3 API intro thru Nov 12 (list $50) [official blog Oct 13],https://fish.audio,unverified
 Vibe-code an app or landing page,Alt,Magic Patterns (MagicOS),Infinite AI design canvas; hand off to Cursor/Claude Code via MCP,Yes,unverified,https://www.magicpatterns.com,unverified
 
 release_date,release,source

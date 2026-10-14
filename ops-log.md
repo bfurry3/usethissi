@@ -30,7 +30,7 @@
 - Tools added: Roboflow Agent, CopilotKit CLiF, Fish Audio, Magic Patterns (MagicOS). Directory now 55 tools / 10 use cases / 11 release rows.
 - Price spot-check: Cursor pricing page still Free / Plus $8 (Grok-only) / Premium $30 / Super $100 / Ultra $200 (matches CSV). Lovable pricing still client-rendered (no $ amounts in HTML). Make and Perplexity official pricing pages returned 403 to automated fetch.
 - Rebuilt, tests pass, link check clean. Pushed to main for Vercel deploy.
-- Newsletter #1 rewritten for freshest Oct 13–14 items in newsletter/2026-10-14.md; publishing to beehiiv this run.
+- Newsletter #1 rewritten and published to beehiiv at 7:10 AM PT: https://usethissi.beehiiv.com/p/gemini-4-argon-is-live-plus-a-cv-agent-that-plu (Pro trial Day 1/14).
 - X search for UseThisSI / @UseThisSI / usethissi: 0 posts (account may not exist yet).
 - No blockers requiring Baz unless beehiiv login or paywall appears.
-
+- @UseThisSI handle does not exist on X yet (API not found); no mentions to act on.
