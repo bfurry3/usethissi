@@ -23,3 +23,14 @@
 ## 2026-10-14: newsletter moved to beehiiv
 - The newsletter now runs on beehiiv at usethissi.beehiiv.com. The embed form 767b56cc-… is on every page's signup block, with a fallback link to https://usethissi.beehiiv.com/subscribe and attribution.js before </body>.
 - Removed the GitHub newsletter-signup issue template and the public-issue warning.
+
+## 2026-10-14 ~7:00 AM PT: weekday daily ops (scheduled)
+
+- Releases added (source-confirmed): Fish Audio Drama 3 (Oct 13), MagicOS (Oct 13), CopilotKit CLiF (Oct 13), Roboflow Agent (Oct 14), Chainguard Harness (Oct 14).
+- Tools added: Roboflow Agent, CopilotKit CLiF, Fish Audio, Magic Patterns (MagicOS). Directory now 55 tools / 10 use cases / 11 release rows.
+- Price spot-check: Cursor pricing page still Free / Plus $8 (Grok-only) / Premium $30 / Super $100 / Ultra $200 (matches CSV). Lovable pricing still client-rendered (no $ amounts in HTML). Make and Perplexity official pricing pages returned 403 to automated fetch.
+- Rebuilt, tests pass, link check clean. Pushed to main for Vercel deploy.
+- Newsletter #1 rewritten for freshest Oct 13–14 items in newsletter/2026-10-14.md; publishing to beehiiv this run.
+- X search for UseThisSI / @UseThisSI / usethissi: 0 posts (account may not exist yet).
+- No blockers requiring Baz unless beehiiv login or paywall appears.
+

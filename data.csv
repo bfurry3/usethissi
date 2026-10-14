@@ -50,6 +50,10 @@ Set up or run AI agents,Alt,Gemini agent (Google Cloud),"Enterprise work agent, 
 Edit and generate video,Alt,ngram,"AI video planning, generation and editing",Yes (600 one-time credits),$29/mo Basic (3rd-party),https://www.ngram.com,unverified
 Voice and TTS,Alt,Speechify,Read docs aloud plus a voice studio,unverified,unverified,https://speechify.com,unverified
 Research,Alt,Google AI Studio,"Free playground for Gemini models, including Argon",Yes,Pay-as-you-go API (Argon $2/$10 per 1M tokens intro),https://aistudio.google.com,None found
+Set up or run AI agents,Alt,Roboflow Agent,Computer-vision agent that builds and deploys vision apps; MCP for Cursor and Claude Code,unverified,unverified (waitlist/product),https://roboflow.com/blog/roboflow-agent,unverified
+Set up or run AI agents,Alt,CopilotKit CLiF,Continual learning from full-stack agent+user trajectories (early access),unverified,unverified (demo / early access),https://www.copilotkit.ai/clif,unverified
+Voice and TTS,Alt,Fish Audio,Expressive TTS and cloning; Drama 3 for mid-sentence emotion control,"Yes (free tier, personal use)",unverified,https://fish.audio,unverified
+Vibe-code an app or landing page,Alt,Magic Patterns (MagicOS),Infinite AI design canvas; hand off to Cursor/Claude Code via MCP,Yes,unverified,https://www.magicpatterns.com,unverified
 
 release_date,release,source
 2026-10-07,"Claude Haiku 5.5: Anthropic's fastest, cheapest small model ($0.10/$0.50 per 1M tokens up to 100k)",https://www.anthropic.com/claude-haiku-5-5
@@ -58,3 +62,8 @@ release_date,release,source
 2026-10-08,AWS open-sources a Physical AI Toolchain for robotics,https://www.therobotreport.com/aws-launches-open-source-physical-ai-toolchain-for-robotics/
 2026-10-12,"Meta Muse Wonder and Muse Wonder Full agent models (Meta Model API, Muse Code)",https://research.meta.ai/blog/muse-wonder
 2026-10-13,Gemini 4 Argon generally available ($2/$10 per 1M tokens until Nov 30),https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/
+2026-10-13,Fish Audio launches Drama 3: plain-language emotion control for AI voices,https://www.prnewswire.com/news-releases/fish-audio-launches-drama-3-direct-ai-voices-in-plain-language-control-every-word-and-shift-emotion-mid-sentence-302906620.html
+2026-10-13,"Magic Patterns launches MagicOS, an infinite collaborative AI design canvas",https://www.magicpatterns.com/blog/introducing-magicos
+2026-10-13,CopilotKit releases CLiF (Continual Learning from Full-Stack Trajectories) in early access,https://www.copilotkit.ai/blog/introducing-clif
+2026-10-14,Roboflow Agent: computer-vision agent with MCP for Cursor and Claude Code,https://roboflow.com/blog/roboflow-agent
+2026-10-14,Chainguard Harness: frontier-AI vulnerability hunting with ready-to-merge fixes (Claude Marketplace beta),https://www.prnewswire.com/news-releases/introducing-chainguard-harness-proven-vulnerabilities-and-ready-to-merge-fixes-from-frontier-ai-no-model-access-required-302907725.html
