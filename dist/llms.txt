@@ -1,0 +1,20 @@
+# UseThisSI
+
+> One top AI tool pick per job for builders, vibe coders, AI agent tinkerers and indie game devs. Pricing last checked 2026-10-13.
+
+## Use cases
+- [Vibe-code an app or landing page](https://usethissi.com/use-cases/vibe-code-an-app-or-landing-page/): top pick Lovable. Chat-to-full-stack app with hosting; easiest on-ramp.
+- [AI coding assistant](https://usethissi.com/use-cases/ai-coding-assistant/): top pick Cursor. Leading AI IDE with cloud agents.
+- [Set up or run AI agents](https://usethissi.com/use-cases/set-up-or-run-ai-agents/): top pick n8n. Open-source agent and workflow builder.
+- [Automate workflows](https://usethissi.com/use-cases/automate-workflows/): top pick Make. Visual automation with the best affiliate terms.
+- [Make game art and sprites](https://usethissi.com/use-cases/make-game-art-and-sprites/): top pick Scenario. Style-trained, consistent game assets.
+- [Generate music and SFX](https://usethissi.com/use-cases/generate-music-and-sfx/): top pick Suno. Best song gen with commercial rights on Pro.
+- [Edit and generate video](https://usethissi.com/use-cases/edit-and-generate-video/): top pick Runway. Pro-grade generative video.
+- [Write content](https://usethissi.com/use-cases/write-content/): top pick Claude. Best long-form writing voice.
+- [Research](https://usethissi.com/use-cases/research/): top pick Perplexity. Fast cited answers.
+- [Voice and TTS](https://usethissi.com/use-cases/voice-and-tts/): top pick ElevenLabs. Most realistic voices plus 22% recurring affiliate.
+
+## Pages
+- [All tools](https://usethissi.com/tools/)
+- [New this week](https://usethissi.com/new/)
+- [About and affiliate disclosure](https://usethissi.com/about/)

@@ -1,0 +1,55 @@
+use_case,role,tool,reason,free_tier,starting_paid_price,url,affiliate_program
+Vibe-code an app or landing page,Top pick,Lovable,Chat-to-full-stack app with hosting; easiest on-ramp,Yes (5 build credits/day),$25/mo Pro,https://lovable.dev,Yes: up to $100 one-time per first subscriber (Impact) [official page]
+Vibe-code an app or landing page,Alt,Bolt.new,"Fast browser app builder, hosting included",Yes (1M tokens/mo),$25/mo Pro,https://bolt.new,"Referral: 15% of payments, capped $50/referral, via Cello [support page]"
+Vibe-code an app or landing page,Alt,v0 by Vercel,"Best React UI, deploys to Vercel",Yes ($5 credits),$30/user/mo,https://v0.app,Ambassador program exists; terms may be outdated (unverified)
+Vibe-code an app or landing page,Alt,Replit,Prompt-to-deployed app with Agent,Yes,$20/mo,https://replit.com,"Referral only: $20 credits, not cash"
+Vibe-code an app or landing page,Alt,Hostinger AI Builder,Cheapest bundled site + hosting,No,$2.99/mo (48-mo term),https://www.hostinger.com,unverified
+AI coding assistant,Top pick,Cursor,Leading AI IDE with cloud agents,Yes (Hobby),$20/mo Pro [official],https://cursor.com,"No (referral closed Jul 23, 2026, per 3rd-party)"
+AI coding assistant,Alt,Claude Code,Terminal coding agent,No (needs paid Claude),"$17/mo annual, $20 monthly [official]",https://claude.com/product/claude-code,unverified
+AI coding assistant,Alt,GitHub Copilot,Works in your existing editor,Yes,$10/mo Pro,https://github.com/features/copilot,None found
+AI coding assistant,Alt,Windsurf (now Devin Desktop),Agent-first desktop IDE,Yes,$20/mo,https://windsurf.com,None found
+AI coding assistant,Alt,Tabnine,Private and self-hosted code AI,No,$39/user/mo,https://www.tabnine.com,unverified
+Set up or run AI agents,Top pick,n8n,Open-source agent and workflow builder,Yes (self-host); Cloud 14-day trial,€20/mo Cloud [official],https://n8n.io,"Yes: 30% for 12 months, PayPal, €100 min [official]"
+Set up or run AI agents,Alt,Lindy,No-code personal and business agents,unverified,$29.99/user/mo [official],https://www.lindy.ai,unverified
+Set up or run AI agents,Alt,Manus,General autonomous agent,unverified,$20/mo,https://manus.im,unverified
+Set up or run AI agents,Alt,CrewAI,Multi-agent framework plus cloud,Yes (50 executions/mo),$99/mo,https://www.crewai.com,unverified
+Set up or run AI agents,Alt,Relevance AI,No-code AI agent workforce,unverified,"$19/mo annual, $29 monthly",https://relevanceai.com,unverified
+Automate workflows,Top pick,Make,Visual automation with the best affiliate terms,Yes,$9/mo Core (annual),https://www.make.com,"Yes: 35% for 12 months, $100 min, 3 paying referrals [official]"
+Automate workflows,Alt,Zapier,Largest integration catalog,Yes,$19.99/mo,https://zapier.com,"Yes, invite/approval only via PartnerStack, rate unpublished [official terms]"
+Automate workflows,Alt,Gumloop,AI-native automation,unverified,$37/mo Pro [official docs],https://www.gumloop.com,unverified
+Make game art and sprites,Top pick,Scenario,"Style-trained, consistent game assets",Yes (50 credits/day),$15/mo Starter [official],https://www.scenario.com,unverified
+Make game art and sprites,Alt,PixelLab,Pixel-art sprites and animation,unverified,$12/mo,https://www.pixellab.ai,unverified
+Make game art and sprites,Alt,Midjourney,Top-tier concept art,No,$10/mo Basic,https://www.midjourney.com,None found
+Make game art and sprites,Alt,Leonardo.Ai,Image gen with game presets,unverified,unverified,https://leonardo.ai,"No (closed Apr 7, 2026) [official]"
+Make game art and sprites,Alt,Ideogram,"Best text-in-image (logos, UI)",Yes,$15/mo Plus [official],https://ideogram.ai,unverified
+Make game art and sprites,Alt,Krea,Real-time image and video gen,Yes,$5.25/mo Basic,https://www.krea.ai,unverified
+Make game art and sprites,Alt,Rosebud AI,Vibe-code browser games,"Yes (8,000 credits)",unverified,https://rosebud.ai,unverified
+Generate music and SFX,Top pick,Suno,Best song gen with commercial rights on Pro,"Yes (50 credits/day, no commercial use)",$10/mo Pro ($8 annual),https://suno.com,"Yes, on impact.com since Feb 2026; terms unpublished"
+Generate music and SFX,Alt,ElevenLabs Music and SFX,SFX and music on the TTS plan,Yes,$6/mo [official],https://elevenlabs.io,Yes: 22% for 12 months [official]
+Generate music and SFX,Alt,Udio,High-fidelity songs (downloads disabled),Yes (10 credits/day),$10/mo Standard,https://www.udio.com,unverified
+Generate music and SFX,Alt,AIVA,Soundtrack-style composition,Yes (non-commercial),unverified (about €11/mo annual reported),https://www.aiva.ai,unverified
+Edit and generate video,Top pick,Runway,Pro-grade generative video,Yes,$12/mo Standard (annual),https://runwayml.com,"Yes: $15 per new subscriber, plus a 25% off code for your audience [official]"
+Edit and generate video,Alt,Descript,Edit video by editing text,Yes,"$16/mo annual, $24 monthly [official]",https://www.descript.com,Yes via PartnerStack; rate unpublished [official help]
+Edit and generate video,Alt,CapCut,Free short-form editor,Yes,about $19.99/mo Pro (varies by region),https://www.capcut.com,unverified
+Edit and generate video,Alt,Kling AI,Strong text and image to video,unverified,$6.99/mo,https://klingai.com,unverified
+Edit and generate video,Alt,Synthesia,AI avatar presenter videos,unverified,$18/mo Starter,https://www.synthesia.io,unverified
+Write content,Top pick,Claude,Best long-form writing voice,Yes,"$17/mo annual, $20 monthly [official]",https://claude.ai,None found
+Write content,Alt,ChatGPT,All-rounder; GPT-6 on all tiers,Yes,"$8/mo Go, $20 Plus",https://chatgpt.com,None found
+Write content,Alt,Jasper,Brand-voice marketing copy,No (7-day trial),"$59/mo annual, $69 monthly",https://www.jasper.ai,Reported 25% (older agreement PDF; unverified)
+Write content,Alt,Copy.ai,GTM copy workflows,unverified,$29/mo,https://www.copy.ai,unverified
+Write content,Alt,Gamma,"AI decks, docs and sites",Yes,$12/mo Plus,https://gamma.app,unverified
+Research,Top pick,Perplexity,Fast cited answers,Yes,$20/mo Pro,https://www.perplexity.ai,Referral only: $15 cash each for Comet installs (US) [official]
+Research,Alt,Gemini (Deep Research),Deep research; Gemini 4 Argon on Pro/Ultra,Yes,$19.99/mo Google AI Pro,https://gemini.google.com,None found
+Research,Alt,NotebookLM,Grounded in your own sources,Yes,$4.99/mo via Google AI Plus,https://notebooklm.google,None found
+Voice and TTS,Top pick,ElevenLabs,Most realistic voices plus 22% recurring affiliate,Yes (10k credits),$6/mo Starter [official],https://elevenlabs.io,"Yes: 22% for 12 months (11% Business), PartnerStack [official]"
+Voice and TTS,Alt,Cartesia,Low-latency voice for agents,Yes (20K credits),$5/mo Pro,https://cartesia.ai,unverified
+Voice and TTS,Alt,Murf AI,Studio voiceovers,unverified,$19/mo Creator,https://murf.ai,unverified
+
+release_date,release,source
+2026-10-02,Suno Speech (public beta): spoken voice plus background music in one track,https://postcutoff.com/e/2026-10-02-suno-speech-beta/
+2026-10-06,Mistral Large 4 public preview (open weights promised by end of October),https://mistral.ai/news/mistral-large-4/
+2026-10-07,GPT-6 with Intelligent UI comes to all ChatGPT tiers,https://openai.com/index/gpt-6-for-everyone/
+~2026-10-08 (date unverified),Claude Haiku 5.5 from Anthropic; added to Cursor,https://www.anthropic.com/claude-haiku-5-5
+2026-10-12,Meta Muse Wonder and Muse Wonder Full agent models,https://research.meta.ai/blog/muse-wonder
+2026-10-13,Gemini 4 Argon generally available ($2/$10 per 1M tokens intro pricing),https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/
+2026-10-14 per post date (date unverified),"Roboflow Agent for computer vision, works with Cursor and Claude Code via MCP",https://roboflow.com/blog/roboflow-agent
