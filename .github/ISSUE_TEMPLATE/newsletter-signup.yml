@@ -1,0 +1,18 @@
+name: Newsletter signup
+description: Get the free weekly UseThisSI builder brief (temporary signup)
+title: "[Newsletter] signup"
+labels: ["newsletter-signup"]
+body:
+  - type: markdown
+    attributes:
+      value: "Heads up: GitHub issues are public. Only enter an email you're happy to share publicly, or leave it blank and we'll contact you through your GitHub notifications."
+  - type: input
+    id: email
+    attributes: {label: Email (optional, public)}
+  - type: checkboxes
+    id: consent
+    attributes:
+      label: Consent
+      options:
+        - label: I want to receive the UseThisSI newsletter
+          required: true

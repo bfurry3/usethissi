@@ -1,0 +1,29 @@
+name: Submit your tool
+description: Suggest an AI tool for the UseThisSI directory
+title: "[Tool] "
+labels: ["tool-submission"]
+body:
+  - type: input
+    id: name
+    attributes: {label: Tool name}
+    validations: {required: true}
+  - type: input
+    id: url
+    attributes: {label: Official URL}
+    validations: {required: true}
+  - type: input
+    id: usecase
+    attributes: {label: "Use case (for example: vibe-code an app, game art, voice)"}
+    validations: {required: true}
+  - type: input
+    id: pricing
+    attributes: {label: "Pricing (free tier? starting paid price?)"}
+  - type: textarea
+    id: why
+    attributes: {label: Why builders should use it}
+  - type: checkboxes
+    id: maker
+    attributes:
+      label: Disclosure
+      options:
+        - label: I work on or am paid by this tool

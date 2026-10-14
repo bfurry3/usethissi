@@ -16,4 +16,7 @@ uc=[p for p in htmls if "/use-cases/" in p and p.count("/")==3]
 r.append(ok(all('class="tldr"' in open(p).read() and "Last checked" in open(p).read() for p in uc),f"{len(uc)} use-case pages have a summary and a last-checked date"))
 r.append(ok("{{AFF:" in "".join(open(p).read() for p in htmls),"affiliate placeholders present"))
 r.append(ok(subprocess.run([sys.executable,"check_links.py"]).returncode==0,"no broken internal links"))
+base=__import__("json").load(open("config.json"))["base_url"]
+all_txt="".join(open(p).read() for p in htmls)+open("dist/sitemap.xml").read()+open("dist/llms.txt").read()+open("dist/robots.txt").read()
+r.append(ok("usethissi.com" not in all_txt and base in open("dist/robots.txt").read(),"all absolute URLs use base_url"))
 sys.exit(0 if all(r) else 1)

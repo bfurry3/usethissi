@@ -4,12 +4,12 @@ Vibe-code an app or landing page,Alt,Bolt.new,"Fast browser app builder, hosting
 Vibe-code an app or landing page,Alt,v0 by Vercel,"Best React UI, deploys to Vercel",Yes ($5 credits),$30/user/mo,https://v0.app,Ambassador program exists; terms may be outdated (unverified)
 Vibe-code an app or landing page,Alt,Replit,Prompt-to-deployed app with Agent,Yes,$20/mo,https://replit.com,"Referral only: $20 credits, not cash"
 Vibe-code an app or landing page,Alt,Hostinger AI Builder,Cheapest bundled site + hosting,No,$2.99/mo (48-mo term),https://www.hostinger.com,unverified
-AI coding assistant,Top pick,Cursor,Leading AI IDE with cloud agents,Yes (Hobby),$20/mo Pro [official],https://cursor.com,"No (referral closed Jul 23, 2026, per 3rd-party)"
+AI coding assistant,Top pick,Cursor,Leading AI IDE with cloud agents,Yes (limited),"$8/mo Plus (Grok models only); $30/mo Premium [official, Oct 14]",https://cursor.com,"No (referral closed Jul 23, 2026, per 3rd-party)"
 AI coding assistant,Alt,Claude Code,Terminal coding agent,No (needs paid Claude),"$17/mo annual, $20 monthly [official]",https://claude.com/product/claude-code,unverified
 AI coding assistant,Alt,GitHub Copilot,Works in your existing editor,Yes,$10/mo Pro,https://github.com/features/copilot,None found
 AI coding assistant,Alt,Windsurf (now Devin Desktop),Agent-first desktop IDE,Yes,$20/mo,https://windsurf.com,None found
 AI coding assistant,Alt,Tabnine,Private and self-hosted code AI,No,$39/user/mo,https://www.tabnine.com,unverified
-Set up or run AI agents,Top pick,n8n,Open-source agent and workflow builder,Yes (self-host); Cloud 14-day trial,€20/mo Cloud [official],https://n8n.io,"Yes: 30% for 12 months, PayPal, €100 min [official]"
+Set up or run AI agents,Top pick,n8n,Open-source agent and workflow builder,Yes (self-host); Cloud 14-day trial,"€20/mo Starter, billed annually [official, Oct 14]",https://n8n.io,"Yes: 30% for 12 months, PayPal, €100 min [official]"
 Set up or run AI agents,Alt,Lindy,No-code personal and business agents,unverified,$29.99/user/mo [official],https://www.lindy.ai,unverified
 Set up or run AI agents,Alt,Manus,General autonomous agent,unverified,$20/mo,https://manus.im,unverified
 Set up or run AI agents,Alt,CrewAI,Multi-agent framework plus cloud,Yes (50 executions/mo),$99/mo,https://www.crewai.com,unverified
@@ -24,11 +24,11 @@ Make game art and sprites,Alt,Leonardo.Ai,Image gen with game presets,unverified
 Make game art and sprites,Alt,Ideogram,"Best text-in-image (logos, UI)",Yes,$15/mo Plus [official],https://ideogram.ai,unverified
 Make game art and sprites,Alt,Krea,Real-time image and video gen,Yes,$5.25/mo Basic,https://www.krea.ai,unverified
 Make game art and sprites,Alt,Rosebud AI,Vibe-code browser games,"Yes (8,000 credits)",unverified,https://rosebud.ai,unverified
-Generate music and SFX,Top pick,Suno,Best song gen with commercial rights on Pro,"Yes (50 credits/day, no commercial use)",$10/mo Pro ($8 annual),https://suno.com,"Yes, on impact.com since Feb 2026; terms unpublished"
+Generate music and SFX,Top pick,Suno,Best song gen with commercial rights on Pro,"Yes (50 credits/day, no commercial use)","$10/mo Pro; Premier $24/mo billed annually [Premier price official, Oct 14]",https://suno.com,"Yes, on impact.com since Feb 2026; terms unpublished"
 Generate music and SFX,Alt,ElevenLabs Music and SFX,SFX and music on the TTS plan,Yes,$6/mo [official],https://elevenlabs.io,Yes: 22% for 12 months [official]
 Generate music and SFX,Alt,Udio,High-fidelity songs (downloads disabled),Yes (10 credits/day),$10/mo Standard,https://www.udio.com,unverified
 Generate music and SFX,Alt,AIVA,Soundtrack-style composition,Yes (non-commercial),unverified (about €11/mo annual reported),https://www.aiva.ai,unverified
-Edit and generate video,Top pick,Runway,Pro-grade generative video,Yes,$12/mo Standard (annual),https://runwayml.com,"Yes: $15 per new subscriber, plus a 25% off code for your audience [official]"
+Edit and generate video,Top pick,Runway,Pro-grade generative video,Yes (125 one-time credits),"$12/mo billed annually, $15 monthly [official, Oct 14]",https://runwayml.com,"Yes: $15 per new subscriber, plus a 25% off code for your audience [official]"
 Edit and generate video,Alt,Descript,Edit video by editing text,Yes,"$16/mo annual, $24 monthly [official]",https://www.descript.com,Yes via PartnerStack; rate unpublished [official help]
 Edit and generate video,Alt,CapCut,Free short-form editor,Yes,about $19.99/mo Pro (varies by region),https://www.capcut.com,unverified
 Edit and generate video,Alt,Kling AI,Strong text and image to video,unverified,$6.99/mo,https://klingai.com,unverified
@@ -41,15 +41,20 @@ Write content,Alt,Gamma,"AI decks, docs and sites",Yes,$12/mo Plus,https://gamma
 Research,Top pick,Perplexity,Fast cited answers,Yes,$20/mo Pro,https://www.perplexity.ai,Referral only: $15 cash each for Comet installs (US) [official]
 Research,Alt,Gemini (Deep Research),Deep research; Gemini 4 Argon on Pro/Ultra,Yes,$19.99/mo Google AI Pro,https://gemini.google.com,None found
 Research,Alt,NotebookLM,Grounded in your own sources,Yes,$4.99/mo via Google AI Plus,https://notebooklm.google,None found
-Voice and TTS,Top pick,ElevenLabs,Most realistic voices plus 22% recurring affiliate,Yes (10k credits),$6/mo Starter [official],https://elevenlabs.io,"Yes: 22% for 12 months (11% Business), PartnerStack [official]"
+Voice and TTS,Top pick,ElevenLabs,Most realistic voices plus 22% recurring affiliate,Yes (10k credits),"$6/mo Starter ($1 first month until Oct 18) [official, Oct 14]",https://elevenlabs.io,"Yes: 22% for 12 months (11% Business), PartnerStack [official]"
 Voice and TTS,Alt,Cartesia,Low-latency voice for agents,Yes (20K credits),$5/mo Pro,https://cartesia.ai,unverified
 Voice and TTS,Alt,Murf AI,Studio voiceovers,unverified,$19/mo Creator,https://murf.ai,unverified
+AI coding assistant,Alt,Google Antigravity,Google's agentic IDE; gets Gemini 4 Argon on Ultra,unverified,unverified,https://antigravity.google,unverified
+Set up or run AI agents,Alt,Muse Code (Meta),Meta's coding and agent app running Muse Wonder,unverified,unverified (subscription),https://research.meta.ai/blog/muse-wonder,unverified
+Set up or run AI agents,Alt,Gemini agent (Google Cloud),"Enterprise work agent, launched Oct 8, 2026",unverified,unverified,https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-at-work/,unverified
+Edit and generate video,Alt,ngram,"AI video planning, generation and editing",Yes (600 one-time credits),$29/mo Basic (3rd-party),https://www.ngram.com,unverified
+Voice and TTS,Alt,Speechify,Read docs aloud plus a voice studio,unverified,unverified,https://speechify.com,unverified
+Research,Alt,Google AI Studio,"Free playground for Gemini models, including Argon",Yes,Pay-as-you-go API (Argon $2/$10 per 1M tokens intro),https://aistudio.google.com,None found
 
 release_date,release,source
-2026-10-02,Suno Speech (public beta): spoken voice plus background music in one track,https://postcutoff.com/e/2026-10-02-suno-speech-beta/
-2026-10-06,Mistral Large 4 public preview (open weights promised by end of October),https://mistral.ai/news/mistral-large-4/
-2026-10-07,GPT-6 with Intelligent UI comes to all ChatGPT tiers,https://openai.com/index/gpt-6-for-everyone/
-~2026-10-08 (date unverified),Claude Haiku 5.5 from Anthropic; added to Cursor,https://www.anthropic.com/claude-haiku-5-5
-2026-10-12,Meta Muse Wonder and Muse Wonder Full agent models,https://research.meta.ai/blog/muse-wonder
-2026-10-13,Gemini 4 Argon generally available ($2/$10 per 1M tokens intro pricing),https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/
-2026-10-14 per post date (date unverified),"Roboflow Agent for computer vision, works with Cursor and Claude Code via MCP",https://roboflow.com/blog/roboflow-agent
+2026-10-07,"Claude Haiku 5.5: Anthropic's fastest, cheapest small model ($0.10/$0.50 per 1M tokens up to 100k)",https://www.anthropic.com/claude-haiku-5-5
+2026-10-07,GPT-6 with Intelligent UI rolls out in ChatGPT (Free and Go tiers from Oct 8),https://openai.com/index/gpt-6-for-everyone/
+2026-10-08,"Google Cloud launches Gemini agent, a universal agent for work",https://blog.google/innovation-and-ai/infrastructure-and-cloud/google-cloud/gemini-at-work/
+2026-10-08,AWS open-sources a Physical AI Toolchain for robotics,https://www.therobotreport.com/aws-launches-open-source-physical-ai-toolchain-for-robotics/
+2026-10-12,"Meta Muse Wonder and Muse Wonder Full agent models (Meta Model API, Muse Code)",https://research.meta.ai/blog/muse-wonder
+2026-10-13,Gemini 4 Argon generally available ($2/$10 per 1M tokens until Nov 30),https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-argon/

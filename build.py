@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build UseThisSI static site from data.csv into dist/."""
 import csv, json, os, re, shutil, html
-SITE="https://usethissi.com"; CHECKED="2026-10-13"; NAME="UseThisSI"
+CFG=json.load(open("config.json")); SITE=CFG["base_url"].rstrip("/"); CHECKED=CFG["checked"]; REPO=CFG["repo"]; NAME="UseThisSI"
 E=html.escape
 def slug(s): return re.sub(r'[^a-z0-9]+','-',s.lower()).strip('-')
 rows=list(csv.reader(open("data.csv")))
@@ -29,7 +29,7 @@ def page(path,title,desc,body,ld=None):
 <link rel="stylesheet" href="/style.css">{ldj}</head><body>
 <header><nav><a href="/">{NAME}</a><a href="/use-cases/">Use cases</a><a href="/tools/">Tools</a><a href="/new/">New this week</a><a href="/submit/">Submit a tool</a><a href="/about/">About</a></nav></header>
 <main>{body}</main>
-<section id="newsletter"><h2>Get the 5-minute builder brief</h2><form onsubmit="alert('Newsletter coming soon');return false"><label>Email <input type="email" required></label> <button>Subscribe</button></form><p><small>Placeholder: not connected to any provider yet.</small></p></section>
+<section id="newsletter"><h2>Get the 5-minute builder brief</h2><p>Free weekly email: what launched, what changed, and what to try.</p><p><a href="https://github.com/{REPO}/issues/new?template=newsletter-signup.yml">Sign up through a GitHub issue</a></p><p><small>This is a temporary signup. GitHub issues are public, so don't post an email you want kept private. A proper email signup is coming soon.</small></p></section>
 <footer>Some links are affiliate links. <a href="/about/#affiliates">Disclosure</a>. Data last checked {CHECKED}.</footer></body></html>'''
 def top(L): return next(d for d in L if d["role"]=="Top pick")
 # use case pages
@@ -66,7 +66,7 @@ page("tools/index.html",f"All AI tools | {NAME}",f"Directory of {len(tm)} AI too
 page("new/index.html",f"New AI tool releases this week | {NAME}","The AI releases from the last two weeks that matter for builders.",
  "<h1>New this week</h1><ul>"+"".join(f'<li><time>{E(a)}</time>: {E(b)} (<a href="{E(c)}" rel="noopener">source</a>)</li>' for a,b,c in rels)+"</ul>")
 page("submit/index.html",f"Submit your AI tool | {NAME}","Submit an AI tool for review in the UseThisSI directory.",
- '<h1>Submit your tool</h1><p>Every tool gets the same review, whether or not it pays. Featured placement will come later and will always be labeled.</p><form onsubmit="alert(\'Submissions open soon\');return false"><p><label>Tool name <input required></label></p><p><label>URL <input type="url" required></label></p><p><label>Use case <input></label></p><p><label>Email <input type="email" required></label></p><button>Submit</button></form><p><small>Placeholder: this form isn\'t connected to anything yet.</small></p>')
+ f'<h1>Submit your tool</h1><p>Every tool gets the same review, whether or not it pays. Featured placement will come later and will always be labeled.</p><p><a href="https://github.com/{REPO}/issues/new?template=submit-tool.yml">Submit your tool on GitHub</a> (needs a free GitHub account). We review submissions every week.</p>')
 page("about/index.html",f"About and affiliate disclosure | {NAME}","How UseThisSI picks tools, and how affiliate links work.",
  '<h1>About UseThisSI</h1><p>UseThisSI picks one AI tool per job for builders, vibe coders, agent tinkerers and game devs. Agents re-check pricing regularly, and every page shows when it was last checked.</p><h2 id="affiliates">Affiliate disclosure</h2><p>Some outbound links are affiliate links (marked rel="sponsored"). If you buy through one, we may earn a commission at no extra cost to you. Affiliate status never decides our top picks.</p>')
 tops="".join(f'<li><a href="/use-cases/{s}/">{E(u)}</a>: <strong>{E(t["tool"])}</strong></li>' for u,s,t in ucl)
