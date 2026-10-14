@@ -29,8 +29,8 @@ def page(path,title,desc,body,ld=None):
 <link rel="stylesheet" href="/style.css">{ldj}</head><body>
 <header><nav><a href="/">{NAME}</a><a href="/use-cases/">Use cases</a><a href="/tools/">Tools</a><a href="/new/">New this week</a><a href="/submit/">Submit a tool</a><a href="/about/">About</a></nav></header>
 <main>{body}</main>
-<section id="newsletter"><h2>Get the 5-minute builder brief</h2><p>Free weekly email: what launched, what changed, and what to try.</p><p><a href="https://github.com/{REPO}/issues/new?template=newsletter-signup.yml">Sign up through a GitHub issue</a></p><p><small>This is a temporary signup. GitHub issues are public, so don't post an email you want kept private. A proper email signup is coming soon.</small></p></section>
-<footer>Some links are affiliate links. <a href="/about/#affiliates">Disclosure</a>. Data last checked {CHECKED}.</footer></body></html>'''
+<section id="newsletter"><h2>Get the 5-minute builder brief</h2><p>Free weekly email: what launched, what changed, and what to try.</p><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="767b56cc-d716-4bab-a162-0baf03c34b2c"></script><p><small>Form not loading? <a href="https://usethissi.beehiiv.com/subscribe" rel="noopener">Subscribe on beehiiv</a>.</small></p></section>
+<footer>Some links are affiliate links. <a href="/about/#affiliates">Disclosure</a>. Data last checked {CHECKED}.</footer><script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script></body></html>'''
 def top(L): return next(d for d in L if d["role"]=="Top pick")
 # use case pages
 ucl=[]

@@ -19,3 +19,7 @@
 3. Resolve the conflicting Cursor prices. Fetch Lovable, Make and Perplexity prices in a browser.
 4. Submit the sitemap to Google Search Console.
 5. Fill in the remaining "unverified" fields.
+
+## 2026-10-14: newsletter moved to beehiiv
+- The newsletter now runs on beehiiv at usethissi.beehiiv.com. The embed form 767b56cc-… is on every page's signup block, with a fallback link to https://usethissi.beehiiv.com/subscribe and attribution.js before </body>.
+- Removed the GitHub newsletter-signup issue template and the public-issue warning.
