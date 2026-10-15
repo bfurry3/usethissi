@@ -54,6 +54,19 @@ Set up or run AI agents,Alt,Roboflow Agent,Computer-vision agent that builds and
 Set up or run AI agents,Alt,CopilotKit CLiF,Continual learning from full-stack agent+user trajectories (early access),unverified,unverified (demo / early access),https://www.copilotkit.ai/clif,unverified
 Voice and TTS,Alt,Fish Audio,Expressive TTS/cloning; Drama 3 directed emotion (open weights + API),Yes (open weights under Community License; web/app),$10/M chars Drama 3 API intro thru Nov 12 (list $50) [official blog Oct 13],https://fish.audio,unverified
 Vibe-code an app or landing page,Alt,Magic Patterns (MagicOS),Infinite AI design canvas; hand off to Cursor/Claude Code via MCP,Yes,unverified,https://www.magicpatterns.com,unverified
+AI coding assistant,Alt,Amp,Frontier coding agent with Sign in with ChatGPT and voice Puck,Yes (Hobby),"$20/mo Individual [official, Oct 15]",https://ampcode.com,unverified
+AI coding assistant,Alt,Cline,"Open-source Plan-and-Act agent for VS Code, CLI, and desktop; BYOK","Yes (open source, BYOK)",Free / pay model providers,https://www.cline.bot,unverified
+AI coding assistant,Alt,Aider,Terminal pair-programmer with repo map and git auto-commits; BYOK,"Yes (open source, BYOK)",Free / pay model providers,https://aider.chat,None found
+Set up or run AI agents,Alt,Builder Agent-Native,Open-source TypeScript framework for agents with shared UI/actions/MCP/A2A (beta),Yes (open source),Free OSS; Builder.io hosted option unverified,https://github.com/BuilderIO/agent-native,unverified
+Set up or run AI agents,Alt,BAND,Desktop + CLI control plane so coding agents share context and hand off work,unverified,unverified,https://www.band.ai,unverified
+Set up or run AI agents,Alt,LangGraph,Low-level orchestration runtime for long-running stateful agents,Yes (open source),Free OSS; LangSmith platform paid (unverified),https://www.langchain.com/langgraph,None found
+Set up or run AI agents,Alt,Mastra,"TypeScript agent framework with memory, workflows, MCP, and evals",Yes (Apache 2.0),Free OSS; hosted platform unverified,https://mastra.ai,unverified
+Set up or run AI agents,Alt,Browserbase,Cloud browser infra and Stagehand SDK for web-browsing agents,Yes,"$20/mo Developer [official, Oct 15]",https://www.browserbase.com,unverified
+Set up or run AI agents,Alt,Snyk Evo,"Agentic AppSec that finds, fixes, and blocks vulns in agent-written code",unverified (previews / select customers),unverified (talk to sales / existing Snyk plans),https://snyk.io,unverified
+Research,Alt,Google Deep Review,"Agentic technical-document reviewer; 2 free reviews/week, Gemini API beyond",Yes (2 reviews/week),"Gemini API pay-as-you-go beyond free [official, Oct 15]",https://research.google/deepreview,None found
+Research,Alt,Exa,Search and agent APIs built for LLM context with citations,Yes ($10 credits/mo),"Pay-as-you-go from $4/1k Instant searches [official, Oct 15]",https://exa.ai,unverified
+Edit and generate video,Alt,HeyGen,AI avatar presenter videos with voice clone and translation,Yes (3 videos/mo),"$29/mo Creator [official, Oct 15]",https://www.heygen.com,unverified
+Edit and generate video,Alt,Pika,Text/image-to-video creation for short clips,Yes (credit packs only on Free),"$10/mo Starter ($8 annual) [official, Oct 15]",https://pika.art,unverified
 
 release_date,release,source
 2026-10-07,"Claude Haiku 5.5: Anthropic's fastest, cheapest small model ($0.10/$0.50 per 1M tokens up to 100k)",https://www.anthropic.com/claude-haiku-5-5
@@ -67,3 +80,8 @@ release_date,release,source
 2026-10-13,CopilotKit releases CLiF (Continual Learning from Full-Stack Trajectories) in early access,https://www.copilotkit.ai/blog/introducing-clif
 2026-10-14,Roboflow Agent: computer-vision agent with MCP for Cursor and Claude Code,https://roboflow.com/blog/roboflow-agent
 2026-10-14,Chainguard Harness: frontier-AI vulnerability hunting with ready-to-merge fixes (Claude Marketplace beta),https://www.prnewswire.com/news-releases/introducing-chainguard-harness-proven-vulnerabilities-and-ready-to-merge-fixes-from-frontier-ai-no-model-access-required-302907725.html
+2026-10-14,Builder.io launches Agent-Native beta: open-source TypeScript framework for agents with UIs (MCP + A2A),https://www.builder.io/blog/introducing-agent-native
+2026-10-14,Google Deep Review goes public: agentic technical-document verification (2 free reviews/week),https://research.google/blog/analyzing-technical-documents-with-deep-review/
+2026-10-14,"Attio ships hybrid architecture for agentic revenue (SQL Engine, Data Connectors, Agent Scale)",https://attio.com/blog/introducing-the-architecture-for-agentic-revenue
+2026-10-15,"Snyk launches Evo Agentic AppSec: security agents that find, fix, and block vulns at agent speed",https://snyk.io/news/snyk-launches-evo-agentic-appsec/
+2026-10-15,BAND for Developers: desktop app to coordinate multiple coding agents across harnesses,https://www.prnewswire.com/news-releases/band-launches-band-for-developers-to-support-the-transformation-of-sdlc-collaboration-and-control-of-multiple-coding-agents-302909844.html
