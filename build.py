@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Build UseThisSI static site from data.csv into dist/."""
 import csv, json, os, re, shutil, html
-CFG=json.load(open("config.json")); SITE=CFG["base_url"].rstrip("/"); CHECKED=CFG["checked"]; REPO=CFG["repo"]; NAME="UseThisSI"
+CFG=json.load(open("config.json")); SITE=CFG["base_url"].rstrip("/"); import datetime as _dt,zoneinfo as _z; CHECKED=_dt.datetime.now(_z.ZoneInfo("America/Phoenix")).strftime("%Y-%m-%d"); REPO=CFG["repo"]; NAME="UseThisSI"
 E=html.escape
 def slug(s): return re.sub(r'[^a-z0-9]+','-',s.lower()).strip('-')
 rows=list(csv.reader(open("data.csv")))
@@ -10,6 +10,7 @@ for r in rows[1:]:
     if not r: mode=1; continue
     if r[0]=="release_date": continue
     (rels if mode else tools).append(r)
+rels.sort(key=lambda r:r[0])
 uses={}
 for t in tools:
     d=dict(zip(["use","role","tool","reason","free","price","url","aff"],t)); d["slug"]=slug(d["tool"])
