@@ -34,3 +34,9 @@
 - X search for UseThisSI / @UseThisSI / usethissi: 0 posts (account may not exist yet).
 - No blockers requiring Baz unless beehiiv login or paywall appears.
 - @UseThisSI handle does not exist on X yet (API not found); no mentions to act on.
+
+## 2026-10-15 ~00:15 MST: Indexing setup
+- Verified live: /sitemap.xml (200, 71 URLs) and /robots.txt (Allow: /, Sitemap: line). Pages have canonical tags, no noindex.
+- IndexNow: key fcd27737423484d8886b49b06518a52a, build.py emits dist/<key>.txt (live, 200). Commit 8f8d2c4.
+- Submitted all 71 sitemap URLs to api.indexnow.org -> HTTP 202 (accepted, key validation pending). Re-ping after deploys: `python3 indexnow.py`.
+- Google Search Console skipped (needs owner login); Google discovers via robots.txt Sitemap line.
