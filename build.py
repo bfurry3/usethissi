@@ -124,4 +124,6 @@ open("dist/sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<url
 open("dist/robots.txt","w").write(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
 llms=f"# {NAME}\n\n> One top AI tool pick per job for builders, vibe coders, AI agent tinkerers and indie game devs. Pricing last checked {CHECKED}.\n\n## Use cases\n"+"".join(f"- [{u}]({SITE}/use-cases/{s}/): top pick {t['tool']}. {t['reason']}.\n" for u,s,t in ucl)+f"\n## Pages\n- [All tools]({SITE}/tools/)\n- [New this week]({SITE}/new/)\n- [About and affiliate disclosure]({SITE}/about/)\n"
 open("dist/llms.txt","w").write(llms)
+INDEXNOW_KEY="fcd27737423484d8886b49b06518a52a"
+open(f"dist/{INDEXNOW_KEY}.txt","w").write(INDEXNOW_KEY)
 print(f"Built {len(pages)} HTML pages")
