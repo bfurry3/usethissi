@@ -40,3 +40,16 @@
 - IndexNow: key fcd27737423484d8886b49b06518a52a, build.py emits dist/<key>.txt (live, 200). Commit 8f8d2c4.
 - Submitted all 71 sitemap URLs to api.indexnow.org -> HTTP 202 (accepted, key validation pending). Re-ping after deploys: `python3 indexnow.py`.
 - Google Search Console skipped (needs owner login); Google discovers via robots.txt Sitemap line.
+
+## 2026-10-15 ~7:00 AM PT: weekday daily ops (scheduled)
+
+- Releases added (source-confirmed via WebFetch): Builder.io Agent-Native beta (Oct 14), Google Deep Review public launch (Oct 14), Attio Agentic Revenue architecture (Oct 14), Snyk Evo Agentic AppSec (Oct 15), BAND for Developers (Oct 15).
+- Tools added (13): Amp, Cline, Aider, Builder Agent-Native, BAND, LangGraph, Mastra, Browserbase, Snyk Evo, Google Deep Review, Exa, HeyGen, Pika. Directory now **68 tools** / 10 use cases / 16 release rows (was 55 / 10 / 11).
+- Price spot-check (Oct 15):
+  - **Cursor:** still Free / Plus $8 (Grok-only) / Premium $30 / Super $100 / Ultra $200 on cursor.com/pricing (matches CSV; same conflict with older docs still noted).
+  - **ElevenLabs Starter:** $1 first month until Oct 18 (normally $6) still live on elevenlabs.io/pricing.
+- Rebuilt (`python3 build.py`), tests pass, link check clean. Pushed directory update: commit **336eaa5**.
+- Live verified ~7:15 AM PT: homepage shows **68 tools**; /new/ lists all 5 new releases; all 13 new /tools/*/ pages return 200.
+- IndexNow re-ping after deploy: `python3 indexnow.py` -> HTTP 200, 84 URLs.
+- Newsletter #2 drafted: newsletter/2026-10-15.md (Subject: Agent-Native is open source, plus Google's free doc reviewer). Beehiiv publish URL: _pending (publish handled separately)_.
+- Skipped this run (per task): beehiiv browser publish, X posting.
