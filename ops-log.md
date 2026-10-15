@@ -51,5 +51,8 @@
 - Rebuilt (`python3 build.py`), tests pass, link check clean. Pushed directory update: commit **336eaa5**.
 - Live verified ~7:15 AM PT: homepage shows **68 tools**; /new/ lists all 5 new releases; all 13 new /tools/*/ pages return 200.
 - IndexNow re-ping after deploy: `python3 indexnow.py` -> HTTP 200, 84 URLs.
-- Newsletter #2 drafted: newsletter/2026-10-15.md (Subject: Agent-Native is open source, plus Google's free doc reviewer). Beehiiv publish URL: _pending (publish handled separately)_.
+- Newsletter #2 drafted: newsletter/2026-10-15.md (Subject: Agent-Native is open source, plus Google's free doc reviewer). Published to beehiiv 7:19 AM PT (email + web, all free subscribers, 1 recipient): https://usethissi.beehiiv.com/p/agent-native-is-open-source-plus-google-s-free-doc-reviewer
 - Skipped this run (per task): beehiiv browser publish, X posting.
+- X (@UseThisSI): daily post https://x.com/UseThisSI/status/2110737518102540346 (Agent-Native + Brief #2 link). Followed 10 builders (karpathy, simonw, levelsio, mckaywrigley, rauchg, amasad, Lovable, AndrewYNg, hwchase17, llama_index). Replied to 3 posts (simonw, hwchase17, cursor_ai); one cursor_ai reply with an unverifiable price claim was deleted and replaced.
+- Mentions/notifications: no mentions or feedback. X notified the account got a blue checkmark (verified); unclear whether a paid X plan was turned on, so flag to Baz in the weekly report.
+- Next: hit 75+ tools (68 now), keep daily posts, start building subscriber count.
