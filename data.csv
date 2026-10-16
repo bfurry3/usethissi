@@ -1,5 +1,5 @@
 use_case,role,tool,reason,free_tier,starting_paid_price,url,affiliate_program,last_checked
-Vibe-code an app or landing page,Top pick,Lovable,Chat-to-full-stack app with hosting; easiest on-ramp,Yes (5 build credits/day),$25/mo Pro,https://lovable.dev,Yes: up to $100 one-time per first subscriber (Impact) [official page],
+Vibe-code an app or landing page,Top pick,Lovable,Chat-to-full-stack app with hosting; easiest on-ramp,Yes (5 build credits/day),$25/mo Pro,https://lovable.dev,Yes: up to $100 one-time per first subscriber (Impact) [official page],2026-10-14
 Vibe-code an app or landing page,Alt,Bolt.new,"Fast browser app builder, hosting included",Yes (1M tokens/mo),$25/mo Pro,https://bolt.new,"Referral: 15% of payments, capped $50/referral, via Cello [support page]",
 Vibe-code an app or landing page,Alt,v0 by Vercel,"Best React UI, deploys to Vercel",Yes ($5 credits),$30/user/mo,https://v0.app,Ambassador program exists; terms may be outdated (unverified),
 Vibe-code an app or landing page,Alt,Replit,Prompt-to-deployed app with Agent,Yes,$20/mo,https://replit.com,"Referral only: $20 credits, not cash",
@@ -50,10 +50,10 @@ Set up or run AI agents,Alt,Gemini agent (Google Cloud),"Enterprise work agent, 
 Edit and generate video,Alt,ngram,"AI video planning, generation and editing",Yes (600 one-time credits),$29/mo Basic (3rd-party),https://www.ngram.com,unverified,
 Voice and TTS,Alt,Speechify,Read docs aloud plus a voice studio,unverified,unverified,https://speechify.com,unverified,
 Research,Alt,Google AI Studio,"Free playground for Gemini models, including Argon",Yes,Pay-as-you-go API (Argon $2/$10 per 1M tokens intro),https://aistudio.google.com,None found,
-Set up or run AI agents,Alt,Roboflow Agent,Computer-vision agent that builds and deploys vision apps; MCP for Cursor and Claude Code,unverified,unverified (waitlist/product),https://roboflow.com/blog/roboflow-agent,unverified,
-Set up or run AI agents,Alt,CopilotKit CLiF,Continual learning from full-stack agent+user trajectories (early access),unverified,unverified (demo / early access),https://www.copilotkit.ai/clif,unverified,
-Voice and TTS,Alt,Fish Audio,Expressive TTS/cloning; Drama 3 directed emotion (open weights + API),Yes (open weights under Community License; web/app),$10/M chars Drama 3 API intro thru Nov 12 (list $50) [official blog Oct 13],https://fish.audio,unverified,
-Vibe-code an app or landing page,Alt,Magic Patterns (MagicOS),Infinite AI design canvas; hand off to Cursor/Claude Code via MCP,Yes,unverified,https://www.magicpatterns.com,unverified,
+Set up or run AI agents,Alt,Roboflow Agent,Computer-vision agent that builds and deploys vision apps; MCP for Cursor and Claude Code,unverified,unverified (waitlist/product),https://roboflow.com/blog/roboflow-agent,unverified,2026-10-14
+Set up or run AI agents,Alt,CopilotKit CLiF,Continual learning from full-stack agent+user trajectories (early access),unverified,unverified (demo / early access),https://www.copilotkit.ai/clif,unverified,2026-10-14
+Voice and TTS,Alt,Fish Audio,Expressive TTS/cloning; Drama 3 directed emotion (open weights + API),Yes (open weights under Community License; web/app),$10/M chars Drama 3 API intro thru Nov 12 (list $50) [official blog Oct 13],https://fish.audio,unverified,2026-10-14
+Vibe-code an app or landing page,Alt,Magic Patterns (MagicOS),Infinite AI design canvas; hand off to Cursor/Claude Code via MCP,Yes,unverified,https://www.magicpatterns.com,unverified,2026-10-14
 AI coding assistant,Alt,Amp,Frontier coding agent with Sign in with ChatGPT and voice Puck,Yes (Hobby),"$20/mo Individual [official, Oct 15]",https://ampcode.com,unverified,2026-10-15
 AI coding assistant,Alt,Cline,"Open-source Plan-and-Act agent for VS Code, CLI, and desktop; BYOK","Yes (open source, BYOK)",Free / pay model providers,https://www.cline.bot,unverified,2026-10-15
 AI coding assistant,Alt,Aider,Terminal pair-programmer with repo map and git auto-commits; BYOK,"Yes (open source, BYOK)",Free / pay model providers,https://aider.chat,None found,2026-10-15
