@@ -68,3 +68,6 @@
 - Rebuild + tests green. Newsletter #3 drafted (not published by executor).
 - Experiment: Brief #3 subject A vs B — pending open/click.
 - X: parent handles posts; notes 34 followers / @ishaan_gpt reply on Brief #2.
+- Brief #3 published beehiiv 7:09 AM PT: https://usethissi.beehiiv.com/p/muse-spark-open-is-free-to-run-plus-github-agentic-autofix (email+web, 2 recipients / 0 outside).
+- X (@UseThisSI): main https://x.com/UseThisSI/status/2111097288147788267; replies to ishaan_gpt, cursor_ai, vercel, simonw. Duplicate main deleted. No new mentions beyond ishaan_gpt; 2 new followers overnight.
+
