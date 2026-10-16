@@ -17,6 +17,8 @@ r.append(ok(all('class="tldr"' in open(p).read() and "Last checked" in open(p).r
 tp=[p for p in htmls if "/tools/" in p and p.count("/")==3]
 r.append(ok(all("<dt>Last checked</dt>" in open(p).read() for p in tp),f"{len(tp)} tool pages show a per-tool last-checked date"))
 r.append(ok("{{AFF:" in "".join(open(p).read() for p in htmls),"affiliate placeholders present"))
+llms=open("dist/llms.txt").read()
+r.append(ok("## Recent releases" in llms and "## FAQ" in llms and "rel=sponsored" in llms,"llms.txt has releases FAQ and affiliate note"))
 r.append(ok(subprocess.run([sys.executable,"check_links.py"]).returncode==0,"no broken internal links"))
 base=__import__("json").load(open("config.json"))["base_url"]
 all_txt="".join(open(p).read() for p in htmls)+open("dist/sitemap.xml").read()+open("dist/llms.txt").read()+open("dist/robots.txt").read()

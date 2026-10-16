@@ -1,21 +1,21 @@
 use_case,role,tool,reason,free_tier,starting_paid_price,url,affiliate_program,last_checked
 Vibe-code an app or landing page,Top pick,Lovable,Chat-to-full-stack app with hosting; easiest on-ramp,Yes (5 build credits/day),$25/mo Pro,https://lovable.dev,Yes: up to $100 one-time per first subscriber (Impact) [official page],2026-10-14
-Vibe-code an app or landing page,Alt,Bolt.new,"Fast browser app builder, hosting included",Yes (1M tokens/mo),$25/mo Pro,https://bolt.new,"Referral: 15% of payments, capped $50/referral, via Cello [support page]",
-Vibe-code an app or landing page,Alt,v0 by Vercel,"Best React UI, deploys to Vercel",Yes ($5 credits),$30/user/mo,https://v0.app,Ambassador program exists; terms may be outdated (unverified),
-Vibe-code an app or landing page,Alt,Replit,Prompt-to-deployed app with Agent,Yes,$20/mo,https://replit.com,"Referral only: $20 credits, not cash",
-Vibe-code an app or landing page,Alt,Hostinger AI Builder,Cheapest bundled site + hosting,No,$2.99/mo (48-mo term),https://www.hostinger.com,unverified,
+Vibe-code an app or landing page,Alt,Bolt.new,"Fast browser app builder, hosting included",Yes (1M tokens/mo; 300K daily),"$25/mo Pro [official, Oct 16]",https://bolt.new,"Referral: 15% of payments, capped $50/referral, via Cello [support page]",2026-10-16
+Vibe-code an app or landing page,Alt,v0 by Vercel,"Best React UI, deploys to Vercel",Yes (7 messages/day),"$30/user/mo Plus [official, Oct 16]",https://v0.app,Ambassador program exists; terms may be outdated (unverified),2026-10-16
+Vibe-code an app or landing page,Alt,Replit,Prompt-to-deployed app with Agent,Yes,"$20/mo Core ($18 annual) [official, Oct 16]",https://replit.com,"Referral only: $20 credits, not cash",2026-10-16
+Vibe-code an app or landing page,Alt,Hostinger AI Builder,Cheapest bundled site + hosting,No,"$2.99/mo (48-mo term) [official, Oct 16]",https://www.hostinger.com,unverified,2026-10-16
 AI coding assistant,Top pick,Cursor,Leading AI IDE with cloud agents,Yes (limited),"$8/mo Plus (Grok models only); $30/mo Premium [official, Oct 14]",https://cursor.com,"No (referral closed Jul 23, 2026, per 3rd-party)",2026-10-15
-AI coding assistant,Alt,Claude Code,Terminal coding agent,No (needs paid Claude),"$17/mo annual, $20 monthly [official]",https://claude.com/product/claude-code,unverified,
-AI coding assistant,Alt,GitHub Copilot,Works in your existing editor,Yes,$10/mo Pro,https://github.com/features/copilot,None found,
-AI coding assistant,Alt,Windsurf (now Devin Desktop),Agent-first desktop IDE,Yes,$20/mo,https://windsurf.com,None found,
-AI coding assistant,Alt,Tabnine,Private and self-hosted code AI,No,$39/user/mo,https://www.tabnine.com,unverified,
-Set up or run AI agents,Top pick,n8n,Open-source agent and workflow builder,Yes (self-host); Cloud 14-day trial,"€20/mo Starter, billed annually [official, Oct 14]",https://n8n.io,"Yes: 30% for 12 months, PayPal, €100 min [official]",
-Set up or run AI agents,Alt,Lindy,No-code personal and business agents,unverified,$29.99/user/mo [official],https://www.lindy.ai,unverified,
+AI coding assistant,Alt,Claude Code,Terminal coding agent,No (needs paid Claude),"$17/mo annual, $20 monthly via Claude Pro [official, Oct 16]",https://claude.com/product/claude-code,unverified,2026-10-16
+AI coding assistant,Alt,GitHub Copilot,Works in your existing editor,"Yes (2,000 completions + 50 chat/mo)","$10/mo Pro [official, Oct 16]",https://github.com/features/copilot,None found,2026-10-16
+AI coding assistant,Alt,Windsurf (now Devin Desktop),Agent-first desktop IDE,Yes,$20/mo,https://devin.ai/desktop,None found,
+AI coding assistant,Alt,Tabnine,Private/self-hosted code AI; now under Tricentis (self-serve pricing removed),unverified,"Contact sales (now part of Tricentis) [official redirect, Oct 16]",https://www.tabnine.com,unverified,2026-10-16
+Set up or run AI agents,Top pick,n8n,Open-source agent and workflow builder,Yes (self-host); Cloud 14-day trial,"€20/mo Starter, billed annually [official, Oct 16]",https://n8n.io,"Yes: 30% for 12 months, PayPal, €100 min [official]",2026-10-16
+Set up or run AI agents,Alt,Lindy,No-code personal and business agents,"Yes ($50 credits, 7 days)","$49.99/user/mo Team (5,000 credits) [official, Oct 16]",https://www.lindy.ai,unverified,2026-10-16
 Set up or run AI agents,Alt,Manus,General autonomous agent,unverified,$20/mo,https://manus.im,unverified,
-Set up or run AI agents,Alt,CrewAI,Multi-agent framework plus cloud,Yes (50 executions/mo),$99/mo,https://www.crewai.com,unverified,
+Set up or run AI agents,Alt,CrewAI,Multi-agent framework plus cloud,Yes (50 executions/mo),"Free cloud Basic; Enterprise custom [official, Oct 16]",https://www.crewai.com,unverified,2026-10-16
 Set up or run AI agents,Alt,Relevance AI,No-code AI agent workforce,unverified,"$19/mo annual, $29 monthly",https://relevanceai.com,unverified,
 Automate workflows,Top pick,Make,Visual automation with the best affiliate terms,Yes,$9/mo Core (annual),https://www.make.com,"Yes: 35% for 12 months, $100 min, 3 paying referrals [official]",
-Automate workflows,Alt,Zapier,Largest integration catalog,Yes,$19.99/mo,https://zapier.com,"Yes, invite/approval only via PartnerStack, rate unpublished [official terms]",
+Automate workflows,Alt,Zapier,Largest integration catalog,Yes (100 tasks/mo),"$19.99/mo Pro annual (750 tasks) [official, Oct 16]",https://zapier.com,"Yes, invite/approval only via PartnerStack, rate unpublished [official terms]",2026-10-16
 Automate workflows,Alt,Gumloop,AI-native automation,unverified,$37/mo Pro [official docs],https://www.gumloop.com,unverified,
 Make game art and sprites,Top pick,Scenario,"Style-trained, consistent game assets",Yes (50 credits/day),$15/mo Starter [official],https://www.scenario.com,unverified,
 Make game art and sprites,Alt,PixelLab,Pixel-art sprites and animation,unverified,$12/mo,https://www.pixellab.ai,unverified,
@@ -41,7 +41,7 @@ Write content,Alt,Gamma,"AI decks, docs and sites",Yes,$12/mo Plus,https://gamma
 Research,Top pick,Perplexity,Fast cited answers,Yes,$20/mo Pro,https://www.perplexity.ai,Referral only: $15 cash each for Comet installs (US) [official],
 Research,Alt,Gemini (Deep Research),Deep research; Gemini 4 Argon on Pro/Ultra,Yes,$19.99/mo Google AI Pro,https://gemini.google.com,None found,
 Research,Alt,NotebookLM,Grounded in your own sources,Yes,$4.99/mo via Google AI Plus,https://notebooklm.google,None found,
-Voice and TTS,Top pick,ElevenLabs,Most realistic voices plus 22% recurring affiliate,Yes (10k credits),"$6/mo Starter ($1 first month until Oct 18) [official, Oct 14]",https://elevenlabs.io,"Yes: 22% for 12 months (11% Business), PartnerStack [official]",2026-10-15
+Voice and TTS,Top pick,ElevenLabs,Most realistic voices plus 22% recurring affiliate,Yes (10k credits),"$6/mo Starter ($1 first month until Oct 18) [official, Oct 16]",https://elevenlabs.io,"Yes: 22% for 12 months (11% Business), PartnerStack [official]",2026-10-16
 Voice and TTS,Alt,Cartesia,Low-latency voice for agents,Yes (20K credits),$5/mo Pro,https://cartesia.ai,unverified,
 Voice and TTS,Alt,Murf AI,Studio voiceovers,unverified,$19/mo Creator,https://murf.ai,unverified,
 AI coding assistant,Alt,Google Antigravity,Google's agentic IDE; gets Gemini 4 Argon on Ultra,unverified,unverified,https://antigravity.google,unverified,
@@ -67,6 +67,11 @@ Research,Alt,Google Deep Review,"Agentic technical-document reviewer; 2 free rev
 Research,Alt,Exa,Search and agent APIs built for LLM context with citations,Yes ($10 credits/mo),"Pay-as-you-go from $4/1k Instant searches [official, Oct 15]",https://exa.ai,unverified,2026-10-15
 Edit and generate video,Alt,HeyGen,AI avatar presenter videos with voice clone and translation,Yes (3 videos/mo),"$29/mo Creator [official, Oct 15]",https://www.heygen.com,unverified,2026-10-15
 Edit and generate video,Alt,Pika,Text/image-to-video creation for short clips,Yes (credit packs only on Free),"$10/mo Starter ($8 annual) [official, Oct 15]",https://pika.art,unverified,2026-10-15
+AI coding assistant,Alt,Muse Spark Open (Meta),Open-weight 816B (42B active) multimodal model for coding and agents; 1M context,Yes (weights; Muse Model License),"Free weights; hosted via Fireworks/Groq/Together/etc [official, Oct 16]",https://research.meta.ai/blog/muse-spark-open,None found,2026-10-16
+Edit and generate video,Alt,TwelveLabs Jockey,"Video intelligence agent in ChatGPT/Claude: search, clip, timeline edit, MP4 export",Yes,"$29/mo Plus [official, Oct 16]",https://www.twelvelabs.io,unverified,2026-10-16
+Set up or run AI agents,Alt,Chainguard Workspaces,"Hardened microVM sandboxes for agents + optional Checks CI gating (beta, 30-day trial)",Yes (30-day beta trial),"Compute-based (beta) [official, Oct 16]",https://www.chainguard.dev/unchained/introducing-chainguard-workspaces,unverified,2026-10-16
+Set up or run AI agents,Alt,Autonomous Harness,Open-source desktop/CLI command center for many coding agents across machines,Yes (open source; Mac/Linux desktop free),"Free OSS; optional Harness hardware $149 [official, Oct 16]",https://github.com/autonomous-ai/openharness,None found,2026-10-16
+AI coding assistant,Alt,AWS Aidlc,"Open-source AI-DLC workflow steering for Claude Code, Cursor, Copilot and other harnesses",Yes (MIT-0),"Free OSS [official repo, Oct 16]",https://github.com/awslabs/aidlc-workflows,None found,2026-10-16
 
 release_date,release,source
 2026-10-07,"Claude Haiku 5.5: Anthropic's fastest, cheapest small model ($0.10/$0.50 per 1M tokens up to 100k)",https://www.anthropic.com/claude-haiku-5-5
@@ -83,5 +88,10 @@ release_date,release,source
 2026-10-14,Builder.io launches Agent-Native beta: open-source TypeScript framework for agents with UIs (MCP + A2A),https://www.builder.io/blog/introducing-agent-native
 2026-10-14,Google Deep Review goes public: agentic technical-document verification (2 free reviews/week),https://research.google/blog/analyzing-technical-documents-with-deep-review/
 2026-10-14,"Attio ships hybrid architecture for agentic revenue (SQL Engine, Data Connectors, Agent Scale)",https://attio.com/blog/introducing-the-architecture-for-agentic-revenue
+2026-10-14,Chainguard Workspaces: hardened microVM environments for developers and AI coding agents (beta),https://www.chainguard.dev/unchained/introducing-chainguard-workspaces
+2026-10-14,Chainguard Checks: CI gating for agent loops in warm microVMs (beta),https://www.chainguard.dev/unchained/introducing-chainguard-checks
 2026-10-15,"Snyk launches Evo Agentic AppSec: security agents that find, fix, and block vulns at agent speed",https://snyk.io/news/snyk-launches-evo-agentic-appsec/
 2026-10-15,BAND for Developers: desktop app to coordinate multiple coding agents across harnesses,https://www.prnewswire.com/news-releases/band-launches-band-for-developers-to-support-the-transformation-of-sdlc-collaboration-and-control-of-multiple-coding-agents-302909844.html
+2026-10-15,Meta Muse Spark Open: open-weight 816B (42B active) multimodal model for coding/agents with 1M context,https://research.meta.ai/blog/muse-spark-open
+2026-10-15,GitHub Agentic autofix for code scanning alerts generally available,https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability/
+2026-10-15,TwelveLabs Jockey generally available in ChatGPT and Claude with clip/timeline/MP4 export,https://www.twelvelabs.io/blog/jockey-ga-7-updates

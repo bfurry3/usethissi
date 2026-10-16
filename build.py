@@ -126,7 +126,28 @@ open("dist/style.css","w").write(CSS)
 urls=[SITE+"/"+p.replace("index.html","") for p in pages if p!="404.html"]
 open("dist/sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"<url><loc>{u}</loc><lastmod>{CHECKED}</lastmod></url>\n" for u in urls)+"</urlset>\n")
 open("dist/robots.txt","w").write(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
-llms=f"# {NAME}\n\n> One top AI tool pick per job for builders, vibe coders, AI agent tinkerers and indie game devs. Directory updated {CHECKED}; each tool page shows its own last-checked date.\n\n## Use cases\n"+"".join(f"- [{u}]({SITE}/use-cases/{s}/): top pick {t['tool']}. {t['reason']}.\n" for u,s,t in ucl)+f"\n## Pages\n- [All tools]({SITE}/tools/)\n- [New this week]({SITE}/new/)\n- [About and affiliate disclosure]({SITE}/about/)\n"
+recent="\n".join(f"- {a}: {b} ({c})" for a,b,c in list(reversed(rels))[:8])
+llms=f"""# {NAME}
+
+> One top AI tool pick per job for builders, vibe coders, AI agent tinkerers and indie game devs. Directory updated {CHECKED}; each tool page shows its own last-checked date.
+
+## Use cases
+"""+"".join(f"- [{u}]({SITE}/use-cases/{s}/): top pick {t['tool']}. {t['reason']}.\n" for u,s,t in ucl)+f"""
+## Recent releases
+{recent}
+
+## FAQ
+- Q: How do you pick a top tool? A: One Top pick per use case based on fit for builders, plus honest free-tier and starting paid price with a per-tool last-checked date.
+- Q: Are affiliate links labeled? A: Yes. Affiliate outbound links use rel=sponsored and are disclosed on /about/#affiliates.
+- Q: Where is pricing verified? A: On each tool page under Last checked. Prices come from vendor pages; unverified fields stay labeled.
+- Q: How do I get the weekday brief? A: Subscribe at {SITE}/#newsletter or https://usethissi.beehiiv.com/subscribe.
+
+## Pages
+- [All tools]({SITE}/tools/)
+- [New this week]({SITE}/new/)
+- [About and affiliate disclosure]({SITE}/about/)
+- [Contact](mailto:info@usethissi.com)
+"""
 open("dist/llms.txt","w").write(llms)
 INDEXNOW_KEY="fcd27737423484d8886b49b06518a52a"
 open(f"dist/{INDEXNOW_KEY}.txt","w").write(INDEXNOW_KEY)
