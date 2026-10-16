@@ -2,6 +2,9 @@
 """Build the UseThisSI Scoreboard Google Sheet as SpreadsheetML (Excel 2003 XML).
 
 Input : /workspace/usethissi/metrics.csv  (one row per date, COLUMNS order below)
+        /workspace/usethissi/data.csv     (directory; per-tool last_checked -> freshness columns, auto-filled)
+        /workspace/usethissi/ops/weekly.csv       (Weekly Scorecard tab)
+        /workspace/usethissi/ops/experiments.csv  (Experiment Log tab)
 Output: /workspace/usethissi/scoreboard/scoreboard.xml
         /workspace/usethissi/scoreboard/upload_args.json  (args for Drive update_file_content)
 
@@ -28,18 +31,25 @@ BASE = '/workspace/usethissi'
 CSV_PATH = os.environ.get('SCOREBOARD_CSV', f'{BASE}/metrics.csv')
 OUT_XML = os.environ.get('SCOREBOARD_XML', f'{BASE}/scoreboard/scoreboard.xml')
 OUT_ARGS = f'{BASE}/scoreboard/upload_args.json'
+DATA_CSV = os.environ.get('SCOREBOARD_DATA', f'{BASE}/data.csv')
+WEEKLY_CSV = os.environ.get('SCOREBOARD_WEEKLY', f'{BASE}/ops/weekly.csv')
+EXP_CSV = os.environ.get('SCOREBOARD_EXPERIMENTS', f'{BASE}/ops/experiments.csv')
+WEEKLY_KEYS = ['week_start', 'shipped', 'biggest_mover', 'next_action', 'blockers']
+EXP_KEYS = ['date', 'test', 'metric', 'result', 'decision']
+DECISIONS = ('keep', 'kill', 'iterate', '')  # blank = still running
+FRESH_KEYS = ['tools_checked_7d', 'tools_checked_30d', 'stale_tools_flagged']  # derived from data.csv last_checked
 FILE_ID = '13vsJlhRDT1PG8zXQEcRcjC1dMlPRW-0-3fQUTc3wTRg'
 LAUNCH = '2026-10-14'  # goal clock start (editable on the Dashboard after upload too)
 
 # ---- schema: (csv key, Daily Log header, section, kind, number format, width pt) ----
-# kind: date | int | money | pct | text
+# kind: date | int | num | money | pct | text
 COLUMNS = [
     ('date',                 'Date',               'core',   'date',  r'yyyy\-mm\-dd', 66),
     ('subscribers',          'Subscribers \u2605', 'growth', 'int',   '#,##0', 62),
     ('net_new_subs',         'Net new subs',       'growth', 'int',   '#,##0', 50),
     ('referrals',            'Referrals',          'growth', 'int',   '#,##0', 52),
     ('top_signup_source',    'Top signup source',  'growth', 'text',  '@', 80),
-    ('site_visitors',        'Site visitors',      'growth', 'int',   '#,##0', 52),
+    ('site_visitors',        'Unique visitors',    'engagement', 'int',   '#,##0', 52),
     ('google_indexed_pages', 'Google indexed pages','growth','int',   '#,##0', 56),
     ('search_clicks',        'Search clicks',      'growth', 'int',   '#,##0', 50),
     ('affiliate_clicks',     'Affiliate clicks',   'money',  'int',   '#,##0', 52),
@@ -50,19 +60,42 @@ COLUMNS = [
     ('x_impressions',        'X impressions',      'brand',  'int',   '#,##0', 60),
     ('x_engagements',        'X engagements',      'brand',  'int',   '#,##0', 60),
     ('x_mentions_replies',   'Mentions + replies', 'brand',  'int',   '#,##0', 58),
-    ('open_rate',            'Open rate',          'brand',  'pct',   '0.0%', 48),
-    ('click_rate',           'Click rate',         'brand',  'pct',   '0.0%', 48),
+    ('open_rate',            'Open rate',          'quality', 'pct',   '0.0%', 48),
+    ('click_rate',           'Click rate',         'quality', 'pct',   '0.0%', 48),
     ('tools_listed',         'Tools listed',       'brand',  'int',   '#,##0', 50),
     ('notes',                'Notes  (n/a = not live yet)', 'core', 'text', '@', 300),
+    # ---- v2 (charter 2026-10-15): appended after notes so v1 rows keep their positions ----
+    ('tools_checked_7d',     'Tools checked \u2264 7d (auto)', 'freshness', 'int', '#,##0', 58),
+    ('tools_checked_30d',    'Tools checked \u2264 30d (auto)', 'freshness', 'int', '#,##0', 58),
+    ('stale_tools_flagged',  'Stale tools flagged (auto)', 'freshness', 'int', '#,##0', 58),
+    ('price_updates',        'Price updates',      'freshness', 'int', '#,##0', 50),
+    ('corrections_made',     'Corrections made',   'freshness', 'int', '#,##0', 56),
+    ('avg_fix_hours',        'Avg time-to-fix (h)', 'freshness', 'num', '0.0', 56),
+    ('outbound_clicks',      'Outbound clicks',    'engagement', 'int', '#,##0', 56),
+    ('top_use_case',         'Top use-case (clicks)', 'engagement', 'text', '@', 90),
+    ('top_tool_clicks',      'Top tool (clicks)',  'engagement', 'text', '@', 80),
+    ('affiliate_programs_approved', 'Affiliate programs approved', 'money', 'int', '#,##0', 62),
+    ('affiliate_programs_pending',  'Affiliate programs pending',  'money', 'int', '#,##0', 62),
+    ('unsub_rate',           'Unsub rate',         'quality', 'pct', '0.0%', 48),
+    ('briefs_sent',          'Briefs sent',        'quality', 'int', '#,##0', 46),
 ]
 KEYS = [c[0] for c in COLUMNS]
-LET = {k: chr(65 + i) for i, k in enumerate(KEYS)}  # A..T in calc + Daily Log
+V1 = 20  # first 20 columns (date..notes) = v1 layout
+# calc layout: v1 columns spill into calc A..T; v2 columns spill from calc column 53 (BA) on.
+# (columns 26/52/78 are never referenced: the importer maps R?C26 to column A, and we don't risk AZ/BZ.)
+V2_START = 53
+def _calc_col(i):
+    return i + 1 if i < V1 else V2_START + (i - V1)
+LET = {}  # key -> calc column letter (assigned below, after col_let exists)
+LOG_LET = {}  # key -> Daily Log column letter
 
 # palette
 NAVY, NAVY2, INK, MUTED, FAINT, LINE, BAND, WHITE = '#0B1220', '#1E293B', '#0F172A', '#64748B', '#94A3B8', '#E2E8F0', '#F8FAFC', '#FFFFFF'
 GREEN, AMBER, INDIGO = '#16A34A', '#D97706', '#4F46E5'
 GREEN_BG, AMBER_BG, INDIGO_BG = '#F0FDF4', '#FFFBEB', '#EEF2FF'
-SEC = {'growth': (GREEN, GREEN_BG), 'money': (AMBER, AMBER_BG), 'brand': (INDIGO, INDIGO_BG), 'core': (NAVY2, '#F1F5F9')}
+TEAL, SKY, ROSE, RED = '#0D9488', '#0284C7', '#DB2777', '#DC2626'
+SEC = {'growth': (GREEN, GREEN_BG), 'money': (AMBER, AMBER_BG), 'brand': (INDIGO, INDIGO_BG), 'core': (NAVY2, '#F1F5F9'),
+       'freshness': (TEAL, '#F0FDFA'), 'engagement': (SKY, '#F0F9FF'), 'quality': (ROSE, '#FDF2F8')}
 FONT = 'Inter'
 
 # ---------------- helpers ----------------
@@ -78,6 +111,11 @@ def col_let(n):
         n, r = divmod(n - 1, 26)
         s = chr(65 + r) + s
     return s
+
+for _i, _k in enumerate(KEYS):
+    LET[_k] = col_let(_calc_col(_i))
+    LOG_LET[_k] = col_let(_i + 1)
+assert not {col_num(c) for c in LET.values()} & {26, 52, 78}
 
 REF = re.compile(r'(?<![A-Za-z0-9_.])((?:calc|Dashboard)!)?\$?([A-Z]{1,3})\$?(\d+)(?::\$?([A-Z]{1,3})\$?(\d+))?(?![A-Za-z0-9_(])')
 
@@ -179,23 +217,114 @@ def parse(key, kind, raw):
     if kind == 'text':
         return raw
     s = raw.replace('$', '').replace(',', '')
+    if kind == 'num':
+        return float(s)
     if kind == 'pct':
         return float(s[:-1]) / 100 if s.endswith('%') else (float(s) / 100 if float(s) > 1 else float(s))
     n = float(s)
     return int(n) if kind == 'int' and n.is_integer() else n
+
+def directory_freshness(as_of):
+    """Freshness from data.csv: per tool (unique name), last_checked = oldest date across its rows;
+    blank on any row = never verified = stale. Returns (tools, checked<=7d, checked<=30d, stale)."""
+    with open(DATA_CSV, newline='') as f:
+        drows = list(csv.reader(f))
+    hdr = drows[0]
+    if 'last_checked' not in hdr:
+        sys.exit('data.csv has no last_checked column')
+    ti, ci = hdr.index('tool'), hdr.index('last_checked')
+    per = {}
+    for n, r in enumerate(drows[1:], start=2):
+        if not r:
+            break  # releases section follows the blank line
+        raw = r[ci].strip() if len(r) > ci else ''
+        try:
+            d = dt.date.fromisoformat(raw) if raw else None
+        except ValueError:
+            sys.exit(f'data.csv line {n}: last_checked must be YYYY-MM-DD or blank, found {raw!r}')
+        if d and d > as_of:
+            sys.exit(f'data.csv line {n}: last_checked {d} is after the log date {as_of}')
+        name = r[ti].strip()
+        per[name] = None if (d is None or (name in per and per[name] is None)) else min(d, per.get(name) or d)
+    age = [(as_of - d).days if d else None for d in per.values()]
+    c7 = sum(1 for a in age if a is not None and a <= 7)
+    c30 = sum(1 for a in age if a is not None and a <= 30)
+    return len(per), c7, c30, len(per) - c30
 
 with open(CSV_PATH, newline='') as f:
     rd = csv.reader(f)
     header = next(rd)
     if header != KEYS:
         sys.exit(f'metrics.csv header mismatch.\n expected: {",".join(KEYS)}\n found:    {",".join(header)}')
-    rows = []
+    raw_rows = []
     for i, r in enumerate(rd, start=2):
         if not any(x.strip() for x in r):
             continue
         if len(r) != len(KEYS):
             sys.exit(f'metrics.csv line {i}: {len(r)} fields, expected {len(KEYS)} (quote notes that contain commas)')
-        rows.append({k: parse(k, kind, r[j]) for j, (k, _, _, kind, _, _) in enumerate(COLUMNS)})
+        try:
+            dt.date.fromisoformat(r[0].strip())
+        except ValueError:
+            sys.exit(f'metrics.csv line {i}: date must be YYYY-MM-DD, found {r[0]!r}')
+        for j, (k, _, _, kind, _, _) in enumerate(COLUMNS):
+            try:
+                parse(k, kind, r[j])
+            except ValueError:
+                sys.exit(f'metrics.csv line {i}: {k} = {r[j]!r} is not a valid {kind}')
+        raw_rows.append(r)
+# freshness is derived: fill the latest row's freshness columns from data.csv when blank
+if raw_rows:
+    li = max(range(len(raw_rows)), key=lambda i: raw_rows[i][0].strip())
+    as_of = dt.date.fromisoformat(raw_rows[li][0].strip())
+    n_tools, c7, c30, stale = directory_freshness(as_of)
+    calc_vals = dict(zip(FRESH_KEYS, (c7, c30, stale)))
+    changed = False
+    for k, v in calc_vals.items():
+        j = KEYS.index(k)
+        if raw_rows[li][j].strip() == '':
+            raw_rows[li][j] = str(v); changed = True
+        elif raw_rows[li][j].strip() != str(v):
+            print(f'warning: {as_of} {k} logged {raw_rows[li][j]} but data.csv gives {v}', file=sys.stderr)
+    tl = raw_rows[li][KEYS.index('tools_listed')].strip()
+    if tl and tl != str(n_tools):
+        print(f'warning: {as_of} tools_listed {tl} but data.csv has {n_tools} unique tools', file=sys.stderr)
+    if changed:
+        with open(CSV_PATH, 'w', newline='') as f:
+            csv.writer(f, lineterminator='\n').writerows([KEYS] + raw_rows)
+        print(f'freshness for {as_of} filled from data.csv: {c7}/{n_tools} checked <=7d, {c30}/{n_tools} <=30d, {stale} stale')
+rows = [{k: parse(k, kind, r[j]) for j, (k, _, _, kind, _, _) in enumerate(COLUMNS)} for r in raw_rows]
+
+def load_simple(path, keys, label):
+    if not os.path.exists(path):
+        sys.exit(f'{label}: {path} missing (create it with the header {",".join(keys)})')
+    with open(path, newline='') as f:
+        rd = csv.reader(f)
+        hdr = next(rd, None)
+        if hdr != keys:
+            sys.exit(f'{label} header mismatch.\n expected: {",".join(keys)}\n found:    {",".join(hdr or [])}')
+        out = []
+        for i, r in enumerate(rd, start=2):
+            if not any(x.strip() for x in r):
+                continue
+            if len(r) != len(keys):
+                sys.exit(f'{label} line {i}: {len(r)} fields, expected {len(keys)} (quote fields that contain commas)')
+            d = dict(zip(keys, (x.strip() for x in r)))
+            try:
+                dt.date.fromisoformat(d[keys[0]])
+            except ValueError:
+                sys.exit(f'{label} line {i}: {keys[0]} must be YYYY-MM-DD, found {d[keys[0]]!r}')
+            if 'decision' in d:
+                d['decision'] = d['decision'].lower()
+                if d['decision'] not in DECISIONS:
+                    sys.exit(f'{label} line {i}: decision must be keep, kill, iterate or blank (running), found {d["decision"]!r}')
+            out.append(d)
+    out.sort(key=lambda d: d[keys[0]], reverse=True)
+    return out
+weekly = load_simple(WEEKLY_CSV, WEEKLY_KEYS, 'ops/weekly.csv')
+experiments = load_simple(EXP_CSV, EXP_KEYS, 'ops/experiments.csv')
+wk = [d['week_start'] for d in weekly]
+if len(set(wk)) != len(wk):
+    sys.exit('duplicate week_start in ops/weekly.csv')
 dates = [r['date'] for r in rows]
 if len(set(dates)) != len(dates):
     sys.exit('duplicate dates in metrics.csv: ' + ', '.join(sorted({d for d in dates if dates.count(d) > 1})))
@@ -231,16 +360,31 @@ LOG_ROWS = max(len(rows) + 1, 2)
 # U = total revenue/day, V = X engagement rate/day, W = visitor->sub conversion/day
 # Y/Z  = scalars, rows 10+ = per-metric stats, AI:AJ = goal bar data, AL:AM = sparkline options
 N = 2000
-calc = Sheet('calc', 40, [60] * 40, ST.get(size=9, color=MUTED))
+CALC_NC = 72
+calc = Sheet('calc', CALC_NC, [60] * CALC_NC, ST.get(size=9, color=MUTED))
 SRC = 'INDIRECT("\'Daily Log\'"&CHAR(33)&"A2:T%d")' % N
 SRCA = 'INDIRECT("\'Daily Log\'"&CHAR(33)&"A2:A%d")' % N
 SORTED = f'SORT(FILTER({SRC},ISNUMBER({SRCA})),1,TRUE)'
 calc.set(1, 1, formula=f'=IFERROR(ARRAYFORMULA(IF({SORTED}="n/a","",{SORTED})),"")')
+# v2 columns (Daily Log U..) sorted by the same date column
+SRC2 = 'INDIRECT("\'Daily Log\'"&CHAR(33)&"%s2:%s%d")' % (LOG_LET[KEYS[V1]], LOG_LET[KEYS[-1]], N)
+SORTED2 = f'SORT(FILTER({SRC2},ISNUMBER({SRCA})),FILTER({SRCA},ISNUMBER({SRCA})),TRUE)'
+calc.set(1, V2_START, formula=f'=IFERROR(ARRAYFORMULA(IF({SORTED2}="n/a","",{SORTED2})),"")')
 rg = lambda c: f'${c}$1:${c}${N}'
 A = rg('A')
 calc.set(1, 21, formula=f'=ARRAYFORMULA(IF({A}="","",IF(ISNUMBER({rg("J")}),{rg("J")},0)+IF(ISNUMBER({rg("L")}),{rg("L")},0)))')
 calc.set(1, 22, formula=f'=ARRAYFORMULA(IF(ISNUMBER({rg("O")})*ISNUMBER({rg("N")}),IF({rg("N")}>0,{rg("O")}/{rg("N")},""),""))')
 calc.set(1, 23, formula=f'=ARRAYFORMULA(IF(ISNUMBER({rg("C")})*ISNUMBER({rg("F")}),IF({rg("F")}>0,{rg("C")}/{rg("F")},""),""))')
+# v2 derived per-day columns
+DER2 = {'pct_checked_7d': 67, 'pct_checked_30d': 68, 'fix_hours_weighted': 69, 'corrections_timed': 70}
+DL = {k: col_let(c) for k, c in DER2.items()}
+TL = LET['tools_listed']
+calc.set(1, DER2['pct_checked_7d'], formula=f'=ARRAYFORMULA(IF(ISNUMBER({rg(LET["tools_checked_7d"])})*ISNUMBER({rg(TL)}),IF({rg(TL)}>0,{rg(LET["tools_checked_7d"])}/{rg(TL)},""),""))')
+calc.set(1, DER2['pct_checked_30d'], formula=f'=ARRAYFORMULA(IF(ISNUMBER({rg(LET["tools_checked_30d"])})*ISNUMBER({rg(TL)}),IF({rg(TL)}>0,{rg(LET["tools_checked_30d"])}/{rg(TL)},""),""))')
+CM, FX = LET['corrections_made'], LET['avg_fix_hours']
+calc.set(1, DER2['fix_hours_weighted'], formula=f'=ARRAYFORMULA(IF(ISNUMBER({rg(CM)})*ISNUMBER({rg(FX)}),{rg(CM)}*{rg(FX)},""))')
+calc.set(1, DER2['corrections_timed'], formula=f'=ARRAYFORMULA(IF(ISNUMBER({rg(CM)})*ISNUMBER({rg(FX)}),{rg(CM)},""))')
+LASTC = col_let(max(DER2.values()))
 scal = [
     ('latest date', f'=IF(COUNT({A})=0,"",MAX({A}))'),
     ('latest - 7', '=IF($AA$1="","",$AA$1-7)'),
@@ -258,14 +402,18 @@ calc.set(9, 25, 'helper tab: auto-calculated, do not edit')
 STATS = ['subscribers', 'net_new_subs', 'referrals', 'top_signup_source', 'site_visitors', 'google_indexed_pages', 'search_clicks',
          'affiliate_clicks', 'affiliate_revenue', 'sponsor_inquiries', 'sponsor_revenue', 'x_followers', 'x_impressions',
          'x_engagements', 'x_mentions_replies', 'open_rate', 'click_rate', 'tools_listed', 'total_revenue', 'engagement_rate', 'conversion']
-LET2 = dict(LET, total_revenue='U', engagement_rate='V', conversion='W')
+STATS += KEYS[V1:] + list(DER2)
+LET2 = dict(LET, total_revenue='U', engagement_rate='V', conversion='W', **DL)
 SR = {}  # key -> calc row
 for i, k in enumerate(STATS, start=10):
     c = LET2[k]; SR[k] = i; cn = col_num(c)
     calc.set(i, 25, k)
     calc.set(i, 27, formula=f'=IF($AA$1="","",IFERROR(INDEX({rg(c)},MATCH($AA$1,{A},0)),""))')            # AA latest
     calc.set(i, 28, formula=f'=IF($AA$3=0,"",IFERROR(INDEX({rg(c)},MATCH($AA$3,{A},0)),""))')             # AB previous log
-    calc.set(i, 29, formula=f'=IF($AA$1="","",IFERROR(VLOOKUP($AA$2,$A$1:$W${N},{cn},TRUE),""))')          # AC value 7d ago
+    if cn <= 23:
+        calc.set(i, 29, formula=f'=IF($AA$1="","",IFERROR(VLOOKUP($AA$2,$A$1:$W${N},{cn},TRUE),""))')          # AC value 7d ago
+    else:  # v2 columns live right of the stats block; a VLOOKUP range would include this cell (circular)
+        calc.set(i, 29, formula=f'=IF($AA$1="","",IFERROR(INDEX({rg(c)},MATCH(MAXIFS({A},{A},"<="&$AA$2),{A},0)),""))')
     calc.set(i, 30, formula=f'=IF($AA$1="",0,SUMIFS({rg(c)},{A},">"&$AA$2,{A},"<="&$AA$1))')               # AD sum 7d
     calc.set(i, 31, formula=f'=IF($AA$1="",0,SUMPRODUCT(ISNUMBER({rg(c)})*({A}>$AA$2)*({A}<=$AA$1)))')      # AE count 7d
     calc.set(i, 32, formula=f'=IF($AA$1="",0,SUMIFS({rg(c)},{A},">"&($AA$1-14),{A},"<="&$AA$2))')          # AF sum prev 7d
@@ -289,6 +437,11 @@ opts = {
     'col':   [('charttype', 'column'), ('color', '#94A3B8'), ('highcolor', GREEN), ('empty', 'ignore'), ('ymin', 0)],
     'colA':  [('charttype', 'column'), ('color', '#FCD34D'), ('highcolor', AMBER), ('empty', 'ignore'), ('ymin', 0)],
     'colI':  [('charttype', 'column'), ('color', '#A5B4FC'), ('highcolor', INDIGO), ('empty', 'ignore'), ('ymin', 0)],
+    'lineT': [('charttype', 'line'), ('color', TEAL), ('linewidth', 2), ('empty', 'ignore')],
+    'colT':  [('charttype', 'column'), ('color', '#99F6E4'), ('highcolor', TEAL), ('empty', 'ignore'), ('ymin', 0)],
+    'colS':  [('charttype', 'column'), ('color', '#BAE6FD'), ('highcolor', SKY), ('empty', 'ignore'), ('ymin', 0)],
+    'colR':  [('charttype', 'column'), ('color', '#FBCFE8'), ('highcolor', ROSE), ('empty', 'ignore'), ('ymin', 0)],
+    'lineR': [('charttype', 'line'), ('color', ROSE), ('linewidth', 2), ('empty', 'ignore')],
 }
 OPT = {}
 r0 = 10
@@ -361,7 +514,7 @@ dash.set(8, G, formula='="MTD "&TEXT(calc!$AA$6,"$0.00")', style=card_sub)
 row = 9
 sp(6)
 # latest note
-dash.h(10, 30)
+dash.h(10, 44)
 dash.set(10, B, formula=f'=IF(calc!$AA$1="","",IFERROR("Latest note:  "&INDEX(calc!$T$1:$T${N},MATCH(calc!$AA$1,calc!$A$1:$A${N},0)),""))',
          style=ST.get(color=MUTED, italic=True, size=8, wrap=True, v='Top'), across=5)
 row = 11
@@ -386,7 +539,7 @@ def colheads(labels):
     row += 1
 
 # ---- GOALS ----
-section('GOALS', NAVY, 'clock starts at launch date (bottom)')
+section('NORTH STAR & GOALS', NAVY, 'clock starts at launch date (bottom)')
 colheads(['Goal', 'Target', 'Now', '', 'Progress'])
 START = None  # filled after we know the settings row
 goals = [  # label, target, current expr, due offset expr (uses START), bar option
@@ -400,6 +553,8 @@ goal_rows = []
 for gi, g in enumerate(goals):
     goal_rows.append(row); row += 1
 GOAL_END = row
+PACE_ROWS = [row, row + 1, row + 2]  # required vs actual daily subscriber rate (filled once START is known)
+row += 3
 sp(10)
 
 # ---- metric tables ----
@@ -410,7 +565,7 @@ def vstyle(fmt, bold=False, color=INK):
 wow_st = ST.get(h='Right', size=9, color=MUTED, borders=[('Bottom', 1, LINE)])
 trend_st = ST.get(borders=[('Bottom', 1, LINE)])
 def fmt_of(k):
-    return {'int': '#,##0', 'money': r'\$#,##0.00', 'pct': '0.0%', 'text': '@'}[[c for c in COLUMNS if c[0] == k][0][3]]
+    return {'int': '#,##0', 'num': '0.0', 'money': r'\$#,##0.00', 'pct': '0.0%', 'text': '@'}[[c for c in COLUMNS if c[0] == k][0][3]]
 def trend(k, opt):
     c = LET2[k]
     return (f'=IF({CA(k)}<2,"",SPARKLINE(FILTER(calc!${c}$1:${c}${N},calc!$A$1:$A${N}<>""),{OPT[opt]}))')
@@ -443,6 +598,22 @@ def metric(label, kind, k, opt='col', star=False, fmt=None):
                                   f'&TEXT(ABS({cur}-{prev})*100,"0.0")&" pts","\u2014")'), style=wow_st)
         k = num if den != 'x_impressions' else 'engagement_rate'
         k = 'conversion' if den == 'site_visitors' else k
+    elif kind == 'pctstock':  # derived % that is a stock (freshness): latest, change vs 7d ago, change vs last log
+        dash.set(row, Cc, formula=numcell(Z(k), ''), style=vstyle('0.0%', bold=True))
+        dash.set(row, D, formula=f'=IF(ISNUMBER({AB(k)})*ISNUMBER({Z(k)}),{Z(k)}-{AB(k)},"\u2014")', style=vstyle(r'\+0.0%;\-0.0%;0.0%'))
+        dash.set(row, E, formula=(f'=IF(ISNUMBER({AA(k)})*ISNUMBER({Z(k)}),IF({Z(k)}>={AA(k)},"\u25b2 ","\u25bc ")'
+                                  f'&TEXT(ABS({Z(k)}-{AA(k)})*100,"0.0")&" pts vs last","\u2014")'), style=wow_st)
+    elif kind == 'fixavg':  # avg hours to fix; 7d = correction-weighted average
+        dash.set(row, Cc, formula=numcell(Z(k), ''), style=vstyle('0.0'))
+        cur, prev = f'({S7("fix_hours_weighted")}/{S7("corrections_timed")})', f'({SP("fix_hours_weighted")}/{SP("corrections_timed")})'
+        dash.set(row, D, formula=f'=IF({S7("corrections_timed")}>0,{cur},{NA})', style=vstyle('0.0'))
+        dash.set(row, E, formula=(f'=IF(AND({S7("corrections_timed")}>0,{SP("corrections_timed")}>0),IF({cur}<={prev},"\u25b2 faster ","\u25bc slower ")'
+                                  f'&TEXT(ABS({cur}-{prev}),"0.0")&" h","\u2014")'), style=wow_st)
+    elif kind == 'briefs':  # sent / weekdays (window starts at the first logged day)
+        dash.set(row, Cc, formula=(f'=IF(NOT(ISNUMBER({Z(k)})),{NA},IF(calc!$AP$7=1,TEXT({Z(k)},"0")&" / 1",'
+                                   f'TEXT({Z(k)},"0")&" / 0 wknd"))'), style=ST.get(h='Right', bold=True, borders=[('Bottom', 1, LINE)]))
+        dash.set(row, D, formula=f'=IF(AND({C7(k)}>0,calc!$AP$6>0),MIN(1,{S7(k)}/calc!$AP$6),{NA})', style=vstyle('0%'))
+        dash.set(row, E, formula=f'=IF({C7(k)}>0,TEXT({S7(k)},"0")&" of "&TEXT(calc!$AP$6,"0")&" wkdays","\u2014")', style=wow_st)
     elif kind == 'text':
         dash.set(row, Cc, formula=f'=IF(LEN({Z(k)})=0,{NA},{Z(k)})', style=ST.get(h='Right', borders=[('Bottom', 1, LINE)]), across=1)
         dash.set(row, E, '', style=wow_st)
@@ -451,14 +622,31 @@ def metric(label, kind, k, opt='col', star=False, fmt=None):
     dash.set(row, F, formula=trend(k, opt), style=trend_st, across=1)
     row += 1
 
+section('FRESHNESS & ACCURACY', TEAL, 'auto from data.csv last_checked  \u00b7  blank = stale')
+colheads(['Metric', 'Latest', '7 days', 'WoW', 'Trend'])
+metric('% tools checked \u2264 7 days', 'pctstock', 'pct_checked_7d', 'lineT', star=True)
+metric('% tools checked \u2264 30 days', 'pctstock', 'pct_checked_30d', 'lineT')
+metric('Stale tools flagged', 'stock', 'stale_tools_flagged', 'colT')
+metric('Price updates', 'flow', 'price_updates', 'colT')
+metric('Corrections made', 'flow', 'corrections_made', 'colT')
+metric('Avg time-to-fix (hours)', 'fixavg', 'avg_fix_hours', 'colT')
+sp(10)
+
+section('DIRECTORY ENGAGEMENT', SKY, 'n/a = analytics not live yet')
+colheads(['Metric', 'Latest', '7 days', 'WoW', 'Trend'])
+metric('Unique visitors', 'flow', 'site_visitors', 'colS')
+metric('Outbound clicks', 'flow', 'outbound_clicks', 'colS')
+metric('Top use-case by clicks', 'text', 'top_use_case')
+metric('Top tool by clicks', 'text', 'top_tool_clicks')
+metric('Visitor \u2192 signup conversion', 'ratio', ('net_new_subs', 'site_visitors'), 'colS')
+sp(10)
+
 section('GROWTH', GREEN, 'n/a = not live yet')
 colheads(['Metric', 'Latest', '7 days', 'WoW', 'Trend'])
 metric('Subscribers  \u2605', 'stock', 'subscribers', 'line', star=True)
 metric('Net new subs', 'flow', 'net_new_subs', 'col')
 metric('Referrals', 'flow', 'referrals', 'col')
 metric('Top signup source', 'text', 'top_signup_source')
-metric('Site visitors', 'flow', 'site_visitors', 'col')
-metric('Visitor \u2192 sub conversion', 'ratio', ('net_new_subs', 'site_visitors'), 'col')
 metric('Google indexed pages', 'stock', 'google_indexed_pages', 'line')
 metric('Search clicks', 'flow', 'search_clicks', 'col')
 sp(10)
@@ -469,6 +657,8 @@ metric('Affiliate clicks', 'flow', 'affiliate_clicks', 'colA')
 metric('Affiliate revenue', 'flow', 'affiliate_revenue', 'colA')
 metric('Sponsor inquiries', 'flow', 'sponsor_inquiries', 'colA')
 metric('Sponsor revenue', 'flow', 'sponsor_revenue', 'colA')
+metric('Affiliate programs approved', 'stock', 'affiliate_programs_approved', 'colA')
+metric('Affiliate programs pending', 'stock', 'affiliate_programs_pending', 'colA')
 # revenue summary rows
 def money_row(label, formula, fmt, note_formula=''):
     global row
@@ -478,18 +668,24 @@ def money_row(label, formula, fmt, note_formula=''):
     dash.set(row, E, formula=note_formula or None, value='' if not note_formula else None, style=ST.get(size=8, color=MUTED, h='Right', borders=[('Bottom', 1, LINE)]), across=2)
     row += 1
 money_row('Revenue this month (running)', '=calc!$AA$6', r'\$#,##0.00', '=IF(calc!$AA$1="","",TEXT(calc!$AA$4,"mmmm yyyy")&" to date")')
-money_row('Revenue per subscriber (MTD)', f'=IF(N({Z("subscribers")})>0,calc!$AA$6/{Z("subscribers")},{NA})', r'\$#,##0.000', '="industry note: $0.05-$0.50/sub/mo is typical early"')
+money_row('Revenue per 1,000 subs (MTD)', f'=IF(N({Z("subscribers")})>0,calc!$AA$6/{Z("subscribers")}*1000,{NA})', r'\$#,##0.00', '="MTD revenue \u00f7 subscribers \u00d7 1000"')
 money_row('Lifetime revenue', '=calc!$AA$7', r'\$#,##0.00', '=IF(calc!$AA$8="","first dollar not earned yet","first dollar on "&TEXT(calc!$AA$8,"mmm d yyyy"))')
 sp(10)
 
-section('BRAND', INDIGO)
+section('PRODUCT QUALITY', ROSE, 'real readers only  \u00b7  owner test emails excluded')
+colheads(['Metric', 'Latest', '7 days', 'WoW', 'Trend'])
+metric('Newsletter open rate', 'rate', 'open_rate', 'colR')
+metric('Newsletter click rate', 'rate', 'click_rate', 'colR')
+metric('Unsubscribe rate', 'rate', 'unsub_rate', 'colR')
+metric('Briefs on schedule (sent/wkdays)', 'briefs', 'briefs_sent', 'colR')
+sp(10)
+
+section('BRAND & REACH', INDIGO)
 colheads(['Metric', 'Latest', '7 days', 'WoW', 'Trend'])
 metric('X followers', 'stock', 'x_followers', 'lineI')
 metric('X impressions', 'flow', 'x_impressions', 'colI')
 metric('X engagement rate', 'ratio', ('x_engagements', 'x_impressions'), 'colI')
 metric('X mentions + replies', 'flow', 'x_mentions_replies', 'colI')
-metric('Newsletter open rate', 'rate', 'open_rate', 'colI')
-metric('Newsletter click rate', 'rate', 'click_rate', 'colI')
 metric('Directory tools listed', 'stock', 'tools_listed', 'lineI')
 sp(10)
 
@@ -546,6 +742,36 @@ for (label, target, cur, due, opt), r in zip(goals, goal_rows):
     dash.set(r, G, formula=status, style=ST.get(size=8, color=MUTED, h='Right', borders=[('Bottom', 1, LINE)]))
 calc.set(29, 35, 'goal bar filled'); calc.set(29, 36, 'goal bar remaining')
 
+# ---- required vs actual daily subscriber rate (calc AO labels / AP values) ----
+SUBS = f'N({Z("subscribers")})'
+ST_ = f'Dashboard!{START}'
+pace = [
+    ('next subscriber goal', f'=IF(AND({SUBS}<25,{ST_}+7>=TODAY()),25,IF(AND({SUBS}<300,EDATE({ST_},1)>=TODAY()),300,10000))'),
+    ('next goal due', f'=IF(AND({SUBS}<25,{ST_}+7>=TODAY()),{ST_}+7,IF(AND({SUBS}<300,EDATE({ST_},1)>=TODAY()),EDATE({ST_},1),EDATE({ST_},12)))'),
+    ('required subs/day', f'=MAX(0,$AP$1-{SUBS})/MAX(1,$AP$2-TODAY())'),
+    ('actual subs/day (7d avg)', f'=IF({C7("net_new_subs")}>0,{S7("net_new_subs")}/{C7("net_new_subs")},"")'),
+    ('behind pace?', '=IF($AP$3=0,FALSE,N($AP$4)<$AP$3)'),
+    ('weekdays in 7d window (from first log)', f'=IF($AA$1="",0,NETWORKDAYS(MAX($AA$2+1,MIN($A$1:$A${N})),$AA$1))'),
+    ('latest log is a weekday', '=IF($AA$1="",0,IF(WEEKDAY($AA$1,2)<=5,1,0))'),
+]
+for i, (lab_, f) in enumerate(pace, start=1):
+    calc.set(i, 41, lab_)
+    calc.set(i, 42, formula=f)
+r1, r2, r3 = PACE_ROWS
+dash.h(r1, 24); dash.h(r2, 24); dash.h(r3, 26)
+dash.set(r1, B, 'Required subs/day  \u00b7  next goal', style=labstar)
+dash.set(r1, Cc, formula='=calc!$AP$3', style=vstyle('0.0', bold=True))
+dash.set(r1, D, formula='="to "&TEXT(calc!$AP$1,"0")&" by "&TEXT(calc!$AP$2,"mmm d yyyy")&"  \u00b7  "&TEXT(MAX(0,calc!$AP$2-TODAY()),"0")&"d left"',
+         style=ST.get(size=8, color=MUTED, h='Right', borders=[('Bottom', 1, LINE)]), across=3)
+dash.set(r2, B, 'Actual subs/day  \u00b7  7-day avg', style=labstar)
+dash.set(r2, Cc, formula=f'=IF(ISNUMBER(calc!$AP$4),calc!$AP$4,{NA})', style=vstyle('0.0', bold=True))
+dash.set(r2, D, formula=f'=IF({C7("net_new_subs")}>0,TEXT({S7("net_new_subs")},"0")&" net new over "&TEXT({C7("net_new_subs")},"0")&" logged days","no days logged")',
+         style=ST.get(size=8, color=MUTED, h='Right', borders=[('Bottom', 1, LINE)]), across=3)
+dash.set(r3, B, 'Pace', style=lab)
+dash.set(r3, Cc, formula='=IF(calc!$AP$5,"\u26a0 BEHIND  \u00b7  need "&TEXT(calc!$AP$3-N(calc!$AP$4),"0.0")&" more subs/day","")',
+         style=ST.get(bold=True, color=RED, size=10, borders=[('Bottom', 1, LINE)]), across=3)
+dash.set(r3, G, formula='=IF(calc!$AP$5,"","\u2713 on pace")', style=ST.get(bold=True, color=GREEN, h='Right', borders=[('Bottom', 1, LINE)]))
+
 # white canvas on dashboard to hide gridlines
 for r in range(1, DASH_ROWS + 1):
     for c in range(1, 9):
@@ -573,14 +799,28 @@ WHY = {
  'click_rate': ('Proof readers act; drives affiliate and sponsor value.', 'click rate of the issue sent today (blank if none)', 'beehiiv'),
  'tools_listed': ('Directory depth = more pages to index and more affiliate surface.', 'tools live on the site', 'data.csv / site'),
  'notes': ('Context for anomalies; keep it to one or two sentences.', 'short free text', '-'),
+ 'tools_checked_7d': ('Honest and current: readers trust dates they can see.', 'AUTO: unique tools in data.csv whose last_checked is within 7 days of the log date (blank = never)', 'data.csv last_checked (build_sheet.py fills it)'),
+ 'tools_checked_30d': ('Floor for freshness; anything older is stale.', 'AUTO: unique tools with last_checked within 30 days', 'data.csv last_checked (auto)'),
+ 'stale_tools_flagged': ('The re-check queue; work it down daily, freshness first.', 'AUTO: tools with blank last_checked or older than 30 days', 'data.csv last_checked (auto)'),
+ 'price_updates': ('Prices are the most-used and fastest-rotting fact on the site.', 'price fields changed in data.csv today (new listings do not count)', 'data.csv diff / ops-log'),
+ 'corrections_made': ('Fix fast: every published error found and corrected.', 'errors fixed today on the site, brief or X (wrong price, dead link, bad claim)', 'ops-log'),
+ 'avg_fix_hours': ('Time from noticing an error to the fix being live.', 'average hours for today\'s corrections (blank if unknown)', 'ops-log'),
+ 'outbound_clicks': ('Proof the directory helps people pick: they leave to the tool.', 'all outbound tool-link clicks today (affiliate + non-affiliate)', 'site click tracking'),
+ 'top_use_case': ('Which jobs readers come for; where to deepen coverage.', 'use case with the most outbound clicks today', 'site click tracking'),
+ 'top_tool_clicks': ('What readers actually pick; candidate for deeper coverage and affiliate.', 'tool with the most outbound clicks today', 'site click tracking'),
+ 'affiliate_programs_approved': ('Monetizable surface; only for tools we would recommend anyway.', 'programs with an approved account (end of day)', 'affiliate dashboards / inbox'),
+ 'affiliate_programs_pending': ('Pipeline of applications awaiting a decision.', 'applications submitted, not yet approved or rejected', 'affiliate dashboards / inbox'),
+ 'unsub_rate': ('Respect reader time: rising unsubscribes = the brief is not earning its slot.', 'unsubscribe rate of the issue sent today, real readers only (blank if none)', 'beehiiv'),
+ 'briefs_sent': ('Reliability: the brief goes out every weekday.', 'briefs sent today (0 on a missed weekday, blank on weekends)', 'beehiiv'),
 }
+SEC_NAME = {'core': 'CORE', 'growth': 'GROWTH', 'money': 'MONEY', 'brand': 'BRAND', 'freshness': 'FRESHNESS', 'engagement': 'ENGAGEMENT', 'quality': 'QUALITY'}
 guide = Sheet('Guide', 7, [56, 120, 120, 300, 250, 150, 40], ST.get(wrap=True, v='Top', size=9))
 gh = ST.get(bold=True, color=WHITE, bg=NAVY2, size=9, wrap=True)
 guide.h(1, 30)
 guide.set(1, 1, 'UseThisSI Scoreboard: metric guide', style=ST.get(bold=True, size=14, color=INK), across=5)
 guide.h(2, 44)
 guide.set(2, 1, 'Nightly routine: append ONE row to /workspace/usethissi/metrics.csv using the CSV keys below in this exact order '
-                '(blank = not live yet, shown as n/a), then run scoreboard/build_sheet.py and upload scoreboard.xml to this file id. '
+                '(blank = not live yet, shown as n/a; leave the 3 AUTO freshness columns blank, the build fills them from data.csv), then run scoreboard/build_sheet.py and upload scoreboard.xml to this file id. '
                 'Daily Log is shown newest-first. Derived metrics (conversion, engagement rate, revenue per sub, MTD) are computed on the Dashboard, not logged.',
           style=ST.get(size=9, color=MUTED, wrap=True, v='Top'), across=5)
 for j, t in enumerate(['#', 'Section', 'CSV key', 'Why it matters', 'How to log', 'Source'], start=1):
@@ -591,22 +831,28 @@ for i, (k, label, sec, kind, fmt, w) in enumerate(COLUMNS, start=4):
     st = ST.get(wrap=True, v='Top', size=9, bg=bg, borders=[('Bottom', 1, LINE)])
     guide.h(i, 30)
     guide.set(i, 1, i - 3, style=st)
-    guide.set(i, 2, sec.upper(), style=ST.get(wrap=True, v='Top', size=9, bg=bg, bold=True, color=fg, borders=[('Bottom', 1, LINE)]))
+    guide.set(i, 2, SEC_NAME[sec], style=ST.get(wrap=True, v='Top', size=9, bg=bg, bold=True, color=fg, borders=[('Bottom', 1, LINE)]))
     guide.set(i, 3, k, style=ST.get(wrap=True, v='Top', size=9, bg=bg, font='Roboto Mono', borders=[('Bottom', 1, LINE)]))
     guide.set(i, 4, why, style=st)
     guide.set(i, 5, how, style=st)
     guide.set(i, 6, src, style=st)
 r = 4 + len(COLUMNS) + 1
 derived = [
-    ('GROWTH', 'Visitor \u2192 sub conversion', 'Turns traffic into the north star; fix this before buying traffic.', 'net_new_subs / site_visitors (7-day)'),
+    ('CORE', 'Required subs/day', 'The pace needed to hit the next subscriber goal on time.', '(next goal - subscribers) / days left; red BEHIND flag when actual < required'),
+    ('CORE', 'Actual subs/day', 'What the last 7 days actually delivered.', 'sum of net_new_subs / logged days, last 7 days'),
+    ('FRESHNESS', '% tools checked \u2264 7d / \u2264 30d', 'Freshness, the core promise of the directory.', 'tools_checked_7d (30d) / tools_listed'),
+    ('FRESHNESS', 'Avg time-to-fix (7d)', 'How fast mistakes die.', 'sum(corrections x avg_fix_hours) / corrections with a time, last 7 days'),
+    ('ENGAGEMENT', 'Visitor \u2192 signup conversion', 'Turns traffic into the north star; fix this before buying traffic.', 'net_new_subs / site_visitors (7-day)'),
     ('MONEY', 'Revenue this month (running)', 'The number that pays for the business; resets each month.', 'sum of affiliate + sponsor revenue, month to date'),
-    ('MONEY', 'Revenue per subscriber', 'Monetization efficiency; what each new subscriber is worth.', 'MTD revenue / subscribers'),
+    ('MONEY', 'Revenue per 1,000 subs', 'Monetization efficiency, in the unit sponsors price in.', 'MTD revenue / subscribers x 1000'),
+    ('QUALITY', 'Briefs on schedule', 'Reliability of the weekday brief.', 'briefs_sent / weekdays, last 7 days (from the first logged day)'),
     ('MONEY', 'First dollar', 'Milestone proof that someone pays.', 'lifetime revenue vs $1'),
     ('BRAND', 'X engagement rate', 'Content resonance, independent of reach.', 'x_engagements / x_impressions'),
 ]
 guide.set(r, 1, 'Computed on the Dashboard (not logged)', style=ST.get(bold=True, size=10), across=5); r += 1
+NAME_SEC = {v: k for k, v in SEC_NAME.items()}
 for sec, name, why, how in derived:
-    fg, bg = SEC[sec.lower()]
+    fg, bg = SEC[NAME_SEC[sec]]
     st = ST.get(wrap=True, v='Top', size=9, bg=bg, borders=[('Bottom', 1, LINE)])
     guide.h(r, 30)
     guide.set(r, 1, '', style=st)
@@ -614,13 +860,56 @@ for sec, name, why, how in derived:
     guide.set(r, 3, name, style=st); guide.set(r, 4, why, style=st); guide.set(r, 5, how, style=st); guide.set(r, 6, 'formula', style=st)
     r += 1
 r += 1
-guide.set(r, 1, 'Cut as vanity / not decision-driving: top_page (keep in notes when notable), x post count (impressions covers it), last_open/click naming (now open_rate/click_rate).',
+guide.set(r, 1, 'Cut as vanity / not decision-driving: top_page (keep in notes when notable), x post count (impressions covers it), last_open/click naming (now open_rate/click_rate). '
+                'Unique visitors = site_visitors (no duplicate column). Weekly Scorecard and Experiment Log tabs come from ops/weekly.csv and ops/experiments.csv.',
           style=ST.get(size=8, italic=True, color=FAINT, wrap=True), across=5)
 guide.h(r, 30)
 GUIDE_ROWS = r + 1
 
+# ================= Weekly Scorecard / Experiment Log (static, from ops/*.csv) =================
+def table_tab(name, title, subtitle, cols, data, empty_msg, color, decision_col=None):
+    sh = Sheet(name, len(cols), [w for _, _, w in cols], ST.get(wrap=True, v='Top', size=9))
+    sh.h(1, 30)
+    sh.set(1, 1, title, style=ST.get(bold=True, size=14, color=INK, v='Bottom'), across=len(cols) - 1)
+    sh.h(2, 30)
+    sh.set(2, 1, subtitle, style=ST.get(size=9, color=MUTED, wrap=True, v='Top'), across=len(cols) - 1)
+    sh.h(3, 30)
+    for j, (_, lab_, _) in enumerate(cols, start=1):
+        sh.set(3, j, lab_, style=ST.get(bold=True, color=WHITE, bg=color, size=9, wrap=True, borders=[('Bottom', 2, NAVY)]))
+    if not data:
+        sh.h(4, 26)
+        sh.set(4, 1, empty_msg, style=ST.get(italic=True, color=FAINT, size=9, wrap=True), across=len(cols) - 1)
+        return sh, 4
+    dec_style = {'keep': (GREEN, GREEN_BG, 'KEEP'), 'kill': (RED, '#FEF2F2', 'KILL'), 'iterate': (AMBER, AMBER_BG, 'ITERATE'), '': (MUTED, '#F1F5F9', 'RUNNING')}
+    for i, d in enumerate(data, start=4):
+        band = WHITE if i % 2 == 0 else BAND
+        sh.h(i, 44)
+        for j, (k, _, _) in enumerate(cols, start=1):
+            edge = [('Bottom', 1, LINE)]
+            if j == 1:
+                sh.set(i, j, d[k], dtype='date', style=ST.get(bold=True, bg=band, fmt=r'yyyy\-mm\-dd', v='Top', borders=edge))
+            elif k == decision_col:
+                fg, bg, txt = dec_style[d[k]]
+                sh.set(i, j, txt, style=ST.get(bold=True, color=fg, bg=bg, h='Center', v='Top', size=9, borders=edge))
+            else:
+                sh.set(i, j, d[k], style=ST.get(bg=band, wrap=True, v='Top', size=9, borders=edge))
+    return sh, 3 + len(data)
+weekly_tab, WEEKLY_ROWS = table_tab(
+    'Weekly Scorecard', 'Weekly Scorecard',
+    'One row per week (newest first), written at the weekly review. Source: ops/weekly.csv '
+    '(week_start,shipped,biggest_mover,next_action,blockers). Then execute the top improvement.',
+    [('week_start', 'Week start (Mon)', 70), ('shipped', 'Shipped', 230), ('biggest_mover', 'Biggest mover', 170),
+     ('next_action', 'Highest-leverage next action', 210), ('blockers', 'Blockers / escalations', 190)],
+    weekly, 'No weekly review logged yet. Add a row to ops/weekly.csv at the first weekly review.', NAVY2)
+exp_tab, EXP_ROWS = table_tab(
+    'Experiment Log', 'Experiment Log',
+    'Every experiment, newest first. Decision: keep / kill / iterate (blank = still running). Source: ops/experiments.csv '
+    '(date,test,metric,result,decision). Ties to: pick faster, more trust, or subs/revenue within values.',
+    [('date', 'Date', 70), ('test', 'Test', 240), ('metric', 'Metric', 140), ('result', 'Result', 220), ('decision', 'Decision', 70)],
+    experiments, 'No experiments logged yet. Add one row per experiment to ops/experiments.csv.', ROSE, decision_col='decision')
+
 # ================= write =================
-sheets = [dash.xml(DASH_ROWS), log.xml(LOG_ROWS), guide.xml(GUIDE_ROWS), calc.xml(CALC_ROWS)]
+sheets = [dash.xml(DASH_ROWS), weekly_tab.xml(WEEKLY_ROWS), exp_tab.xml(EXP_ROWS), log.xml(LOG_ROWS), guide.xml(GUIDE_ROWS), calc.xml(CALC_ROWS)]
 xml = ('<?xml version="1.0"?>\n<?mso-application progid="Excel.Sheet"?>\n'
        '<Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet" xmlns:o="urn:schemas-microsoft-com:office:office" '
        'xmlns:x="urn:schemas-microsoft-com:office:excel" xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet">\n'
@@ -630,4 +919,4 @@ with open(OUT_XML, 'w', encoding='utf-8', newline='\n') as f:
     f.write(xml)
 with open(OUT_ARGS, 'w') as f:
     json.dump({'fileId': FILE_ID, 'contentMimeType': 'application/vnd.ms-excel', 'textContent': f'$file:{OUT_XML}'}, f, indent=1)
-print(f'ok: {len(rows)} log rows, latest {rows[0]["date"] if rows else "-"}, {len(xml):,} bytes -> {OUT_XML}')
+print(f'ok: {len(rows)} log rows, latest {rows[0]["date"] if rows else "-"}, {len(weekly)} weekly rows, {len(experiments)} experiments, {len(xml):,} bytes -> {OUT_XML}')

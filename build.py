@@ -13,8 +13,11 @@ for r in rows[1:]:
 rels.sort(key=lambda r:r[0])
 uses={}
 for t in tools:
-    d=dict(zip(["use","role","tool","reason","free","price","url","aff"],t)); d["slug"]=slug(d["tool"])
+    d=dict(zip(["use","role","tool","reason","free","price","url","aff","checked"],t)); d.setdefault("checked",""); d["checked"]=d["checked"].strip(); d["slug"]=slug(d["tool"])
     uses.setdefault(d["use"],[]).append(d)
+def checked_html(d):
+    c=d.get("checked","")
+    return f'<time datetime="{E(c)}">{E(c)}</time>' if c else "no recorded check yet"
 def has_aff(d): return d["aff"].lower().startswith("yes")
 def link(d):
     a=f' data-aff="{{{{AFF:{d["slug"]}}}}}" rel="sponsored noopener"' if has_aff(d) else ' rel="noopener"'
@@ -60,7 +63,7 @@ def page(path,title,desc,body,ld=None):
 <a class="skip" href="#main">Skip to content</a><header><nav aria-label="Main"><a class="logo" href="/">⚡ {NAME}</a><a href="/use-cases/">Use cases</a><a href="/tools/">Tools</a><a href="/new/">New this week</a><a href="/submit/">Submit a tool</a><a href="/about/">About</a></nav></header>
 <main id="main" class="wrap">{body}</main>
 <section id="newsletter"><h2>Get the 5-minute builder brief</h2><p>A 5-minute weekday brief: what launched, what changed, and what to try today.</p><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="767b56cc-d716-4bab-a162-0baf03c34b2c"></script><p><small>Form not loading? <a href="https://usethissi.beehiiv.com/subscribe" rel="noopener">Subscribe on beehiiv</a>.</small></p></section>
-<footer>Some links are affiliate links. <a href="/about/#affiliates">Disclosure</a>. Data last checked {CHECKED}. Contact: <a href="mailto:info@usethissi.com">info@usethissi.com</a></footer><script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script></body></html>'''
+<footer>Some links are affiliate links. <a href="/about/#affiliates">Disclosure</a>. Directory updated {CHECKED}; each tool shows its own last-checked date. Contact: <a href="mailto:info@usethissi.com">info@usethissi.com</a></footer><script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script></body></html>'''
 ICON={"Vibe-code an app or landing page":"🧱","AI coding assistant":"⌨️","Set up or run AI agents":"🤖","Automate workflows":"⚙️","Make game art and sprites":"🎮","Generate music and SFX":"🎵","Edit and generate video":"🎬","Write content":"✍️","Research":"🔎","Voice and TTS":"🎙️"}
 def badges(d):
     b=[]
@@ -77,14 +80,14 @@ def top(L): return next(d for d in L if d["role"]=="Top pick")
 ucl=[]
 for u,L in uses.items():
     s=slug(u); t=top(L); alts=[d for d in L if d is not t]; ucl.append((u,s,t))
-    rowsh="".join(f'<tr><td>{E(d["role"])}</td><td><a href="/tools/{d["slug"]}/">{E(d["tool"])}</a></td><td>{E(d["reason"])}</td><td>{E(d["free"])}</td><td>{E(d["price"])}</td></tr>' for d in L)
+    rowsh="".join(f'<tr><td>{E(d["role"])}</td><td><a href="/tools/{d["slug"]}/">{E(d["tool"])}</a></td><td>{E(d["reason"])}</td><td>{E(d["free"])}</td><td>{E(d["price"])}</td><td>{checked_html(d)}</td></tr>' for d in L)
     body=f'''<article><p class="pick">{ICON.get(u,"✨")} Use case</p><h1>Best AI tools to {E(u[0].lower()+u[1:])}</h1>
 <p class="tldr"><strong>Short answer:</strong> Use <a href="/tools/{t["slug"]}/">{E(t["tool"])}</a>. {E(t["reason"])}. Free tier: {E(t["free"])}. Paid from {E(t["price"])}. Alternatives: {", ".join(E(a["tool"]) for a in alts[:2])}.</p>
 <h2>Top pick: {E(t["tool"])}</h2><p>{E(t["reason"])}. Official site: {link(t)}</p>
-<h2>All options</h2><ul class="grid">{"".join(tcard(d) for d in L)}</ul><h2>Compare</h2><div class="tablewrap"><table><thead><tr><th>Role</th><th>Tool</th><th>Why</th><th>Free tier</th><th>Paid from</th></tr></thead><tbody>{rowsh}</tbody></table></div>
-<p><small>Last checked: <time datetime="{CHECKED}">{CHECKED}</time>. Prices change, so confirm on the vendor's site.</small></p></article>'''
+<h2>All options</h2><ul class="grid">{"".join(tcard(d) for d in L)}</ul><h2>Compare</h2><div class="tablewrap"><table><thead><tr><th>Role</th><th>Tool</th><th>Why</th><th>Free tier</th><th>Paid from</th><th>Last checked</th></tr></thead><tbody>{rowsh}</tbody></table></div>
+<p><small>Last checked is per tool (see the table). Page updated <time datetime="{CHECKED}">{CHECKED}</time>. Prices change, so confirm on the vendor's site.</small></p></article>'''
     ld={"@context":"https://schema.org","@type":"ItemList","name":f"AI tools to {u}","itemListElement":[{"@type":"ListItem","position":i+1,"url":f"{SITE}/tools/{d['slug']}/","name":d["tool"]} for i,d in enumerate(L)]}
-    page(f"use-cases/{s}/index.html",f"Best AI tools to {u} (2026) | {NAME}",f"Top pick: {t['tool']}. {t['reason']}. Compare {len(L)} tools with pricing, checked {CHECKED}.",body,ld)
+    page(f"use-cases/{s}/index.html",f"Best AI tools to {u} (2026) | {NAME}",f"Top pick: {t['tool']}. {t['reason']}. Compare {len(L)} tools with pricing, updated {CHECKED}.",body,ld)
 page("use-cases/index.html",f"AI tools by use case | {NAME}","Pick the right AI tool for the job: one top pick per use case, plus alternatives.",
  "<h1>Use cases</h1><ul class=\"grid\">"+"".join(f'<li><a class="card" href="/use-cases/{s}/"><span class="ico" aria-hidden="true">{ICON.get(u,"✨")}</span><h3>{E(u)}</h3><p>Top pick: <span class="pick">{E(t["tool"])}</span></p></a></li>' for u,s,t in ucl)+"</ul>",
  {"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":f"{SITE}/use-cases/{s}/","name":u} for i,(u,s,t) in enumerate(ucl)]})
@@ -96,8 +99,8 @@ for s,ds in tm.items():
     d=ds[0]
     ucs="".join(f'<li><a href="/use-cases/{slug(x["use"])}/">{E(x["use"])}</a> ({E(x["role"])})</li>' for x in ds)
     body=f'''<article><h1>{E(d["tool"])}</h1><div>{badges(d)}</div><p class="tldr">{E(d["reason"])}.</p>
-<dl><dt>Free tier</dt><dd>{E(d["free"])}</dd><dt>Paid from</dt><dd>{E(d["price"])}</dd><dt>Official site</dt><dd>{link(d)}</dd><dt>Affiliate program</dt><dd>{E(d["aff"])}</dd></dl>
-<h2>Listed for</h2><ul>{ucs}</ul><p><small>Last checked: <time datetime="{CHECKED}">{CHECKED}</time></small></p></article>'''
+<dl><dt>Free tier</dt><dd>{E(d["free"])}</dd><dt>Paid from</dt><dd>{E(d["price"])}</dd><dt>Official site</dt><dd>{link(d)}</dd><dt>Affiliate program</dt><dd>{E(d["aff"])}</dd><dt>Last checked</dt><dd>{checked_html(d)}</dd></dl>
+<h2>Listed for</h2><ul>{ucs}</ul><p><small>Last checked: {checked_html(d)}</small></p></article>'''
     ld={"@context":"https://schema.org","@type":"SoftwareApplication","name":d["tool"],"url":d["url"],"applicationCategory":"BusinessApplication","operatingSystem":"Web","description":d["reason"]}
     m=re.search(r'\$([\d.]+)',d["price"])
     if m: ld["offers"]={"@type":"Offer","price":m.group(1),"priceCurrency":"USD"}
@@ -113,7 +116,7 @@ page("about/index.html",f"About and affiliate disclosure | {NAME}","How UseThisS
 tops="".join(f'<li><a class="card" href="/use-cases/{s}/"><span class="ico" aria-hidden="true">{ICON.get(u,"✨")}</span><h3>{E(u)}</h3><p>Use <span class="pick">{E(t["tool"])}</span>. {E(t["reason"])}.</p></a></li>' for u,s,t in ucl)
 feed="".join(f'<li><time datetime="{E(a[:10])}">{E(a)}</time><p>{E(b)}</p></li>' for a,b,c in list(reversed(rels))[:3])
 page("index.html",f"{NAME}: the right AI tool for every job","One top pick per job for builders, vibe coders and game devs. Prices checked weekly, plus new releases.",
- f'<section class="hero"><p class="pick">For builders, vibe coders, agent tinkerers and game devs</p><h1>Stop guessing.<br><span class="grad">Use this AI</span> for that job.</h1><p class="lead">{NAME} picks the best AI tool for each job, with two alternatives and current pricing, plus a 5-minute weekday brief on what just launched.</p><a class="btn" href="#newsletter">Get the weekday brief</a><a class="btn ghost" href="/use-cases/">Browse use cases</a><div class="stats"><div><b>{len(tm)}</b>tools</div><div><b>{len(ucl)}</b>use cases</div><div><b>{CHECKED}</b>last checked</div></div></section><section><h2>Top picks by job</h2><ul class="grid">{tops}</ul></section><section><h2>New this week</h2><ol class="feed">{feed}</ol><a href="/new/">See all releases →</a></section>',
+ f'<section class="hero"><p class="pick">For builders, vibe coders, agent tinkerers and game devs</p><h1>Stop guessing.<br><span class="grad">Use this AI</span> for that job.</h1><p class="lead">{NAME} picks the best AI tool for each job, with two alternatives and current pricing, plus a 5-minute weekday brief on what just launched.</p><a class="btn" href="#newsletter">Get the weekday brief</a><a class="btn ghost" href="/use-cases/">Browse use cases</a><div class="stats"><div><b>{len(tm)}</b>tools</div><div><b>{len(ucl)}</b>use cases</div><div><b>{CHECKED}</b>updated</div></div></section><section><h2>Top picks by job</h2><ul class="grid">{tops}</ul></section><section><h2>New this week</h2><ol class="feed">{feed}</ol><a href="/new/">See all releases →</a></section>',
  {"@context":"https://schema.org","@type":"WebSite","name":NAME,"url":SITE})
 page("404.html",f"Not found | {NAME}","Page not found.",'<h1>Not found</h1><p><a href="/">Go home</a></p>')
 shutil.rmtree("dist",ignore_errors=True)
@@ -123,7 +126,7 @@ open("dist/style.css","w").write(CSS)
 urls=[SITE+"/"+p.replace("index.html","") for p in pages if p!="404.html"]
 open("dist/sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"<url><loc>{u}</loc><lastmod>{CHECKED}</lastmod></url>\n" for u in urls)+"</urlset>\n")
 open("dist/robots.txt","w").write(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
-llms=f"# {NAME}\n\n> One top AI tool pick per job for builders, vibe coders, AI agent tinkerers and indie game devs. Pricing last checked {CHECKED}.\n\n## Use cases\n"+"".join(f"- [{u}]({SITE}/use-cases/{s}/): top pick {t['tool']}. {t['reason']}.\n" for u,s,t in ucl)+f"\n## Pages\n- [All tools]({SITE}/tools/)\n- [New this week]({SITE}/new/)\n- [About and affiliate disclosure]({SITE}/about/)\n"
+llms=f"# {NAME}\n\n> One top AI tool pick per job for builders, vibe coders, AI agent tinkerers and indie game devs. Directory updated {CHECKED}; each tool page shows its own last-checked date.\n\n## Use cases\n"+"".join(f"- [{u}]({SITE}/use-cases/{s}/): top pick {t['tool']}. {t['reason']}.\n" for u,s,t in ucl)+f"\n## Pages\n- [All tools]({SITE}/tools/)\n- [New this week]({SITE}/new/)\n- [About and affiliate disclosure]({SITE}/about/)\n"
 open("dist/llms.txt","w").write(llms)
 INDEXNOW_KEY="fcd27737423484d8886b49b06518a52a"
 open(f"dist/{INDEXNOW_KEY}.txt","w").write(INDEXNOW_KEY)
