@@ -3,7 +3,7 @@ import json,re,urllib.request,urllib.error
 src=open("build.py").read()
 KEY=re.search(r'INDEXNOW_KEY="([0-9a-f]+)"',src).group(1)
 urls=re.findall(r"<loc>(.*?)</loc>",open("dist/sitemap.xml").read())
-host="usethissi.vercel.app"
+host="www.usethissi.com"
 body=json.dumps({"host":host,"key":KEY,"keyLocation":f"https://{host}/{KEY}.txt","urlList":urls}).encode()
 req=urllib.request.Request("https://api.indexnow.org/indexnow",data=body,headers={"Content-Type":"application/json; charset=utf-8"})
 try:

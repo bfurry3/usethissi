@@ -39,7 +39,7 @@ Preheader: One line shown in the inbox preview.
 **Use it for:** the job it does.
 **Price:** from the vendor page only.
 **Why we like it:** one sentence.
-[Try it on UseThisSI](https://usethissi.vercel.app/tools/SLUG/)
+[Try it on UseThisSI](https://www.usethissi.com/tools/SLUG/)
 
 ## Price watch
 - **Tool:** what changed / deadline. [Source](https://example.com)

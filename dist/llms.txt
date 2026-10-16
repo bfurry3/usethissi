@@ -1,20 +1,20 @@
 # UseThisSI
 
-> One top AI tool pick per job for builders, vibe coders, AI agent tinkerers and indie game devs. Pricing last checked 2026-10-14.
+> One top AI tool pick per job for builders, vibe coders, AI agent tinkerers and indie game devs. Pricing last checked 2026-10-15.
 
 ## Use cases
-- [Vibe-code an app or landing page](https://usethissi.vercel.app/use-cases/vibe-code-an-app-or-landing-page/): top pick Lovable. Chat-to-full-stack app with hosting; easiest on-ramp.
-- [AI coding assistant](https://usethissi.vercel.app/use-cases/ai-coding-assistant/): top pick Cursor. Leading AI IDE with cloud agents.
-- [Set up or run AI agents](https://usethissi.vercel.app/use-cases/set-up-or-run-ai-agents/): top pick n8n. Open-source agent and workflow builder.
-- [Automate workflows](https://usethissi.vercel.app/use-cases/automate-workflows/): top pick Make. Visual automation with the best affiliate terms.
-- [Make game art and sprites](https://usethissi.vercel.app/use-cases/make-game-art-and-sprites/): top pick Scenario. Style-trained, consistent game assets.
-- [Generate music and SFX](https://usethissi.vercel.app/use-cases/generate-music-and-sfx/): top pick Suno. Best song gen with commercial rights on Pro.
-- [Edit and generate video](https://usethissi.vercel.app/use-cases/edit-and-generate-video/): top pick Runway. Pro-grade generative video.
-- [Write content](https://usethissi.vercel.app/use-cases/write-content/): top pick Claude. Best long-form writing voice.
-- [Research](https://usethissi.vercel.app/use-cases/research/): top pick Perplexity. Fast cited answers.
-- [Voice and TTS](https://usethissi.vercel.app/use-cases/voice-and-tts/): top pick ElevenLabs. Most realistic voices plus 22% recurring affiliate.
+- [Vibe-code an app or landing page](https://www.usethissi.com/use-cases/vibe-code-an-app-or-landing-page/): top pick Lovable. Chat-to-full-stack app with hosting; easiest on-ramp.
+- [AI coding assistant](https://www.usethissi.com/use-cases/ai-coding-assistant/): top pick Cursor. Leading AI IDE with cloud agents.
+- [Set up or run AI agents](https://www.usethissi.com/use-cases/set-up-or-run-ai-agents/): top pick n8n. Open-source agent and workflow builder.
+- [Automate workflows](https://www.usethissi.com/use-cases/automate-workflows/): top pick Make. Visual automation with the best affiliate terms.
+- [Make game art and sprites](https://www.usethissi.com/use-cases/make-game-art-and-sprites/): top pick Scenario. Style-trained, consistent game assets.
+- [Generate music and SFX](https://www.usethissi.com/use-cases/generate-music-and-sfx/): top pick Suno. Best song gen with commercial rights on Pro.
+- [Edit and generate video](https://www.usethissi.com/use-cases/edit-and-generate-video/): top pick Runway. Pro-grade generative video.
+- [Write content](https://www.usethissi.com/use-cases/write-content/): top pick Claude. Best long-form writing voice.
+- [Research](https://www.usethissi.com/use-cases/research/): top pick Perplexity. Fast cited answers.
+- [Voice and TTS](https://www.usethissi.com/use-cases/voice-and-tts/): top pick ElevenLabs. Most realistic voices plus 22% recurring affiliate.
 
 ## Pages
-- [All tools](https://usethissi.vercel.app/tools/)
-- [New this week](https://usethissi.vercel.app/new/)
-- [About and affiliate disclosure](https://usethissi.vercel.app/about/)
+- [All tools](https://www.usethissi.com/tools/)
+- [New this week](https://www.usethissi.com/new/)
+- [About and affiliate disclosure](https://www.usethissi.com/about/)
