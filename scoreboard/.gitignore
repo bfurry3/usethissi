@@ -1,0 +1,6 @@
+*.xlsx
+*.pdf
+*.png
+scoreboard.xml
+upload_args.json
+__pycache__/
