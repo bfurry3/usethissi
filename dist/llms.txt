@@ -1,6 +1,6 @@
 # UseThisSI
 
-> One top AI tool pick per job for builders, vibe coders, AI agent tinkerers and indie game devs. Directory updated 2026-10-15; each tool page shows its own last-checked date.
+> One top AI tool pick per job for builders, vibe coders, AI agent tinkerers and indie game devs. Directory updated 2026-10-16; each tool page shows its own last-checked date.
 
 ## Use cases
 - [Vibe-code an app or landing page](https://www.usethissi.com/use-cases/vibe-code-an-app-or-landing-page/): top pick Lovable. Chat-to-full-stack app with hosting; easiest on-ramp.
@@ -14,7 +14,24 @@
 - [Research](https://www.usethissi.com/use-cases/research/): top pick Perplexity. Fast cited answers.
 - [Voice and TTS](https://www.usethissi.com/use-cases/voice-and-tts/): top pick ElevenLabs. Most realistic voices plus 22% recurring affiliate.
 
+## Recent releases
+- 2026-10-15: TwelveLabs Jockey generally available in ChatGPT and Claude with clip/timeline/MP4 export (https://www.twelvelabs.io/blog/jockey-ga-7-updates)
+- 2026-10-15: GitHub Agentic autofix for code scanning alerts generally available (https://github.blog/changelog/2026-10-15-agentic-autofix-for-code-scanning-alerts-general-availability/)
+- 2026-10-15: Meta Muse Spark Open: open-weight 816B (42B active) multimodal model for coding/agents with 1M context (https://research.meta.ai/blog/muse-spark-open)
+- 2026-10-15: BAND for Developers: desktop app to coordinate multiple coding agents across harnesses (https://www.prnewswire.com/news-releases/band-launches-band-for-developers-to-support-the-transformation-of-sdlc-collaboration-and-control-of-multiple-coding-agents-302909844.html)
+- 2026-10-15: Snyk launches Evo Agentic AppSec: security agents that find, fix, and block vulns at agent speed (https://snyk.io/news/snyk-launches-evo-agentic-appsec/)
+- 2026-10-14: Chainguard Checks: CI gating for agent loops in warm microVMs (beta) (https://www.chainguard.dev/unchained/introducing-chainguard-checks)
+- 2026-10-14: Chainguard Workspaces: hardened microVM environments for developers and AI coding agents (beta) (https://www.chainguard.dev/unchained/introducing-chainguard-workspaces)
+- 2026-10-14: Attio ships hybrid architecture for agentic revenue (SQL Engine, Data Connectors, Agent Scale) (https://attio.com/blog/introducing-the-architecture-for-agentic-revenue)
+
+## FAQ
+- Q: How do you pick a top tool? A: One Top pick per use case based on fit for builders, plus honest free-tier and starting paid price with a per-tool last-checked date.
+- Q: Are affiliate links labeled? A: Yes. Affiliate outbound links use rel=sponsored and are disclosed on /about/#affiliates.
+- Q: Where is pricing verified? A: On each tool page under Last checked. Prices come from vendor pages; unverified fields stay labeled.
+- Q: How do I get the weekday brief? A: Subscribe at https://www.usethissi.com/#newsletter or https://usethissi.beehiiv.com/subscribe.
+
 ## Pages
 - [All tools](https://www.usethissi.com/tools/)
 - [New this week](https://www.usethissi.com/new/)
 - [About and affiliate disclosure](https://www.usethissi.com/about/)
+- [Contact](mailto:info@usethissi.com)
