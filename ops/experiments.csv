@@ -1,2 +1,2 @@
 date,test,metric,result,decision
-2026-10-16,Brief #3 subject A vs B — A: "Muse Spark Open is free to run, plus GitHub agentic autofix" (shipped) vs B holdout "Meta open-weights Muse Spark for coding agents",beehiiv open rate + click rate on Brief #3,pending,running
+2026-10-16,"Brief #3 subject A vs B: A ""Muse Spark Open is free to run, plus GitHub agentic autofix"" (shipped) vs B holdout ""Meta open-weights Muse Spark for coding agents""",beehiiv open rate + click rate on Brief #3,"pending: only 2 owner test recipients so far, no real-reader data",
