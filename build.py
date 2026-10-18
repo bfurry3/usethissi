@@ -94,7 +94,7 @@ def page(path,title,desc,body,ld=None,lastmod=None,noindex=False):
     LASTMOD[path]=(lastmod or STATIC_LASTMOD.get(path) or DATA_DATE, noindex)
     rob='<meta name="robots" content="noindex,follow">' if noindex else ""
     um=f'<script defer src="https://cloud.umami.is/script.js" data-website-id="{E(UMAMI)}"></script>' if UMAMI else ""
-    pages[path]=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+    pages[path]=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="impact-site-verification" value="1c1f3cbc-5bfd-4425-80ce-c30b259ba149"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{E(title)}</title><meta name="description" content="{E(desc)}"><link rel="canonical" href="{canon}">{rob}
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{canon}"><meta property="og:type" content="website">
 <meta name="theme-color" content="#0a0b14"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap"><link rel="stylesheet" href="/style.css">{ldj}
