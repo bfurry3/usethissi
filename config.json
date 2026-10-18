@@ -1,1 +1,13 @@
-{"base_url": "https://www.usethissi.com", "checked": "2026-10-14", "repo": "bfurry3/usethissi"}
+{
+ "base_url": "https://www.usethissi.com",
+ "checked": "2026-10-14",
+ "repo": "bfurry3/usethissi",
+ "umami_website_id": "",
+ "static_lastmod": {
+  "about/index.html": "2026-10-18",
+  "submit/index.html": "2026-10-18",
+  "use-cases/index.html": "2026-10-18",
+  "tools/index.html": "2026-10-18",
+  "index.html": "2026-10-18"
+ }
+}

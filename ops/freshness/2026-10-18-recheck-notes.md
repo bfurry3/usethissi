@@ -1,0 +1,41 @@
+# Freshness sprint, Oct 18 2026 (MST). Source = official pricing page via WebFetch unless noted.
+- Claude: claude.com/pricing. Free yes. Pro $17/mo annual ($200 up front), $20 monthly. Max from $100. Claude Code not on Free. CONFIRMED (Claude + Claude Code).
+- Runway: runwayml.com/pricing. Free 125 one-time credits. Standard $12/mo yearly, $15 monthly. CONFIRMED.
+- Scenario: scenario.com/pricing. Starter $15/mo (monthly; annual saves 33%). 50 free daily credits, no card; free outputs personal/eval use only. CONFIRMED.
+- Make: make.com/en/pricing. Free plan 1,000 credits/mo confirmed. Paid prices not rendered (JS). PARTIAL.
+- ChatGPT: chatgpt.com/pricing. Free (GPT-6) confirmed; plan prices not rendered. PARTIAL.
+- Suno: suno.com/pricing. Free plan exists; Premier $24 shown; Pro price not rendered. PARTIAL.
+- Descript: descript.com/pricing. Free $0 (60 media min/mo, 720p export). Hobbyist $16/mo annual, $24 monthly. CONFIRMED.
+- Ideogram: ideogram.ai/pricing. Plus $15/mo billed annually ($180), $20 monthly. Free: weekly credits for eligible free accounts. CONFIRMED.
+- Cartesia: cartesia.ai/pricing. Free 20K credits/mo. Pro $5/mo (100K credits, commercial license). CONFIRMED.
+- Synthesia: synthesia.io/pricing. Basic free (10 min video/mo, watermark). Starter $18/mo billed yearly, $29 monthly. FREE TIER UPDATED (was unverified).
+- Jasper: jasper.ai/pricing. Pro $59/mo yearly, $69 monthly; 7-day free trial. CONFIRMED.
+- Suno: suno.com/pricing (curl). Free 50 credits/day, no commercial rights. Pro $8/mo billed yearly ($10 monthly; "saves $24 by billing yearly"), 2,500 credits/mo, commercial rights. Premier $24/mo yearly. PRICE UPDATED ($10 Pro -> $8 yearly / $10 monthly).
+- Krea: krea.ai/pricing (curl). Free 100 units/day. Pro $21/mo billed annually, $35 monthly (save 40%). No "Basic $5.25" plan any more. PRICE CHANGED ($5.25 Basic -> $21 Pro).
+- AIVA: aiva.ai/pricing (curl). Free forever (non-commercial, credit AIVA, 3 downloads/mo). Standard €11/mo billed annually (+VAT). PRICE VERIFIED (was "unverified, about €11 reported").
+- PixelLab: pixellab.ai/pricing. "Try for free, no credit card". Plan prices JS-loaded. PARTIAL.
+- Udio: udio.com/pricing. Free 10 credits/day (100/mo, 3 full songs/day). Standard $8/mo billed annually ($96/yr), $10 monthly. CONFIRMED + annual added.
+- Leonardo.Ai: leonardo.ai/pricing. Free 150 fast tokens/day (free-tier images: Leonardo holds rights, you get commercial licence). Essential $12/mo ex. tax (yearly toggle up to 20% off). PRICE + FREE TIER VERIFIED (were unverified).
+- Windsurf (Devin Desktop): windsurf.com/pricing -> devin.ai/pricing (curl). Free $0; Pro $20/mo. CONFIRMED.
+- Gumloop: gumloop.com/pricing (curl). Pro starts at $37/mo; 14-day free trial. Free plan not shown. CONFIRMED price; free tier -> "14-day trial".
+- Copy.ai: copy.ai/prices (curl). $29/mo billed monthly, $24/mo billed yearly ($288). "Try for free". PRICE VERIFIED.
+- Speechify: speechify.com/pricing (curl). Free plan (up to 1.5x speed). Premium $29/mo billed monthly (yearly saves 60%). VERIFIED (was unverified).
+- ngram: ngram.com/pricing (curl). Basic $29/mo monthly, $23.20/mo billed annually; "Try ngram free". PRICE NOW OFFICIAL (was 3rd-party).
+- Rosebud AI: rosebud.ai/pricing (curl). Free plan confirmed ("Start free"); paid prices not in HTML. PARTIAL.
+- Google Antigravity: antigravity.google/pricing (curl). Individual $0/mo; Pro via subscription; org plans from $30/seat/mo. FREE TIER VERIFIED.
+- Gamma: gamma.app/pricing (official page content via search index; direct fetch timed out). Free 400 one-time credits. Plus $9/seat/mo billed annually ($108). PRICE CHANGED ($12 -> $9 annual).
+- Make: official make.com/en/compare/make-vs-zapier table: Free 1,000 credits/mo; Core $9/mo (10,000 credits). CONFIRMED.
+- Perplexity: perplexity.ai/pro (headless Chrome). Pro $17/mo billed annually. CONFIRMED annual price (monthly not shown).
+- ChatGPT: help.openai.com "What is ChatGPT Plus" (updated 3 days ago): Plus $20/mo, monthly only. Go price not confirmed -> dropped from listing.
+- Midjourney: docs.midjourney.com plan comparison: Basic $10/mo, $8/mo annual. No free plan. CONFIRMED.
+- Gemini: gemini.google/subscriptions: Free $0; Google AI Plus $4.99/mo; AI Pro $19.99/mo. CONFIRMED.
+- NotebookLM: notebooklm.google/plans (Chrome): free personal tier up to 50 sources/notebook; higher tiers in Google AI Plus/Pro/Ultra. Product now also branded "Gemini Notebook". CONFIRMED.
+- Google AI Studio / Gemini API: ai.google.dev pricing: free tier; Gemini 4 Argon not on free tier; $2/$10 per 1M through Nov 30 2026, $4/$20 from Dec 1. PRICE CHANGE SCHEDULED Dec 1 -> brief item.
+- ElevenLabs (+ Music and SFX): elevenlabs.io/pricing (curl). Free 10k credits/mo incl. SFX + Music; Starter $6/mo, $1 first month "Until Oct 18" (ends today). Music commercial use on Starter. CONFIRMED.
+- Murf AI: murf.ai/pricing (Chrome). "Try for free"; API Studio TTS $0.03/1K chars. Creator plan price not shown -> listing switched to official API rate.
+- CapCut: capcut.com/pricing (Chrome). Free plan; paid from USD 19.99/mo (yearly up to 30% off). CONFIRMED.
+- Kling AI: app.klingai.com membership page (Chrome). Standard $10/mo, $6.99 first month (30% off once). PRICE CORRECTED ($6.99 was the first-month promo).
+- PixelLab: pixellab.ai/pricing (Chrome). Free trial 40 fast generations; Tier 1 $12/mo. CONFIRMED.
+- Rosebud AI: rosebud.ai/pricing (Chrome). Free 8,000 credits/week; paid from $15/mo. VERIFIED (was unverified).
+- Claude Code: claude.com/pricing: included in Pro ($17 annual/$20 monthly), not Free. CONFIRMED.
+## Could not verify today (left undated, stale): Manus (credits shown, no price), Relevance AI (JS pricing, no price in render), Muse Code (Meta) and Gemini agent (Google Cloud) (no public self-serve price).

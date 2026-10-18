@@ -1,0 +1,92 @@
+date,tool,field,old,new,source
+2026-10-18,Claude Code,starting_paid_price,"$17/mo annual, $20 monthly via Claude Pro [official, Oct 16]","$17/mo annual, $20 monthly via Claude Pro [official, Oct 18]",official pricing page
+2026-10-18,Claude Code,last_checked,2026-10-16,2026-10-18,official pricing page
+2026-10-18,Windsurf (now Devin Desktop),free_tier,Yes,Yes (Free plan),official pricing page
+2026-10-18,Windsurf (now Devin Desktop),starting_paid_price,$20/mo,"$20/mo Pro [official, Oct 18]",official pricing page
+2026-10-18,Windsurf (now Devin Desktop),last_checked,,2026-10-18,official pricing page
+2026-10-18,Make,free_tier,Yes,"Yes (1,000 credits/mo)",official pricing page
+2026-10-18,Make,starting_paid_price,$9/mo Core (annual),"$9/mo Core billed annually (10,000 credits) [official, Oct 18]",official pricing page
+2026-10-18,Make,last_checked,,2026-10-18,official pricing page
+2026-10-18,Gumloop,free_tier,unverified,No free plan shown (14-day trial),official pricing page
+2026-10-18,Gumloop,starting_paid_price,$37/mo Pro [official docs],"$37/mo Pro [official, Oct 18]",official pricing page
+2026-10-18,Gumloop,last_checked,,2026-10-18,official pricing page
+2026-10-18,Scenario,free_tier,Yes (50 credits/day),Yes (50 credits/day; personal use only),official pricing page
+2026-10-18,Scenario,starting_paid_price,$15/mo Starter [official],"$15/mo Starter (monthly; annual saves 33%) [official, Oct 18]",official pricing page
+2026-10-18,Scenario,last_checked,,2026-10-18,official pricing page
+2026-10-18,PixelLab,free_tier,unverified,Yes (free trial: 40 fast generations),official pricing page
+2026-10-18,PixelLab,starting_paid_price,$12/mo,"$12/mo Tier 1 Pixel Apprentice [official, Oct 18]",official pricing page
+2026-10-18,PixelLab,last_checked,,2026-10-18,official pricing page
+2026-10-18,Midjourney,starting_paid_price,$10/mo Basic,"$10/mo Basic ($8/mo billed annually) [official, Oct 18]",official pricing page
+2026-10-18,Midjourney,last_checked,,2026-10-18,official pricing page
+2026-10-18,Leonardo.Ai,free_tier,unverified,Yes (150 fast tokens/day),official pricing page
+2026-10-18,Leonardo.Ai,starting_paid_price,unverified,"$12/mo Essential, ex. tax [official, Oct 18]",official pricing page
+2026-10-18,Leonardo.Ai,last_checked,,2026-10-18,official pricing page
+2026-10-18,Ideogram,free_tier,Yes,Yes (weekly free credits),official pricing page
+2026-10-18,Ideogram,starting_paid_price,$15/mo Plus [official],"$15/mo Plus billed annually, $20 monthly [official, Oct 18]",official pricing page
+2026-10-18,Ideogram,last_checked,,2026-10-18,official pricing page
+2026-10-18,Krea,free_tier,Yes,Yes (100 units/day),official pricing page
+2026-10-18,Krea,starting_paid_price,$5.25/mo Basic,"$21/mo Pro billed annually, $35 monthly [official, Oct 18]",official pricing page
+2026-10-18,Krea,last_checked,,2026-10-18,official pricing page
+2026-10-18,Rosebud AI,free_tier,"Yes (8,000 credits)","Yes (8,000 credits/week)",official pricing page
+2026-10-18,Rosebud AI,starting_paid_price,unverified,"$15/mo [official, Oct 18]",official pricing page
+2026-10-18,Rosebud AI,last_checked,,2026-10-18,official pricing page
+2026-10-18,Suno,starting_paid_price,"$10/mo Pro; Premier $24/mo billed annually [Premier price official, Oct 14]","$8/mo Pro billed yearly, $10 monthly [official, Oct 18]",official pricing page
+2026-10-18,Suno,last_checked,,2026-10-18,official pricing page
+2026-10-18,ElevenLabs Music and SFX,free_tier,Yes,"Yes (10k credits/mo, includes music and SFX)",official pricing page
+2026-10-18,ElevenLabs Music and SFX,starting_paid_price,$6/mo [official],"$6/mo Starter (music commercial use) [official, Oct 18]",official pricing page
+2026-10-18,ElevenLabs Music and SFX,last_checked,,2026-10-18,official pricing page
+2026-10-18,Udio,starting_paid_price,$10/mo Standard,"$8/mo Standard billed annually, $10 monthly [official, Oct 18]",official pricing page
+2026-10-18,Udio,last_checked,,2026-10-18,official pricing page
+2026-10-18,AIVA,free_tier,Yes (non-commercial),"Yes (non-commercial, credit AIVA, 3 downloads/mo)",official pricing page
+2026-10-18,AIVA,starting_paid_price,unverified (about €11/mo annual reported),"€11/mo Standard billed annually, + VAT [official, Oct 18]",official pricing page
+2026-10-18,AIVA,last_checked,,2026-10-18,official pricing page
+2026-10-18,Runway,starting_paid_price,"$12/mo billed annually, $15 monthly [official, Oct 14]","$12/mo Standard billed annually, $15 monthly [official, Oct 18]",official pricing page
+2026-10-18,Runway,last_checked,,2026-10-18,official pricing page
+2026-10-18,Descript,free_tier,Yes,"Yes (1 media hour/mo, 720p)",official pricing page
+2026-10-18,Descript,starting_paid_price,"$16/mo annual, $24 monthly [official]","$16/mo Hobbyist annual, $24 monthly [official, Oct 18]",official pricing page
+2026-10-18,Descript,last_checked,,2026-10-18,official pricing page
+2026-10-18,CapCut,starting_paid_price,about $19.99/mo Pro (varies by region),"$19.99/mo (US, monthly; yearly up to 30% off) [official, Oct 18]",official pricing page
+2026-10-18,CapCut,last_checked,,2026-10-18,official pricing page
+2026-10-18,Kling AI,starting_paid_price,$6.99/mo,"$10/mo Standard ($6.99 first month) [official, Oct 18]",official pricing page
+2026-10-18,Kling AI,last_checked,,2026-10-18,official pricing page
+2026-10-18,Synthesia,free_tier,unverified,"Yes (10 min video/mo, watermarked)",official pricing page
+2026-10-18,Synthesia,starting_paid_price,$18/mo Starter,"$18/mo Starter billed yearly, $29 monthly [official, Oct 18]",official pricing page
+2026-10-18,Synthesia,last_checked,,2026-10-18,official pricing page
+2026-10-18,Claude,starting_paid_price,"$17/mo annual, $20 monthly [official]","$17/mo Pro annual, $20 monthly [official, Oct 18]",official pricing page
+2026-10-18,Claude,last_checked,,2026-10-18,official pricing page
+2026-10-18,ChatGPT,free_tier,Yes,Yes (GPT-6),official pricing page
+2026-10-18,ChatGPT,starting_paid_price,"$8/mo Go, $20 Plus","$20/mo Plus (monthly only) [official, Oct 18]",official pricing page
+2026-10-18,ChatGPT,last_checked,,2026-10-18,official pricing page
+2026-10-18,Jasper,starting_paid_price,"$59/mo annual, $69 monthly","$59/mo Pro annual, $69 monthly [official, Oct 18]",official pricing page
+2026-10-18,Jasper,last_checked,,2026-10-18,official pricing page
+2026-10-18,Copy.ai,starting_paid_price,$29/mo,"$24/mo billed yearly, $29 monthly [official, Oct 18]",official pricing page
+2026-10-18,Copy.ai,last_checked,,2026-10-18,official pricing page
+2026-10-18,Gamma,free_tier,Yes,Yes (400 one-time credits),official pricing page
+2026-10-18,Gamma,starting_paid_price,$12/mo Plus,"$9/seat/mo Plus billed annually [official, Oct 18]",official pricing page
+2026-10-18,Gamma,last_checked,,2026-10-18,official pricing page
+2026-10-18,Perplexity,starting_paid_price,$20/mo Pro,"$17/mo Pro billed annually [official, Oct 18]",official pricing page
+2026-10-18,Perplexity,last_checked,,2026-10-18,official pricing page
+2026-10-18,Gemini (Deep Research),starting_paid_price,$19.99/mo Google AI Pro,"$4.99/mo Google AI Plus; $19.99/mo AI Pro [official, Oct 18]",official pricing page
+2026-10-18,Gemini (Deep Research),last_checked,,2026-10-18,official pricing page
+2026-10-18,NotebookLM,reason,Grounded in your own sources,Grounded in your own sources (now also branded Gemini Notebook),official pricing page
+2026-10-18,NotebookLM,free_tier,Yes,Yes (up to 50 sources per notebook),official pricing page
+2026-10-18,NotebookLM,starting_paid_price,$4.99/mo via Google AI Plus,"$4.99/mo via Google AI Plus [official, Oct 18]",official pricing page
+2026-10-18,NotebookLM,last_checked,,2026-10-18,official pricing page
+2026-10-18,ElevenLabs,starting_paid_price,"$6/mo Starter ($1 first month until Oct 18) [official, Oct 16]","$6/mo Starter ($1 first month promo ends Oct 18) [official, Oct 18]",official pricing page
+2026-10-18,ElevenLabs,last_checked,2026-10-16,2026-10-18,official pricing page
+2026-10-18,Cartesia,free_tier,Yes (20K credits),Yes (20K credits/mo),official pricing page
+2026-10-18,Cartesia,starting_paid_price,$5/mo Pro,"$5/mo Pro [official, Oct 18]",official pricing page
+2026-10-18,Cartesia,last_checked,,2026-10-18,official pricing page
+2026-10-18,Murf AI,free_tier,unverified,Yes (free credits),official pricing page
+2026-10-18,Murf AI,starting_paid_price,$19/mo Creator,"API from $0.03 per 1,000 chars (Studio TTS) [official, Oct 18]",official pricing page
+2026-10-18,Murf AI,last_checked,,2026-10-18,official pricing page
+2026-10-18,Google Antigravity,free_tier,unverified,"Yes (Individual plan, $0)",official pricing page
+2026-10-18,Google Antigravity,starting_paid_price,unverified,"Org plans from $30/seat/mo; Pro via Google AI plans [official, Oct 18]",official pricing page
+2026-10-18,Google Antigravity,last_checked,,2026-10-18,official pricing page
+2026-10-18,ngram,starting_paid_price,$29/mo Basic (3rd-party),"$23.20/mo Basic billed annually, $29 monthly [official, Oct 18]",official pricing page
+2026-10-18,ngram,last_checked,,2026-10-18,official pricing page
+2026-10-18,Speechify,free_tier,unverified,Yes (up to 1.5x speed),official pricing page
+2026-10-18,Speechify,starting_paid_price,unverified,"$29/mo Premium billed monthly [official, Oct 18]",official pricing page
+2026-10-18,Speechify,last_checked,,2026-10-18,official pricing page
+2026-10-18,Google AI Studio,starting_paid_price,Pay-as-you-go API (Argon $2/$10 per 1M tokens intro),"Free tier; Argon API $2/$10 per 1M tokens thru Nov 30, then $4/$20 [official, Oct 18]",official pricing page
+2026-10-18,Google AI Studio,last_checked,,2026-10-18,official pricing page

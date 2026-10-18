@@ -7,6 +7,7 @@ for root,_,fs in os.walk("dist"):
         if not f.endswith(".html"): continue
         p=os.path.join(root,f)
         for h in re.findall(r'(?:href|src)="(/[^"#?]*)',open(p).read()):
+            if h.startswith("/_vercel/"): continue
             t="dist"+h+("index.html" if h.endswith("/") else "")
             if not os.path.exists(t): bad.append((p,h))
 for b in bad: print("BROKEN",*b)

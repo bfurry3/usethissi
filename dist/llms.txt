@@ -1,6 +1,6 @@
 # UseThisSI
 
-> One top AI tool pick per job for builders, vibe coders, AI agent tinkerers and indie game devs. Directory updated 2026-10-16; each tool page shows its own last-checked date.
+> One top AI tool pick per job for builders, vibe coders, AI agent tinkerers and indie game devs. Directory data last checked 2026-10-18; each tool page shows its own last-checked date.
 
 ## Use cases
 - [Vibe-code an app or landing page](https://www.usethissi.com/use-cases/vibe-code-an-app-or-landing-page/): top pick Lovable. Chat-to-full-stack app with hosting; easiest on-ramp.
@@ -13,6 +13,42 @@
 - [Write content](https://www.usethissi.com/use-cases/write-content/): top pick Claude. Best long-form writing voice.
 - [Research](https://www.usethissi.com/use-cases/research/): top pick Perplexity. Fast cited answers.
 - [Voice and TTS](https://www.usethissi.com/use-cases/voice-and-tts/): top pick ElevenLabs. Most realistic voices plus 22% recurring affiliate.
+
+## Free AI tools by job
+- [Free AI tools to Vibe-code an app or landing page](https://www.usethissi.com/free/vibe-code-an-app-or-landing-page/): 5 verified free tiers.
+- [Free AI tools to AI coding assistant](https://www.usethissi.com/free/ai-coding-assistant/): 9 verified free tiers.
+- [Free AI tools to Set up or run AI agents](https://www.usethissi.com/free/set-up-or-run-ai-agents/): 9 verified free tiers.
+- [Free AI tools to Make game art and sprites](https://www.usethissi.com/free/make-game-art-and-sprites/): 6 verified free tiers.
+- [Free AI tools to Generate music and SFX](https://www.usethissi.com/free/generate-music-and-sfx/): 4 verified free tiers.
+- [Free AI tools to Edit and generate video](https://www.usethissi.com/free/edit-and-generate-video/): 8 verified free tiers.
+- [Free AI tools to Write content](https://www.usethissi.com/free/write-content/): 3 verified free tiers.
+- [Free AI tools to Research](https://www.usethissi.com/free/research/): 6 verified free tiers.
+- [Free AI tools to Voice and TTS](https://www.usethissi.com/free/voice-and-tts/): 5 verified free tiers.
+
+## Pricing pages (every plan, checked)
+- [Windsurf (now Devin Desktop) pricing](https://www.usethissi.com/tools/windsurf-now-devin-desktop/pricing/)
+- [Make pricing](https://www.usethissi.com/tools/make/pricing/)
+- [Scenario pricing](https://www.usethissi.com/tools/scenario/pricing/)
+- [PixelLab pricing](https://www.usethissi.com/tools/pixellab/pricing/)
+- [Midjourney pricing](https://www.usethissi.com/tools/midjourney/pricing/)
+- [Leonardo.Ai pricing](https://www.usethissi.com/tools/leonardo-ai/pricing/)
+- [Ideogram pricing](https://www.usethissi.com/tools/ideogram/pricing/)
+- [Krea pricing](https://www.usethissi.com/tools/krea/pricing/)
+- [Rosebud AI pricing](https://www.usethissi.com/tools/rosebud-ai/pricing/)
+- [Suno pricing](https://www.usethissi.com/tools/suno/pricing/)
+- [Udio pricing](https://www.usethissi.com/tools/udio/pricing/)
+- [AIVA pricing](https://www.usethissi.com/tools/aiva/pricing/)
+- [Runway pricing](https://www.usethissi.com/tools/runway/pricing/)
+- [Descript pricing](https://www.usethissi.com/tools/descript/pricing/)
+- [Kling AI pricing](https://www.usethissi.com/tools/kling-ai/pricing/)
+- [Synthesia pricing](https://www.usethissi.com/tools/synthesia/pricing/)
+- [ngram pricing](https://www.usethissi.com/tools/ngram/pricing/)
+- [Claude pricing](https://www.usethissi.com/tools/claude/pricing/)
+- [Gamma pricing](https://www.usethissi.com/tools/gamma/pricing/)
+- [Perplexity pricing](https://www.usethissi.com/tools/perplexity/pricing/)
+- [Gemini (Deep Research) pricing](https://www.usethissi.com/tools/gemini-deep-research/pricing/)
+- [ElevenLabs pricing](https://www.usethissi.com/tools/elevenlabs/pricing/)
+- [Cartesia pricing](https://www.usethissi.com/tools/cartesia/pricing/)
 
 ## Recent releases
 - 2026-10-15: TwelveLabs Jockey generally available in ChatGPT and Claude with clip/timeline/MP4 export (https://www.twelvelabs.io/blog/jockey-ga-7-updates)
@@ -28,7 +64,7 @@
 - Q: How do you pick a top tool? A: One Top pick per use case based on fit for builders, plus honest free-tier and starting paid price with a per-tool last-checked date.
 - Q: Are affiliate links labeled? A: Yes. Affiliate outbound links use rel=sponsored and are disclosed on /about/#affiliates.
 - Q: Where is pricing verified? A: On each tool page under Last checked. Prices come from vendor pages; unverified fields stay labeled.
-- Q: How do I get the weekday brief? A: Subscribe at https://www.usethissi.com/#newsletter or https://usethissi.beehiiv.com/subscribe.
+- Q: How do I get the weekday brief and the free AI Stack Kit? A: Subscribe at https://www.usethissi.com/#newsletter or https://usethissi.beehiiv.com/subscribe.
 
 ## Pages
 - [All tools](https://www.usethissi.com/tools/)

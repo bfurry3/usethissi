@@ -1,0 +1,84 @@
+tool,plan,per_month_annual,per_month_monthly,currency,includes,source_url,checked
+Claude,Free,0,0,USD,"Chat on web, desktop and mobile; web search; Projects up to 5",https://claude.com/pricing,2026-10-18
+Claude,Pro,17,20,USD,"More usage; Claude Code; Projects; Research ($200 billed up front annually)",https://claude.com/pricing,2026-10-18
+Claude,Max,,100,USD,"From $100/mo; 5x or 20x Pro usage; monthly billing only",https://claude.com/pricing,2026-10-18
+Runway,Free,0,0,USD,125 one-time credits,https://runwayml.com/pricing,2026-10-18
+Runway,Standard,12,15,USD,625 credits/mo (about 52s of Gen-4.5),https://runwayml.com/pricing,2026-10-18
+Runway,Pro,28,35,USD,"2,250 credits/mo",https://runwayml.com/pricing,2026-10-18
+Runway,Max,76,95,USD,"9,500 credits/mo; up to one month of unused credits rolls over",https://runwayml.com/pricing,2026-10-18
+Scenario,Free,0,0,USD,"50 credits/day; outputs for personal/evaluation use only",https://www.scenario.com/pricing,2026-10-18
+Scenario,Starter,,15,USD,"1,500 credits/mo; commercial license (annual billing saves 33%)",https://www.scenario.com/pricing,2026-10-18
+Scenario,Pro,,45,USD,"5,000 credits/mo; train custom models; priority queue",https://www.scenario.com/pricing,2026-10-18
+Scenario,Max,,75,USD,"10,000 credits/mo; workspace up to 25 users",https://www.scenario.com/pricing,2026-10-18
+Descript,Free,0,0,USD,"1 media hour/mo; 720p export",https://www.descript.com/pricing,2026-10-18
+Descript,Hobbyist,16,24,USD,"10 media hours/mo; 400 AI credits; 1080p, no watermark",https://www.descript.com/pricing,2026-10-18
+Descript,Creator,24,35,USD,"30 media hours/mo; 800 AI credits; 4K export",https://www.descript.com/pricing,2026-10-18
+Descript,Business,50,65,USD,"40 media hours/mo; 1,500 AI credits; Brand Studio",https://www.descript.com/pricing,2026-10-18
+Ideogram,Plus,15,20,USD,"2,400 priority credits/mo; unlimited slow credits; private generations",https://ideogram.ai/pricing,2026-10-18
+Ideogram,Pro,42,60,USD,"7,500 priority credits/mo",https://ideogram.ai/pricing,2026-10-18
+Ideogram,Team,20,30,USD,"Per user; 3,600 priority credits/user/mo",https://ideogram.ai/pricing,2026-10-18
+Cartesia,Free,0,0,USD,"20K credits/mo; TTS and STT",https://cartesia.ai/pricing,2026-10-18
+Cartesia,Pro,,5,USD,"100K credits/mo; commercial license; instant voice cloning",https://cartesia.ai/pricing,2026-10-18
+Cartesia,Startup,,49,USD,"1.25M credits/mo; pro voice cloning",https://cartesia.ai/pricing,2026-10-18
+Cartesia,Scale,,299,USD,"8M credits/mo; priority support",https://cartesia.ai/pricing,2026-10-18
+Synthesia,Basic,0,0,USD,"10 min of video/mo; watermark",https://www.synthesia.io/pricing,2026-10-18
+Synthesia,Starter,18,29,USD,"1,250 credits/mo on top of the free allowance; no watermark",https://www.synthesia.io/pricing,2026-10-18
+Synthesia,Pro,64,89,USD,"6,000 credits/mo; 5 personal avatars",https://www.synthesia.io/pricing,2026-10-18
+Jasper,Pro,59,69,USD,"1 seat; 2 brand voices; 7-day free trial",https://www.jasper.ai/pricing,2026-10-18
+Jasper,Business,,,USD,Custom pricing; 12-month commitment,https://www.jasper.ai/pricing,2026-10-18
+Suno,Free,0,0,USD,"50 credits/day; no commercial rights; no downloads",https://suno.com/pricing,2026-10-18
+Suno,Pro,8,10,USD,"2,500 credits/mo; 20 song downloads/mo; commercial use",https://suno.com/pricing,2026-10-18
+Suno,Premier,24,30,USD,Maximum credits and every feature,https://suno.com/pricing,2026-10-18
+Krea,Free,0,0,USD,100 compute units/day,https://www.krea.ai/pricing,2026-10-18
+Krea,Pro,21,35,USD,Commercial license (save 40% with annual),https://www.krea.ai/pricing,2026-10-18
+Krea,Max,63,105,USD,More compute units,https://www.krea.ai/pricing,2026-10-18
+Krea,Business,160,200,USD,Team features,https://www.krea.ai/pricing,2026-10-18
+Udio,Free,0,0,USD,"10 credits/day, 100/mo; 3 full-length songs/day",https://www.udio.com/pricing,2026-10-18
+Udio,Standard,8,10,USD,"2,400 credits/mo ($96 billed annually)",https://www.udio.com/pricing,2026-10-18
+Udio,Pro,24,30,USD,"6,000 credits/mo ($288 billed annually)",https://www.udio.com/pricing,2026-10-18
+Leonardo.Ai,Free,0,0,USD,150 fast tokens/day; public creations,https://leonardo.ai/pricing,2026-10-18
+Leonardo.Ai,Essential,,12,USD,"8,500 fast tokens/mo; private creations; ex. tax (yearly saves up to 20%)",https://leonardo.ai/pricing,2026-10-18
+Leonardo.Ai,Premium,,30,USD,"25,000 fast tokens/mo; unlimited relaxed images on select models",https://leonardo.ai/pricing,2026-10-18
+Leonardo.Ai,Ultimate,,60,USD,"60,000 fast tokens/mo; unlimited relaxed video on select models",https://leonardo.ai/pricing,2026-10-18
+Midjourney,Basic,8,10,USD,3.3 fast GPU hours/mo,https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans,2026-10-18
+Midjourney,Standard,24,30,USD,15 fast GPU hours/mo; unlimited relaxed images,https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans,2026-10-18
+Midjourney,Pro,48,60,USD,30 fast GPU hours/mo; Stealth Mode,https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans,2026-10-18
+Midjourney,Mega,96,120,USD,60 fast GPU hours/mo,https://docs.midjourney.com/hc/en-us/articles/27870484040333-Comparing-Midjourney-Plans,2026-10-18
+Gamma,Free,0,0,USD,"400 one-time credits; Gamma badge on exports",https://gamma.app/pricing,2026-10-18
+Gamma,Plus,9,,USD,"Per seat; 1,000 credits/mo; removes Gamma branding",https://gamma.app/pricing,2026-10-18
+Gamma,Pro,18,,USD,"Per seat; 4,000 credits/mo; custom domains; API",https://gamma.app/pricing,2026-10-18
+Gamma,Ultra,90,,USD,"Per seat; 20,000 credits/mo",https://gamma.app/pricing,2026-10-18
+Make,Free,0,0,USD,"1,000 credits/mo",https://www.make.com/en/compare/make-vs-zapier,2026-10-18
+Make,Core,9,,USD,"From 10,000 credits/mo; unlimited active scenarios",https://www.make.com/en/compare/make-vs-zapier,2026-10-18
+Make,Pro,16,,USD,"From 10,000 credits/mo; priority execution",https://www.make.com/en/compare/make-vs-zapier,2026-10-18
+Make,Teams,29,,USD,"From 10,000 credits/mo; teams and roles",https://www.make.com/en/compare/make-vs-zapier,2026-10-18
+PixelLab,Free trial,0,0,USD,40 fast generations,https://www.pixellab.ai/pricing,2026-10-18
+PixelLab,Tier 1: Pixel Apprentice,,12,USD,"2,000 generations/mo (about 25% off with annual)",https://www.pixellab.ai/pricing,2026-10-18
+PixelLab,Tier 2: Pixel Artisan,,24,USD,"5,000 generations/mo; priority queue",https://www.pixellab.ai/pricing,2026-10-18
+PixelLab,Tier 3: Pixel Architect,,50,USD,"10,000 generations/mo; highest priority",https://www.pixellab.ai/pricing,2026-10-18
+Rosebud AI,Newbie (free),0,0,USD,"8,000 credits/week",https://rosebud.ai/pricing,2026-10-18
+Rosebud AI,Paid tier 1,,15,USD,"100,000 credits/mo + 10,000 daily refresh",https://rosebud.ai/pricing,2026-10-18
+Rosebud AI,Paid tier 2,,30,USD,"300,000 credits/mo; commercial control",https://rosebud.ai/pricing,2026-10-18
+Rosebud AI,Paid tier 3,,50,USD,"1,000,000 credits/mo",https://rosebud.ai/pricing,2026-10-18
+Windsurf (now Devin Desktop),Free,0,0,USD,Free plan,https://devin.ai/pricing,2026-10-18
+Windsurf (now Devin Desktop),Pro,,20,USD,Paid individual plan,https://devin.ai/pricing,2026-10-18
+Windsurf (now Devin Desktop),Max,,200,USD,Highest individual limits,https://devin.ai/pricing,2026-10-18
+Windsurf (now Devin Desktop),Teams,,80,USD,Team plan + $40/mo per full dev seat,https://devin.ai/pricing,2026-10-18
+ElevenLabs,Free,0,0,USD,"10k credits/mo; TTS, SFX, music",https://elevenlabs.io/pricing,2026-10-18
+ElevenLabs,Starter,,6,USD,Music commercial use ($1 first-month offer ends Oct 18),https://elevenlabs.io/pricing,2026-10-18
+ElevenLabs,Creator,,22,USD,Professional voice cloning (first month 50% off),https://elevenlabs.io/pricing,2026-10-18
+ElevenLabs,Pro,,99,USD,Higher credit allowance,https://elevenlabs.io/pricing,2026-10-18
+Kling AI,Standard,,10,USD,"660 credits/mo; $6.99 first month (one-time offer)",https://app.klingai.com/global/membership/membership-plan,2026-10-18
+Kling AI,Pro,,37,USD,"3,000 credits/mo; $25.99 first month (one-time offer)",https://app.klingai.com/global/membership/membership-plan,2026-10-18
+ngram,Basic,23.20,29,USD,"3,000 credits/mo equivalent",https://www.ngram.com/pricing,2026-10-18
+ngram,Most Popular tier,47.20,59,USD,More credits,https://www.ngram.com/pricing,2026-10-18
+ngram,Ultimate,239.20,299,USD,Highest credits,https://www.ngram.com/pricing,2026-10-18
+Gemini (Deep Research),Free,0,0,USD,With a Google Account,https://gemini.google/subscriptions/,2026-10-18
+Gemini (Deep Research),Google AI Plus,,4.99,USD,2x higher usage than Free,https://gemini.google/subscriptions/,2026-10-18
+Gemini (Deep Research),Google AI Pro,,19.99,USD,4x higher usage than Free; video generation,https://gemini.google/subscriptions/,2026-10-18
+AIVA,Free,0,0,EUR,"Non-commercial; credit AIVA; 3 downloads/mo; tracks up to 3 min",https://www.aiva.ai/pricing,2026-10-18
+AIVA,Standard,11,,EUR,"Limited monetization (YouTube, Twitch, TikTok, Instagram); + VAT",https://www.aiva.ai/pricing,2026-10-18
+AIVA,Pro,33,,EUR,"You own the full copyright; + VAT",https://www.aiva.ai/pricing,2026-10-18
+Perplexity,Free,0,0,USD,Free answers,https://www.perplexity.ai/pro,2026-10-18
+Perplexity,Pro,17,,USD,Advanced answers and top AI models,https://www.perplexity.ai/pro,2026-10-18
+Perplexity,Max,167,,USD,Unlimited usage and top performance,https://www.perplexity.ai/pro,2026-10-18
