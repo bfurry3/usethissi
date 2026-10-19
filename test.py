@@ -107,11 +107,28 @@ if Q:
     stale=[x for x in rows if not x[8].strip() or (today-_dt.date.fromisoformat(x[8].strip())).days>30]
     r.append(ok(not any((_slug(x[2]),_slug(x[0])) in {(Q["tools"][i]["slug"],j) for i,j in used} for x in stale),f"none of the {len(stale)} stale/undated listings appear in quiz results"))
 
+# ---- quiz price anchor (honest: derived only from data.csv verified monthly prices)
+if Q is not None:
+    import quiz as _qz
+    _abad=[];_an=0;_ex=[]
+    for R in Q["combos"]:
+        for J in R:
+            for B in J:
+                for c in B:
+                    p=Q["tools"][c[1]] if c[1]>=0 else None; k=Q["tools"][c[2]] if c[2]>=0 else None
+                    pm=_qz.monthly(p["price"]) if p else None; km=_qz.monthly(k["price"]) if k else None
+                    if not pm or pm[1]!="USD": exp=-1
+                    elif km and km[1]=="USD": exp=round(pm[0]+km[0],2)
+                    else: exp=round(pm[0],2)
+                    if abs(c[6]-exp)>1e-9 or ((c[6]>=0)!=bool(c[7])): _abad.append(c)
+                    _an+=c[6]>=0
+    r.append(ok(not _abad and _an>0,f"{_an} quiz price anchors all equal paid+skip cheapest monthly price from data.csv; none shown when the paid price is missing ({len(_abad)} mismatches)"))
+r.append(ok('id="qanchor"' in qh and "Testing these yourself:" in qh and "Unlock 2 more picks + the AI Stack Kit" in qh and not re.search(r"normally \$",qh,re.I),"quiz gate has the anchor line, short headline and no invented 'normally $' price"))
 # ---- quiz soft gate
 r.append(ok('id="qres"' in qh and re.search(r'<section id="qres"[^>]*\bhidden\b',qh) is not None and re.search(r'<div id="qfull" hidden>\s*</div>',qh) is not None,"quiz results start hidden; paid/skip cards are not in the page until unlock"))
 gi,li,fi=qh.find('id="qgate"'),qh.find('id="qlocked"'),qh.find('id="qfree"')
 r.append(ok(0<fi<gi<li,"email capture sits right after the free pick and before the locked paid/skip cards"))
-r.append(ok("Unlock your full stack + the free AI Stack Kit" in qh and "Free. Weekday 5-min brief. Unsubscribe anytime." in qh,"gate headline and trust line"))
+r.append(ok("Unlock 2 more picks + the AI Stack Kit" in qh and "Free. Weekday 5-min brief. Unsubscribe anytime." in qh,"gate headline and trust line"))
 r.append(ok('id="qnothanks"' in qh and "No thanks, just show me" in qh and "/quiz/skip/" in qh,"no-thanks link exists and is tracked as /quiz/skip/"))
 r.append(ok(all(x in qh for x in ('"/quiz/start/"','"/quiz/done/"','"/quiz/signup/"','"layout", "slim"','"utm_source", "quiz"','"utm_campaign", "quiz-" + job','data-pub="d420e641-998f-43f4-a9ec-f398fd8e23c6"')),"quiz tracks start/done/signup and loads the beehiiv slim form tagged utm_source=quiz, utm_campaign=quiz-<job>"))
 r.append(ok(IMPACT in qh and "vercel.app" not in qh,"quiz page keeps the Impact meta and has no vercel.app links"))

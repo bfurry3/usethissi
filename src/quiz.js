@@ -106,6 +106,9 @@
     $("qfree").innerHTML = f ? card("q-free", "Free pick", f, f.reason + ".", Q.catch[f.kind] ? '<p class="qcatch">' + esc(Q.catch[f.kind]) + "</p>" : "")
       : card("q-free", "Free pick", null, '<h3>No verified free tier</h3><p class="qwhy">Nothing for this job has a free tier we checked in the last 30 days.</p>');
     $("qfallback").href = "https://usethissi.beehiiv.com/subscribe?utm_source=quiz&utm_medium=website&utm_campaign=quiz-" + job.slug;
+    var an = $("qanchor"), ano = $("qanote");
+    if (c[6] != null && c[6] >= 0) { $("qanchorv").textContent = fmt(c[6], "USD") + "/mo"; ano.textContent = "Based on list prices checked " + c[7] + "."; an.hidden = false; ano.hidden = false; }
+    else { an.hidden = true; ano.hidden = true; }
     loadForm(job.slug);
     if (qIframe && qIframe.contentWindow) try { qIframe.contentWindow.postMessage({ type: "beehiiv:resize" }, "*"); } catch (e) {}
     if (unlocked || isSub()) reveal(isSub() ? "sub" : unlocked);
@@ -133,7 +136,7 @@
     var full = $("qfull"); full.innerHTML = fullCards(); full.hidden = false; full.classList.remove("qin"); void full.offsetWidth; full.classList.add("qin");
     $("qlocked").hidden = true; stickyOff();
     if (how === "sub") { $("qgatebody").hidden = true; $("qsuccess").hidden = false; $("qgate").classList.add("qdone"); }
-    else { $("qnothanks").hidden = true; $("qgh").textContent = "Want the free AI Stack Kit too?"; $("qlockline").hidden = true; }
+    else { $("qnothanks").hidden = true; $("qgh").textContent = "Want the free AI Stack Kit too?"; $("qlockline").hidden = true; $("qanchor").hidden = true; $("qanote").hidden = true; }
   }
   $("qnothanks").addEventListener("click", function () { track("/quiz/skip/"); reveal("skip"); var f = $("qfull"); f.scrollIntoView({ behavior: "smooth", block: "center" }); });
   res.addEventListener("click", function (e) {

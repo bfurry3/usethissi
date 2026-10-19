@@ -176,8 +176,21 @@ def pick(L, commercial, cap, bk, skill):
             best, bs, bnote = t, sc, note
     if best is not None and not bnote:
         best = None
+    av, ad = anchor(paid, best)
     return [free["id"] if free else -1, paid["id"] if paid else -1, best["id"] if best else -1, pnote, bnote,
-            1 if (free is not None and paid is not None and free["slug"] != paid["slug"] and affordable(free, cap, bk)) else 0]
+            1 if (free is not None and paid is not None and free["slug"] != paid["slug"] and affordable(free, cap, bk)) else 0,
+            av, ad]
+
+
+def anchor(paid, skip):
+    """Real monthly cost of trying the locked tools yourself, from data.csv verified prices only.
+    paid pick's cheapest monthly plan + skip tool's cheapest monthly plan; paid only if skip has no
+    verified USD monthly price; (-1, "") if the paid pick has none. Returns (value, oldest checked date, formatted)."""
+    if paid is None or paid["mo"] is None or paid["cur"] != "USD":
+        return -1, ""
+    if skip is not None and skip["mo"] is not None and skip["cur"] == "USD":
+        return round(paid["mo"] + skip["mo"], 2), min((paid, skip), key=lambda t: t["checked"])["checkedNice"]
+    return round(paid["mo"], 2), paid["checkedNice"]
 
 
 def note_text(code, notes, t, paid):
@@ -196,7 +209,7 @@ def result(Q, role, job, budget, skill=DEFAULT_SKILL):
     ji = [j["slug"] for j in Q["jobs"]].index(job)
     bi = [b["k"] for b in Q["budgets"]].index(budget)
     si = [k["k"] for k in Q["skills"]].index(skill)
-    f, p, s, pn, sn, up = Q["combos"][ri][ji][bi][si]
+    f, p, s, pn, sn, up = Q["combos"][ri][ji][bi][si][:6]
     T = Q["tools"]
     ft, pt, st = (T[f] if f >= 0 else None), (T[p] if p >= 0 else None), (T[s] if s >= 0 else None)
     return {"free": ft, "paid": pt, "skip": st,
