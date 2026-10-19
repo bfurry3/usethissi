@@ -57,7 +57,7 @@ ucf=[p for p in htmls if re.search(r"dist/(use-cases|free)/[^/]+/index.html$",p)
 r.append(ok(ucf and all('class="quizbar"' in open(p).read() and 'href="/quiz/#j=' in open(p).read() for p in ucf),f"{len(ucf)} use-case and free pages carry a quiz CTA"))
 m=re.search(r'<script type="application/json" id="qdata">(.*?)</script>',qh,re.S)
 Q=json.loads(m.group(1).replace("<\\/","</")) if m else None
-r.append(ok(Q is not None and qh.count('data-form="767b56cc-d716-4bab-a162-0baf03c34b2c"')==1 and "subscribe-forms.beehiiv.com/v3/loader.js" in qh and "utm_source" in qh and "utm_campaign=quiz" in qh,"quiz embeds data, the site's beehiiv form id and quiz UTM tagging"))
+r.append(ok(Q is not None and qh.count('data-form="767b56cc-d716-4bab-a162-0baf03c34b2c"')==1 and "subscribe-forms.beehiiv.com" in qh and "utm_source=quiz" in qh and "utm_campaign=quiz" in qh,"quiz embeds data, the site's beehiiv form id and quiz UTM tagging"))
 if Q:
     today=_dt.datetime.now(__import__("zoneinfo").ZoneInfo("America/Phoenix")).date()
     rows=[x for x in csv.reader(open("data.csv"))][1:]
@@ -101,4 +101,14 @@ if Q:
     r.append(ok(all(os.path.exists(f"dist/tools/{t['slug']}/index.html") for t in Q["tools"]) and all(os.path.exists(f"dist/use-cases/{j}/index.html") for j in jobs),"every quiz card links to a real tool page and use-case page"))
     stale=[x for x in rows if not x[8].strip() or (today-_dt.date.fromisoformat(x[8].strip())).days>30]
     r.append(ok(not any((_slug(x[2]),_slug(x[0])) in {(Q["tools"][i]["slug"],j) for i,j in used} for x in stale),f"none of the {len(stale)} stale/undated listings appear in quiz results"))
+
+# ---- quiz soft gate
+r.append(ok('id="qres"' in qh and re.search(r'<section id="qres"[^>]*\bhidden\b',qh) is not None and re.search(r'<div id="qfull" hidden>\s*</div>',qh) is not None,"quiz results start hidden; paid/skip cards are not in the page until unlock"))
+gi,li,fi=qh.find('id="qgate"'),qh.find('id="qlocked"'),qh.find('id="qfree"')
+r.append(ok(0<fi<gi<li,"email capture sits right after the free pick and before the locked paid/skip cards"))
+r.append(ok("Unlock your full stack + the free AI Stack Kit" in qh and "Free. Weekday 5-min brief. Unsubscribe anytime." in qh,"gate headline and trust line"))
+r.append(ok('id="qnothanks"' in qh and "No thanks, just show me" in qh and "/quiz/skip/" in qh,"no-thanks link exists and is tracked as /quiz/skip/"))
+r.append(ok(all(x in qh for x in ('"/quiz/start/"','"/quiz/done/"','"/quiz/signup/"','"layout", "slim"','"utm_source", "quiz"','"utm_campaign", "quiz-" + job','data-pub="d420e641-998f-43f4-a9ec-f398fd8e23c6"')),"quiz tracks start/done/signup and loads the beehiiv slim form tagged utm_source=quiz, utm_campaign=quiz-<job>"))
+r.append(ok(IMPACT in qh and "vercel.app" not in qh,"quiz page keeps the Impact meta and has no vercel.app links"))
+r.append(ok('<details class="qseo">' in qh and "Quick picks by job" in qh,"no-JS SEO section kept, collapsed"))
 sys.exit(0 if all(r) else 1)

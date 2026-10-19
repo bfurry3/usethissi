@@ -79,19 +79,45 @@ CSS+=r"""
 @media (max-width:640px){.kit{grid-template-columns:1fr}}"""
 CSS+=r"""
 .quizbar{display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:center;justify-content:space-between;margin:1.8rem 0;padding:.9rem 1.1rem;border-radius:14px;border:1px solid #8b5cf666;background:linear-gradient(135deg,#8b5cf622,#22d3ee12)}.quizbar b{color:var(--txt)}.quizbar span{color:var(--mut)}.quizbar a.btn{padding:.55rem 1.1rem;font-size:.92rem}
-.qhero{padding:3rem 0 1rem;text-align:center}.qhero .lead{color:var(--mut);font-size:1.15rem;max-width:620px;margin:.8rem auto}.qnote{display:inline-block;font-size:.85rem;font-weight:600;color:#6ee7b7;border:1px solid #065f46;background:#064e3b55;border-radius:999px;padding:.2rem .7rem}
-.quiz{max-width:760px;margin:1.5rem auto;background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:20px;padding:1.4rem;min-height:300px;scroll-margin-top:80px}
-.quiz h2{margin:.3rem 0 .6rem;font-size:1.5rem}.quiz h2:focus{outline:none}.qcount,.qhint,.qsmall{color:var(--mut);font-size:.9rem;margin:.2rem 0}
-.qprog{height:6px;border-radius:99px;background:var(--line);overflow:hidden;margin-bottom:.8rem}.qprog span{display:block;height:100%;background:var(--g);transition:width .25s}
-.qopts{display:grid;gap:.6rem;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));margin:1rem 0}
-.qopt{font:inherit;font-weight:500;text-align:left;color:var(--txt);background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:.85rem 1rem;cursor:pointer;min-height:48px;transition:border-color .15s,transform .15s}.qopt:hover{border-color:var(--v);transform:translateY(-1px)}
-.qnav{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem}.qback{font:inherit;font-size:.9rem;color:var(--mut);background:transparent;border:1px solid var(--line);border-radius:10px;padding:.5rem .9rem;cursor:pointer}.qback:hover{color:var(--txt);border-color:var(--v)}
-.qcards{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin:1rem 0}
-.qcard{background:var(--bg);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:14px;padding:1rem}.qcard h3{margin:.2rem 0 .4rem;font-size:1.25rem}.qcard h3 a{color:var(--txt)}
-.qlabel{margin:0;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c)}.q-free{border-top-color:#34d399}.q-free .qlabel{color:#6ee7b7}.q-paid{border-top-color:#8b5cf6}.q-paid .qlabel{color:#c4b5fd}.q-skip{border-top-color:#f87171}.q-skip .qlabel{color:#fca5a5}
-.qwhy{margin:.2rem 0 .5rem}.qcatch{font-size:.88rem;color:#fcd34d;margin:.2rem 0 .5rem}.qfacts{list-style:none;padding:0;margin:.5rem 0;font-size:.88rem}.qfacts li{padding:.25rem 0;border-top:1px solid var(--line)}.qfacts span{color:var(--mut);display:inline-block;min-width:5.5rem}.qmore{font-size:.9rem;font-weight:600}
+.qhero{padding:2.2rem 0 .4rem;text-align:center}.qhero h1{font-size:clamp(2rem,7vw,3.2rem);margin:.5rem 0}.qhero .lead{color:var(--mut);font-size:1.08rem;max-width:520px;margin:.4rem auto 0}
+.qpill{display:inline-flex;gap:.5rem;align-items:center;font-size:.8rem;font-weight:600;color:#6ee7b7;border:1px solid #065f4699;background:#064e3b44;border-radius:999px;padding:.3rem .8rem;margin:0}
+.quiz{--qf:#34d399;--qp:#a78bfa;--qs:#fb7185;max-width:640px;margin:1.2rem auto 2rem;scroll-margin-top:84px}
+.qtop{display:flex;align-items:center;gap:.8rem;margin:.4rem 0 1.4rem}.qprog{flex:1;height:8px;border-radius:99px;background:#ffffff14;overflow:hidden}.qprog span{display:block;height:100%;border-radius:99px;background:var(--g);transition:width .35s cubic-bezier(.2,.8,.2,1)}
+.qstepn{font:600 .85rem "Space Grotesk",Inter,sans-serif;color:var(--mut);min-width:2.2rem;text-align:right}
+.qicon{font:inherit;font-size:1.1rem;width:40px;height:40px;border-radius:12px;border:1px solid var(--line);background:var(--bg2);color:var(--txt);cursor:pointer;flex:none}.qicon[hidden]{display:block!important;visibility:hidden}
+.qstep{animation:qin .32s cubic-bezier(.2,.8,.2,1)}@keyframes qin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.quiz h2{font-size:clamp(1.6rem,5.5vw,2.1rem);margin:0 0 1.1rem}.quiz h2:focus{outline:none}
+.qopts{display:grid;gap:.65rem;grid-template-columns:1fr 1fr}
+.qopt{display:flex;align-items:center;gap:.8rem;font:500 1.05rem/1.3 Inter,system-ui,sans-serif;text-align:left;color:var(--txt);background:linear-gradient(180deg,#171a35,#11132a);border:1px solid var(--line);border-radius:16px;padding:1rem 1.1rem;min-height:64px;cursor:pointer;transition:border-color .15s,transform .15s,background .15s}
+.qopt:hover{border-color:var(--v);transform:translateY(-2px)}.qopt:active{transform:scale(.98)}.qe{font-size:1.4rem;line-height:1;flex:none}
+.qlink{font:inherit;background:none;border:0;color:var(--mut);text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:.9rem 0 0;font-size:.92rem}
+.qres{animation:qin .35s cubic-bezier(.2,.8,.2,1)}.qmeta{margin:0;color:var(--c);font-weight:600;font-size:.85rem;text-transform:uppercase;letter-spacing:.06em}
+.qres h2{margin:.2rem 0 1rem}
+.qcard{position:relative;background:linear-gradient(180deg,#171a35,#10122a);border:1px solid var(--line);border-radius:20px;padding:1.15rem 1.2rem;margin:0 0 .8rem;box-shadow:0 10px 30px #0006}
+.qcard:before{content:"";position:absolute;inset:0 0 auto 0;height:3px;border-radius:20px 20px 0 0;background:var(--qc,var(--c))}
+.q-free{--qc:var(--qf)}.q-paid{--qc:var(--qp)}.q-skip{--qc:var(--qs)}
+.qlabel{margin:0;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--qc)}
+.qcard h3{margin:.25rem 0 .3rem;font-size:1.45rem}.qcard h3 a{color:var(--txt)}.qwhy{margin:0 0 .6rem;color:#c9cce6;font-size:1rem}
+.qcatch{margin:-.2rem 0 .6rem;font-size:.85rem;color:#fcd34d}.qc-soft{color:var(--mut)}
+.qchips{display:flex;flex-wrap:wrap;gap:.4rem}.qchip{font-size:.78rem;font-weight:600;padding:.25rem .6rem;border-radius:999px;background:#ffffff0d;border:1px solid var(--line);color:#d7d9f0}.qc-free{color:#6ee7b7;border-color:#065f46;background:#064e3b55}.qc-date{color:var(--mut);font-weight:500}
+.qgate{display:block;margin:0 0 .8rem;padding:1.25rem 1.2rem 1rem;border-radius:20px;border:1px solid #8b5cf699;background:radial-gradient(500px 200px at 100% 0,#22d3ee22,transparent),linear-gradient(135deg,#2a1d5e,#141634);box-shadow:0 0 0 1px #8b5cf622,0 16px 40px #8b5cf633;text-align:center}
+.qgate h3{margin:.2rem 0 .8rem;font-size:1.3rem;line-height:1.2}.qlockline{margin:0;font-size:.8rem;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:#c4b5fd}
+.qframe{min-height:52px;border-radius:12px;overflow:hidden;background:#0b0b14;height:52px}.qframe.qready{height:auto}
+.qtrust{margin:.6rem 0 0;font-size:.85rem;color:var(--mut)}.qalt{display:none;margin:.4rem 0 0;font-size:.85rem}.qalt.qshow{display:block}
+.qnothanks{font:inherit;font-size:.82rem;background:none;border:0;color:#8b90b3;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:.7rem .5rem .1rem}
+.qsuccess{font-size:1.05rem;font-weight:600;color:#6ee7b7;margin:.2rem 0}.qgate.qdone{border-color:#065f46;background:linear-gradient(135deg,#064e3b88,#141634)}
+.qlocked .qcard{min-height:112px}.qlocked .qcard h3,.qlocked .qcard p.qbar{filter:blur(6px);user-select:none}.qbar{height:.8rem;border-radius:6px;background:#ffffff1a;margin:.5rem 0;width:70%}.qbar.s{width:45%}
+.qlock{position:absolute;top:1rem;right:1.1rem;font-size:1.1rem;opacity:.85}
+.qin{animation:qin .4s cubic-bezier(.2,.8,.2,1)}
+.qactions{display:flex;gap:.6rem;justify-content:center;flex-wrap:wrap;margin:1.2rem 0 .4rem}.qbtn2{font:inherit;font-size:.9rem;color:var(--txt);background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:.6rem 1rem;cursor:pointer;min-height:44px}.qbtn2:hover{border-color:var(--v)}
+.qfine{text-align:center;color:var(--mut);font-size:.82rem;margin:.4rem 0}
+.qsticky{position:fixed;left:.75rem;right:.75rem;bottom:.75rem;z-index:60;display:none;align-items:center;justify-content:space-between;gap:.8rem;padding:.6rem .6rem .6rem 1rem;border-radius:16px;background:#1b1640f2;border:1px solid #8b5cf699;backdrop-filter:blur(10px);box-shadow:0 10px 30px #000a;font-size:.92rem;font-weight:600}
+.qsticky button{font:600 .92rem Inter,sans-serif;border:0;border-radius:12px;padding:.6rem 1rem;background:var(--g);color:#0a0b14;cursor:pointer;min-height:44px}
+.qseo{max-width:760px;margin:3rem auto 0;border-top:1px solid var(--line);padding-top:1rem;color:var(--mut)}.qseo summary{cursor:pointer;font-weight:600;color:var(--txt);padding:.4rem 0}.qseo h2{font-size:1.2rem}
 .qpicks td:first-child{white-space:nowrap}[hidden]{display:none!important}
-@media (max-width:640px){.quiz{padding:1rem;border-radius:16px}.qopts{grid-template-columns:1fr}.qhero{padding:2rem 0 .5rem}}"""
+body:has(#quiz) .crumbs,body:has(#quiz) #newsletter{display:none}.qframe{max-width:440px;margin:0 auto}
+@media (max-width:640px){.qopts{grid-template-columns:1fr}.qopt{min-height:58px}.qhero{padding:1.4rem 0 0}.qsticky:not([hidden]){display:flex}body:has(#quiz) nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}body:has(#quiz) nav .logo{width:auto;flex:none}body:has(#quiz) nav a{flex:none}}
+@media (prefers-reduced-motion:reduce){.qstep,.qres,.qin{animation:none}}"""
 def quizbar(job_slug=None,job=None):
     href="/quiz/"+("#j="+job_slug if job_slug else "")
     t=f"Not sure which one fits <i>you</i>? Answer 3 questions and get the free pick, the paid pick worth it, and one to skip{' for this job' if job else ''}."
@@ -269,8 +295,8 @@ if FREEJOBS:
 import quiz as _quiz
 QUIZ=_quiz.build(uses,fresh,bad_price,cprice,fl,nice,slug)
 QUIZ_ELIG=QUIZ.pop("_eligible")
-QUIZ["defaultSkill"]=_quiz.DEFAULT_SKILL; QUIZ["freeJobs"]=[slug(u) for u in FREEJOBS]
-BEEHIIV_FORM="767b56cc-d716-4bab-a162-0baf03c34b2c"
+QUIZ["defaultSkill"]=_quiz.DEFAULT_SKILL; QUIZ["icons"]={slug(u):ICON.get(u,"") for u in uses}; QUIZ["freeJobs"]=[slug(u) for u in FREEJOBS]
+BEEHIIV_FORM="767b56cc-d716-4bab-a162-0baf03c34b2c"; BEEHIIV_PUB="d420e641-998f-43f4-a9ec-f398fd8e23c6"
 QUIZ_JS=open("src/quiz.js").read()
 def _qcell(t,extra=""):
     return f'<a href="/tools/{t["slug"]}/">{E(t["tool"])}</a><br><small>{E(extra or t["price"])}</small>' if t else "None"
@@ -279,11 +305,21 @@ QUIZ_LM=max(t["checked"] for t in QUIZ["tools"])
 _qn=len(QUIZ["tools"])
 _qdata=json.dumps(QUIZ,separators=(",",":")).replace("</","<\\/")
 cb,cld=crumbs([("Home","/"),("Find your AI stack",None)])
-qbody=f"""{cb}<section class="qhero"><p class="pick">Free &middot; 30 seconds &middot; prices checked this week</p><h1>You don't need 40 AI tools. <span class="grad">You need 3.</span></h1><p class="lead">Answer 3 questions. Get the free pick, the paid pick worth it, and one to skip, prices checked this week.</p><p><span class="qnote">No paid placements.</span></p></section>
-<div id="quiz" class="quiz" data-form="{BEEHIIV_FORM}" aria-live="polite"><noscript><p>The quiz needs JavaScript. The same picks are in the table below, or browse <a href="/use-cases/">every use case</a>.</p></noscript><p class="qcount">Loading the quiz&hellip;</p></div>
-<aside class="kit" id="qcap" hidden aria-label="Get your full stack"><div><p class="eyebrow">Free for subscribers</p><h2>Get your full stack + the free Builder's 5-Minute AI Stack Kit.</h2><p>The kit covers all {len(uses)} jobs: the top pick, real price and free-tier limits, the $0 Stack, 4 starter stacks under $50/mo, and a Skip List. You also get the 5-minute weekday brief, so you hear when a price in your stack changes. Free, one-click unsubscribe.</p><div id="qform"></div><p id="qdone" class="tldr" hidden>You're in. Check your inbox for the kit.</p><p><small>Form not loading? <a id="qfallback" href="https://usethissi.beehiiv.com/subscribe?utm_source=quiz&amp;utm_medium=website&amp;utm_campaign=quiz" rel="noopener">Subscribe on beehiiv</a>.</small></p></div></aside>
-<section><h2>Quick picks by job</h2><p>What the quiz gives a solo builder on $20/mo or less. Your answers can change the picks: commercial work rules out non-commercial free tiers, beginners skip self-hosted tools, and the budget decides the paid pick.</p><div class="tablewrap"><table class="qpicks"><thead><tr><th>Job</th><th>Free pick</th><th>Paid pick ($20/mo or less)</th><th>Skip</th></tr></thead><tbody>{_qrows}</tbody></table></div></section>
-<section><h2>How the quiz picks</h2><ul><li>Only tools we checked in the last 30 days, with a verified free-tier listing and a verified starting price. Right now that's {_qn} listings. Anything we couldn't verify is left out.</li><li><b>Free pick:</b> the best free tier for your job that keeps working. One-time credits and trials rank lower, non-commercial free tiers rank lower if you do paid work, and self-hosted tools rank lower if you're new.</li><li><b>Paid pick:</b> our highest-ranked tool for the job whose cheapest monthly plan fits your budget. If your budget is $0, there isn't one.</li><li><b>Skip:</b> the tool with the clearest reason not to start there for you: no free plan, over budget, a free tier that runs out, or simply more than you need.</li><li>Every price and free tier is the vendor's own, with the date we checked it. Affiliate deals never affect a pick, and nobody can pay for a spot.</li></ul>{HOW}</section>
+qbody=f"""{cb}<section class="qhero" id="qhero"><p class="qpill">Free &middot; 30 seconds &middot; No paid placements.</p><h1>You don't need 40 AI tools. <span class="grad">You need 3.</span></h1><p class="lead">Answer 3 questions. Get the free pick, the paid pick worth it, and one to skip, prices checked this week.</p></section>
+<div id="quiz" class="quiz" data-form="{BEEHIIV_FORM}" data-pub="{BEEHIIV_PUB}">
+<div id="qask" aria-live="polite"><noscript><p>The quiz needs JavaScript. The same picks are in "Quick picks by job" below.</p></noscript><p class="qmeta">Loading&hellip;</p></div>
+<section id="qres" class="qres" hidden aria-labelledby="qrtitle"><p class="qmeta" id="qmeta"></p><h2 id="qrtitle" tabindex="-1">Your AI stack</h2>
+<div id="qfree"></div>
+<div id="qfull" hidden></div>
+<aside id="qgate" class="kit qgate" aria-labelledby="qgh"><div id="qgatebody"><p class="qlockline" id="qlockline">&#128274; 2 more picks</p><h3 id="qgh">Unlock your full stack + the free AI Stack Kit</h3><div id="qform"></div><p class="qtrust">Free. Weekday 5-min brief. Unsubscribe anytime.</p><p class="qalt" id="qalt">Form not loading? <a id="qfallback" href="https://usethissi.beehiiv.com/subscribe?utm_source=quiz&amp;utm_medium=website&amp;utm_campaign=quiz" rel="noopener">Subscribe on beehiiv</a></p><button type="button" class="qnothanks" id="qnothanks" data-skip-gate="1">No thanks, just show me</button></div><div id="qsuccess" hidden><p class="qsuccess">&#10003; You're in. Your full stack is unlocked.</p><p class="qtrust">The AI Stack Kit is on its way to your inbox.</p></div></aside>
+<div id="qlocked" class="qlocked" aria-hidden="true"><div class="qcard q-paid"><span class="qlock">&#128274;</span><p class="qlabel">Paid pick</p><h3>Locked pick</h3><p class="qbar"></p><p class="qbar s"></p></div><div class="qcard q-skip"><span class="qlock">&#128274;</span><p class="qlabel">Skip</p><h3>Locked pick</h3><p class="qbar"></p><p class="qbar s"></p></div></div>
+<div class="qactions"><button type="button" class="qbtn2" data-copy="1">Copy link</button><button type="button" class="qbtn2" data-restart="1">Start over</button></div>
+<p class="qfine">Rules, not sponsors. Only tools checked in the last 30 days. <a id="qall" href="/use-cases/">All options &rarr;</a></p></section>
+</div>
+<div id="qsticky" class="qsticky" hidden role="region" aria-label="Unlock your stack"><span>&#128274; 2 picks locked</span><button type="button">Unlock free</button></div>
+<details class="qseo"><summary>How the quiz picks, and quick picks by job</summary>
+<h2>Quick picks by job</h2><p>What a solo builder on $20/mo or less gets. Your answers can change the picks.</p><div class="tablewrap"><table class="qpicks"><thead><tr><th>Job</th><th>Free pick</th><th>Paid pick ($20/mo or less)</th><th>Skip</th></tr></thead><tbody>{_qrows}</tbody></table></div>
+<h2>How the quiz picks</h2><ul><li>Only tools checked in the last 30 days with a verified price and free tier ({_qn} listings right now).</li><li><b>Free pick:</b> the best free tier for your job that keeps working.</li><li><b>Paid pick:</b> our highest-ranked tool whose cheapest monthly plan fits your budget.</li><li><b>Skip:</b> the clearest reason in our data not to start there.</li><li>Affiliate deals never affect a pick. Nobody can pay for a spot.</li></ul>{HOW}</details>
 <script type="application/json" id="qdata">{_qdata}</script><script>{QUIZ_JS}</script>"""
 qld=[{"@type":"WebApplication","name":"Find your AI stack in 30 seconds","url":f"{SITE}/quiz/","applicationCategory":"BusinessApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","isAccessibleForFree":True,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Answer 3 questions about your job, main task and budget. Get a free pick, a paid pick that fits your budget, and one tool to skip, with prices checked in the last 30 days.","dateModified":QUIZ_LM,"publisher":{"@type":"Organization","name":NAME,"url":SITE}},
  {"@type":"WebPage","name":"Find your AI stack in 30 seconds","url":f"{SITE}/quiz/","dateModified":QUIZ_LM},cld]
