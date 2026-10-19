@@ -23,6 +23,7 @@ r.append(ok(sum("offers" in n for n in sw)>=40,f"{sum('offers' in n for n in sw)
 r.append(ok({"ItemList","SoftwareApplication"}<=types,f"JSON-LD parses, types {sorted(types)}"))
 uc=[p for p in htmls if "/use-cases/" in p and p.count("/")==3]
 r.append(ok(all('class="tldr"' in open(p).read() and "Last checked" in open(p).read() for p in uc),f"{len(uc)} use-case pages have a summary and a last-checked date"))
+r.append(ok(uc and all('"FAQPage"' in open(p).read() and '"Question"' in open(p).read() for p in uc),f"{len(uc)} use-case pages carry FAQPage schema"))
 tp=[p for p in htmls if "/tools/" in p and p.count("/")==3]
 r.append(ok(all("<dt>Last checked</dt>" in open(p).read() for p in tp),f"{len(tp)} tool pages show a per-tool last-checked date"))
 r.append(ok("{{AFF:" in "".join(open(p).read() for p in htmls),"affiliate placeholders present"))

@@ -202,7 +202,12 @@ for u,L in uses.items():
 <h2>All options</h2><ul class="grid">{"".join(tcard(d) for d in L)}</ul>{quizbar(s,u)}<h2>Compare</h2><div class="tablewrap"><table><thead><tr><th>Role</th><th>Tool</th><th>Why</th><th>Free tier</th><th>Paid from</th><th>Last checked</th></tr></thead><tbody>{rowsh}</tbody></table></div>
 {kit_offer("job")}{freelink}
 <p><small>Last checked is per tool (see the table). Page updated <time datetime="{lm}">{lm}</time>. Prices change, so confirm on the vendor's site.</small></p>{HOW}</article>'''
-    ld=[{"@type":"CollectionPage","name":f"Best AI tools to {u}","url":f"{SITE}/use-cases/{s}/","dateModified":lm,"mainEntity":{"@type":"ItemList","name":f"AI tools to {u}","itemListElement":[{"@type":"ListItem","position":i+1,"url":f"{SITE}/tools/{d['slug']}/","name":d["tool"]} for i,d in enumerate(L)]}},cld]
+    faq={"@type":"FAQPage","mainEntity":[
+      {"@type":"Question","name":f"What is the best AI tool for {u}?","acceptedAnswer":{"@type":"Answer","text":f"Our top pick is {t['tool']}. {t['reason']}. Free tier: {t['free']}. Paid from {cprice(t['price'])}."}},
+      {"@type":"Question","name":f"How much do AI tools for {u} cost?","acceptedAnswer":{"@type":"Answer","text":f"Starting paid prices on this page range from free open-source options to paid plans. {t['tool']} starts at {cprice(t['price'])}. Each tool lists its own last-checked date."}},
+      {"@type":"Question","name":"How do I pick a free vs paid AI tool for this job?","acceptedAnswer":{"@type":"Answer","text":f"Start with the free tier limits on this page, or take the 30-second quiz at {SITE}/quiz/ for a free pick, a paid pick that fits your budget, and one to skip."}},
+    ]}
+    ld=[{"@type":"CollectionPage","name":f"Best AI tools to {u}","url":f"{SITE}/use-cases/{s}/","dateModified":lm,"mainEntity":{"@type":"ItemList","name":f"AI tools to {u}","itemListElement":[{"@type":"ListItem","position":i+1,"url":f"{SITE}/tools/{d['slug']}/","name":d["tool"]} for i,d in enumerate(L)]}},faq,cld]
     ld[0]["mainEntity"]["@type"]="ItemList"
     page(f"use-cases/{s}/index.html",f"Best AI tools to {u} (checked {mon(lm)}) | {NAME}",f"Top pick: {t['tool']}. {t['reason']}. Compare {len(L)} tools with prices and free tiers, each with its own last-checked date.",body,ld,lastmod=lm)
 page("use-cases/index.html",f"AI tools by use case | {NAME}","Pick the right AI tool for the job: one top pick per use case, plus alternatives.",

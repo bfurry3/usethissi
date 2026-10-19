@@ -71,3 +71,18 @@
 - Brief #3 published beehiiv 7:09 AM PT: https://usethissi.beehiiv.com/p/muse-spark-open-is-free-to-run-plus-github-agentic-autofix (email+web, 2 recipients / 0 outside).
 - X (@UseThisSI): main https://x.com/UseThisSI/status/2111097288147788267; replies to ishaan_gpt, cursor_ai, vercel, simonw. Duplicate main deleted. No new mentions beyond ishaan_gpt; 2 new followers overnight.
 
+
+## 2026-10-19 ~7:15 AM AZ: weekday daily ops (executor)
+
+- Releases added (source-confirmed): Reflection Beam (Oct 16, reflection.ai + HF), Appwrite MCP Events (Oct 19).
+- Tools: added Reflection Beam (AI coding assistant Alt). Directory now **74 tools** / 10 use cases / 23 release rows (was 73 / 10 / 21).
+- Price/product recheck (Oct 19, official pages via WebFetch; last_checked set only when verified):
+  - **Verified:** ElevenLabs ($6 Starter; $1 promo ended), Cursor ($8 Plus / $30 Premium), Exa ($10 free credits; Instant from $4/1k), HeyGen ($29 Creator), Pika ($10/$8 Starter), Browserbase ($20 Developer), LangGraph (MIT OSS), Mastra (Platform Starter $0 / Teams $250), Cline (free BYOK), Google Deep Review (2 free/wk), Google AI Studio / Argon ($2/$10 thru Nov 30 then $4/$20), Amp ($20 Individual), Roboflow Agent (product page), Snyk Evo (Evo needs Enterprise; Team $25 is non-Evo), BAND (no self-serve price), Fish Audio (homepage; /pricing 404).
+  - **Not updated (JS-empty / no price):** Magic Patterns pricing page empty; CopilotKit CLiF left at Oct 14.
+  - **Still never checked:** Relevance AI, Muse Code (Meta), Manus, Gemini agent (Google Cloud).
+- Freshness after: **70/74 within 7d**, 4 never checked, 0 older.
+- SEO ship: FAQPage JSON-LD on every use-case page + regression in test.py.
+- Newsletter Brief #4 drafted and rendered green: newsletter/2026-10-19.md (do not publish; parent handles beehiiv).
+- Experiment: Brief #4 subject A vs B row in ops/experiments.csv.
+- Rebuild + tests + link check green. Push + optional IndexNow after commit.
+- Skipped (parent): beehiiv publish, X posts / pain-point replies.
