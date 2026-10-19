@@ -60,6 +60,7 @@ footer{border-top:1px solid var(--line);color:var(--mut);font-size:.88rem;paddin
 .qframe{min-height:52px;border-radius:12px;overflow:hidden;background:#0b0b14;height:52px}.qframe.qready{height:auto}
 .qtrust{margin:.6rem 0 0;font-size:.85rem;color:var(--mut)}.qalt{display:none;margin:.4rem 0 0;font-size:.85rem}.qalt.qshow{display:block}
 .qnothanks{font:inherit;font-size:.82rem;background:none;border:0;color:#8b90b3;text-decoration:underline;text-underline-offset:3px;cursor:pointer;padding:.7rem .5rem .1rem}
+.qanchor{display:flex;align-items:center;justify-content:center;gap:.55rem;margin:-.35rem 0 .6rem;font-size:.95rem;color:#cbd5e1}.qanchor s{color:#94a3b8;text-decoration-color:#f87171;text-decoration-thickness:2px}.qfreeb{background:#10b981;color:#04261b;border-radius:999px;padding:.12rem .6rem;font-size:.85rem;letter-spacing:.03em}.qanote{margin:.15rem 0 0;font-size:.72rem;color:#8b93a7}
 .qsuccess{font-size:1.05rem;font-weight:600;color:#6ee7b7;margin:.2rem 0}.qgate.qdone{border-color:#065f46;background:linear-gradient(135deg,#064e3b88,#141634)}
 .qlocked .qcard{min-height:112px}.qlocked .qcard h3,.qlocked .qcard p.qbar{filter:blur(6px);user-select:none}.qbar{height:.8rem;border-radius:6px;background:#ffffff1a;margin:.5rem 0;width:70%}.qbar.s{width:45%}
 .qlock{position:absolute;top:1rem;right:1.1rem;font-size:1.1rem;opacity:.85}

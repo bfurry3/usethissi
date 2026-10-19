@@ -1,5 +1,5 @@
 use_case,role,tool,reason,free_tier,starting_paid_price,url,affiliate_program,last_checked
-Vibe-code an app or landing page,Top pick,Lovable,Chat-to-full-stack app with hosting; easiest on-ramp,Yes (5 build credits/day),$25/mo Pro,https://lovable.dev,Yes: up to $100 one-time per first subscriber (Impact) [official page],2026-10-14
+Vibe-code an app or landing page,Top pick,Lovable,Chat-to-full-stack app with hosting; easiest on-ramp,Yes (5 build credits/day),"$25/mo Pro ($21/mo billed annually) [official docs, Oct 19]",https://lovable.dev,Yes: up to $100 one-time per first subscriber (Impact) [official page],2026-10-19
 Vibe-code an app or landing page,Alt,Bolt.new,"Fast browser app builder, hosting included",Yes (1M tokens/mo; 300K daily),"$25/mo Pro [official, Oct 16]",https://bolt.new,"Referral: 15% of payments, capped $50/referral, via Cello [support page]",2026-10-16
 Vibe-code an app or landing page,Alt,v0 by Vercel,"Best React UI, deploys to Vercel",Yes (7 messages/day),"$30/user/mo Plus [official, Oct 16]",https://v0.app,Ambassador program exists; terms may be outdated (unverified),2026-10-16
 Vibe-code an app or landing page,Alt,Replit,Prompt-to-deployed app with Agent,Yes,"$20/mo Core ($18 annual) [official, Oct 16]",https://replit.com,"Referral only: $20 credits, not cash",2026-10-16
@@ -22,7 +22,7 @@ Make game art and sprites,Alt,PixelLab,Pixel-art sprites and animation,Yes (free
 Make game art and sprites,Alt,Midjourney,Top-tier concept art,No,"$10/mo Basic ($8/mo billed annually) [official, Oct 18]",https://www.midjourney.com,None found,2026-10-18
 Make game art and sprites,Alt,Leonardo.Ai,Image gen with game presets,Yes (150 fast tokens/day),"$12/mo Essential, ex. tax [official, Oct 18]",https://leonardo.ai,"No (closed Apr 7, 2026) [official]",2026-10-18
 Make game art and sprites,Alt,Ideogram,"Best text-in-image (logos, UI)",Yes (weekly free credits),"$15/mo Plus billed annually, $20 monthly [official, Oct 18]",https://ideogram.ai,unverified,2026-10-18
-Make game art and sprites,Alt,Krea,Real-time image and video gen,Yes (100 units/day),"$21/mo Pro billed annually, $35 monthly [official, Oct 18]",https://www.krea.ai,unverified,2026-10-18
+Make game art and sprites,Alt,Krea,Real-time image and video gen,Yes (100 units/day),"$5.25/mo Basic billed annually, $9 monthly; Pro $21 annual, $35 monthly [official, Oct 19]",https://www.krea.ai,unverified,2026-10-19
 Make game art and sprites,Alt,Rosebud AI,Vibe-code browser games,"Yes (8,000 credits/week)","$15/mo [official, Oct 18]",https://rosebud.ai,unverified,2026-10-18
 Generate music and SFX,Top pick,Suno,Best song gen with commercial rights on Pro,"Yes (50 credits/day, no commercial use)","$8/mo Pro billed yearly, $10 monthly [official, Oct 18]",https://suno.com,"Yes, on impact.com since Feb 2026; terms unpublished",2026-10-18
 Generate music and SFX,Alt,ElevenLabs Music and SFX,SFX and music on the TTS plan,"Yes (10k credits/mo, includes music and SFX)","$6/mo Starter (music commercial use) [official, Oct 18]",https://elevenlabs.io,Yes: 22% for 12 months [official],2026-10-18

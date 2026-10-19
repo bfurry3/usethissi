@@ -1,0 +1,32 @@
+We checked 58 AI tools against their official pricing pages in the past week.
+
+Some prices were not what most "best AI tools" lists say. Here's what we found, plus a free kit with all of it.
+---
+Headline prices often hide the billing terms:
+
+• Krea: Pro is $21/mo billed annually, $35 monthly. Basic is $5.25 or $9.
+• Gamma: Plus is $9/seat/mo, billed annually
+• Kling AI: $6.99 is the first month only. Then it's $10/mo.
+
+Every price on our site shows the date we checked it.
+---
+You can start for $0.
+
+Every job we track has a free option: Claude for writing, Perplexity for research, CapCut for video, Make for automations (1,000 credits/mo), Aider for coding (open source, bring your own API key).
+
+The catch on each free tier is written next to it.
+---
+If you're paying, you don't need much (monthly billing):
+
+• Solo founder: Lovable + Claude + free Make/Perplexity ≈ $45/mo
+• Developer: Claude Code + GitHub Copilot + free n8n/Aider ≈ $30/mo
+• Creator: Runway + ElevenLabs + Suno + free CapCut ≈ $31/mo
+---
+How we check: each price comes from the vendor's own pricing page, with the date. If we can't verify something, we say so instead of guessing.
+
+Find a wrong price and we fix it within 24 hours.
+---
+Want yours in under a minute? Take the 3-question quiz and get your stack free: a free pick, a paid pick worth it, and one to skip.
+
+Subscribe (free) to unlock the full stack plus the 5-Minute AI Stack Kit, with 4 stacks under $50/mo and a Skip List:
+https://www.usethissi.com/quiz/

@@ -1,6 +1,6 @@
 # UseThisSI
 
-> One top AI tool pick per job for builders, vibe coders, AI agent tinkerers and indie game devs. Directory data last checked 2026-10-18; each tool page shows its own last-checked date.
+> One top AI tool pick per job for builders, vibe coders, AI agent tinkerers and indie game devs. Directory data last checked 2026-10-19; each tool page shows its own last-checked date.
 
 ## Use cases
 - [Vibe-code an app or landing page](https://www.usethissi.com/use-cases/vibe-code-an-app-or-landing-page/): top pick Lovable. Chat-to-full-stack app with hosting; easiest on-ramp.

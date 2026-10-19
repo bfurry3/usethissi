@@ -90,3 +90,7 @@ date,tool,field,old,new,source
 2026-10-18,Speechify,last_checked,,2026-10-18,official pricing page
 2026-10-18,Google AI Studio,starting_paid_price,Pay-as-you-go API (Argon $2/$10 per 1M tokens intro),"Free tier; Argon API $2/$10 per 1M tokens thru Nov 30, then $4/$20 [official, Oct 18]",official pricing page
 2026-10-18,Google AI Studio,last_checked,,2026-10-18,official pricing page
+2026-10-19,Krea,starting_paid_price,"$21/mo Pro billed annually, $35 monthly [official, Oct 18]","$5.25/mo Basic billed annually, $9 monthly; Pro $21 annual, $35 monthly [official, Oct 19]",official pricing page (Basic plan listed again)
+2026-10-19,Krea,last_checked,2026-10-18,2026-10-19,official pricing page
+2026-10-19,Lovable,starting_paid_price,$25/mo Pro,"$25/mo Pro ($21/mo billed annually) [official docs, Oct 19]",docs.lovable.dev/introduction/subscription-plans
+2026-10-19,Lovable,last_checked,2026-10-14,2026-10-19,docs.lovable.dev/introduction/subscription-plans
