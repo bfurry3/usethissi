@@ -57,7 +57,12 @@ ucf=[p for p in htmls if re.search(r"dist/(use-cases|free)/[^/]+/index.html$",p)
 r.append(ok(ucf and all('class="quizbar"' in open(p).read() and 'href="/quiz/#j=' in open(p).read() for p in ucf),f"{len(ucf)} use-case and free pages carry a quiz CTA"))
 m=re.search(r'<script type="application/json" id="qdata">(.*?)</script>',qh,re.S)
 Q=json.loads(m.group(1).replace("<\\/","</")) if m else None
-r.append(ok(Q is not None and qh.count('data-form="767b56cc-d716-4bab-a162-0baf03c34b2c"')==1 and "subscribe-forms.beehiiv.com" in qh and "utm_source=quiz" in qh and "utm_campaign=quiz" in qh,"quiz embeds data, the site's beehiiv form id and quiz UTM tagging"))
+r.append(ok(Q is not None and qh.count('data-form="6601f72f-cbe4-41fa-8313-787075c593f7"')==1 and "subscribe-forms.beehiiv.com" in qh and "utm_source=quiz" in qh and "utm_campaign=quiz" in qh,"quiz embeds data, the quiz beehiiv form id and quiz UTM tagging"))
+QFORM="6601f72f-cbe4-41fa-8313-787075c593f7"; SFORM="767b56cc-d716-4bab-a162-0baf03c34b2c"
+_qp=[p for p in htmls if re.search(r"dist/quiz/index.html$",p)]
+_other=[p for p in htmls if p not in _qp]
+r.append(ok(len(_qp)==1 and QFORM in qh and not any(QFORM in open(p).read() for p in _other) and all(SFORM in open(p).read() for p in _other if 'id="newsletter"' in open(p).read()),f"quiz gate uses form {QFORM[:8]}; {len(_other)} other pages don't reference it and keep the site form"))
+r.append(ok(os.path.isfile("dist/favicon.ico") and open("dist/favicon.ico","rb").read(4)==b"\x00\x00\x01\x00" and all('href="/favicon.ico"' in open(p).read() for p in htmls),"favicon.ico built and linked on every page"))
 if Q:
     today=_dt.datetime.now(__import__("zoneinfo").ZoneInfo("America/Phoenix")).date()
     rows=[x for x in csv.reader(open("data.csv"))][1:]

@@ -142,7 +142,7 @@ def page(path,title,desc,body,ld=None,lastmod=None,noindex=False):
     pages[path]=f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="impact-site-verification" value="1c1f3cbc-5bfd-4425-80ce-c30b259ba149"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>{E(title)}</title><meta name="description" content="{E(desc)}"><link rel="canonical" href="{canon}">{rob}
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{canon}"><meta property="og:type" content="website">
-<meta name="theme-color" content="#0a0b14"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap"><link rel="stylesheet" href="/style.css">{ldj}
+<meta name="theme-color" content="#0a0b14"><link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="192x192" href="/icon-192.png"><link rel="apple-touch-icon" href="/apple-touch-icon.png"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap"><link rel="stylesheet" href="/style.css">{ldj}
 <script>window.va=window.va||function(){{(window.vaq=window.vaq||[]).push(arguments)}};</script><script defer src="/_vercel/insights/script.js"></script>{um}</head><body>
 <a class="skip" href="#main">Skip to content</a><header><nav aria-label="Main"><a class="logo" href="/">⚡ {NAME}</a><a href="/use-cases/">Use cases</a><a href="/tools/">Tools</a><a href="/free/">Free tools</a><a href="/new/">New this week</a><a href="/about/">About</a><a href="/quiz/" class="pick" data-umami-event="quiz-nav">Find your stack</a><a href="#newsletter" class="pick" data-umami-event="kit-nav">Free kit</a></nav></header>
 <main id="main" class="wrap">{body}</main>
@@ -296,7 +296,7 @@ import quiz as _quiz
 QUIZ=_quiz.build(uses,fresh,bad_price,cprice,fl,nice,slug)
 QUIZ_ELIG=QUIZ.pop("_eligible")
 QUIZ["defaultSkill"]=_quiz.DEFAULT_SKILL; QUIZ["icons"]={slug(u):ICON.get(u,"") for u in uses}; QUIZ["freeJobs"]=[slug(u) for u in FREEJOBS]
-BEEHIIV_FORM="767b56cc-d716-4bab-a162-0baf03c34b2c"; BEEHIIV_PUB="d420e641-998f-43f4-a9ec-f398fd8e23c6"
+BEEHIIV_FORM="767b56cc-d716-4bab-a162-0baf03c34b2c"; QUIZ_FORM="6601f72f-cbe4-41fa-8313-787075c593f7"; BEEHIIV_PUB="d420e641-998f-43f4-a9ec-f398fd8e23c6"
 QUIZ_JS=open("src/quiz.js").read()
 def _qcell(t,extra=""):
     return f'<a href="/tools/{t["slug"]}/">{E(t["tool"])}</a><br><small>{E(extra or t["price"])}</small>' if t else "None"
@@ -306,7 +306,7 @@ _qn=len(QUIZ["tools"])
 _qdata=json.dumps(QUIZ,separators=(",",":")).replace("</","<\\/")
 cb,cld=crumbs([("Home","/"),("Find your AI stack",None)])
 qbody=f"""{cb}<section class="qhero" id="qhero"><p class="qpill">Free &middot; 30 seconds &middot; No paid placements.</p><h1>You don't need 40 AI tools. <span class="grad">You need 3.</span></h1><p class="lead">Answer 3 questions. Get the free pick, the paid pick worth it, and one to skip, prices checked this week.</p></section>
-<div id="quiz" class="quiz" data-form="{BEEHIIV_FORM}" data-pub="{BEEHIIV_PUB}">
+<div id="quiz" class="quiz" data-form="{QUIZ_FORM}" data-pub="{BEEHIIV_PUB}">
 <div id="qask" aria-live="polite"><noscript><p>The quiz needs JavaScript. The same picks are in "Quick picks by job" below.</p></noscript><p class="qmeta">Loading&hellip;</p></div>
 <section id="qres" class="qres" hidden aria-labelledby="qrtitle"><p class="qmeta" id="qmeta"></p><h2 id="qrtitle" tabindex="-1">Your AI stack</h2>
 <div id="qfree"></div>
