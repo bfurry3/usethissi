@@ -6,7 +6,7 @@ Headline prices often hide the billing terms:
 
 • Krea: Pro is $21/mo billed annually, $35 monthly. Basic is $5.25 or $9.
 • Gamma: Plus is $9/seat/mo, billed annually
-• Kling AI: $6.99 is the first month only. Then it's $10/mo.
+• Kling AI: $6.99 is the first month. Then it's $10/mo.
 
 Every price on our site shows the date we checked it.
 ---
