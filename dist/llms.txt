@@ -25,6 +25,9 @@
 - [Free AI tools to Research](https://www.usethissi.com/free/research/): 6 verified free tiers.
 - [Free AI tools to Voice and TTS](https://www.usethissi.com/free/voice-and-tts/): 5 verified free tiers.
 
+## Find your AI stack (quiz)
+- [Find your AI stack in 30 seconds](https://www.usethissi.com/quiz/): answer 3 questions (role, main job, budget), get a free pick, a paid pick that fits the budget, and one to skip.
+
 ## Pricing pages (every plan, checked)
 - [Windsurf (now Devin Desktop) pricing](https://www.usethissi.com/tools/windsurf-now-devin-desktop/pricing/)
 - [Make pricing](https://www.usethissi.com/tools/make/pricing/)

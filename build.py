@@ -77,6 +77,25 @@ CSS+=r"""
 .crumbs{font-size:.85rem;color:var(--mut);margin:1.2rem 0 0}.crumbs a{color:var(--mut)}.how{font-size:.85rem;color:var(--mut);border-top:1px solid var(--line);padding-top:.8rem;margin-top:2rem}
 .chg{list-style:none;padding:0}.chg li{padding:.45rem 0;border-bottom:1px solid var(--line)}.chg time{color:var(--c);font-family:"Space Grotesk";font-size:.85rem;margin-right:.5rem}
 @media (max-width:640px){.kit{grid-template-columns:1fr}}"""
+CSS+=r"""
+.quizbar{display:flex;flex-wrap:wrap;gap:.6rem 1rem;align-items:center;justify-content:space-between;margin:1.8rem 0;padding:.9rem 1.1rem;border-radius:14px;border:1px solid #8b5cf666;background:linear-gradient(135deg,#8b5cf622,#22d3ee12)}.quizbar b{color:var(--txt)}.quizbar span{color:var(--mut)}.quizbar a.btn{padding:.55rem 1.1rem;font-size:.92rem}
+.qhero{padding:3rem 0 1rem;text-align:center}.qhero .lead{color:var(--mut);font-size:1.15rem;max-width:620px;margin:.8rem auto}.qnote{display:inline-block;font-size:.85rem;font-weight:600;color:#6ee7b7;border:1px solid #065f46;background:#064e3b55;border-radius:999px;padding:.2rem .7rem}
+.quiz{max-width:760px;margin:1.5rem auto;background:linear-gradient(180deg,var(--card),var(--bg2));border:1px solid var(--line);border-radius:20px;padding:1.4rem;min-height:300px;scroll-margin-top:80px}
+.quiz h2{margin:.3rem 0 .6rem;font-size:1.5rem}.quiz h2:focus{outline:none}.qcount,.qhint,.qsmall{color:var(--mut);font-size:.9rem;margin:.2rem 0}
+.qprog{height:6px;border-radius:99px;background:var(--line);overflow:hidden;margin-bottom:.8rem}.qprog span{display:block;height:100%;background:var(--g);transition:width .25s}
+.qopts{display:grid;gap:.6rem;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));margin:1rem 0}
+.qopt{font:inherit;font-weight:500;text-align:left;color:var(--txt);background:var(--bg2);border:1px solid var(--line);border-radius:12px;padding:.85rem 1rem;cursor:pointer;min-height:48px;transition:border-color .15s,transform .15s}.qopt:hover{border-color:var(--v);transform:translateY(-1px)}
+.qnav{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:.6rem}.qback{font:inherit;font-size:.9rem;color:var(--mut);background:transparent;border:1px solid var(--line);border-radius:10px;padding:.5rem .9rem;cursor:pointer}.qback:hover{color:var(--txt);border-color:var(--v)}
+.qcards{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin:1rem 0}
+.qcard{background:var(--bg);border:1px solid var(--line);border-top:4px solid var(--c);border-radius:14px;padding:1rem}.qcard h3{margin:.2rem 0 .4rem;font-size:1.25rem}.qcard h3 a{color:var(--txt)}
+.qlabel{margin:0;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--c)}.q-free{border-top-color:#34d399}.q-free .qlabel{color:#6ee7b7}.q-paid{border-top-color:#8b5cf6}.q-paid .qlabel{color:#c4b5fd}.q-skip{border-top-color:#f87171}.q-skip .qlabel{color:#fca5a5}
+.qwhy{margin:.2rem 0 .5rem}.qcatch{font-size:.88rem;color:#fcd34d;margin:.2rem 0 .5rem}.qfacts{list-style:none;padding:0;margin:.5rem 0;font-size:.88rem}.qfacts li{padding:.25rem 0;border-top:1px solid var(--line)}.qfacts span{color:var(--mut);display:inline-block;min-width:5.5rem}.qmore{font-size:.9rem;font-weight:600}
+.qpicks td:first-child{white-space:nowrap}[hidden]{display:none!important}
+@media (max-width:640px){.quiz{padding:1rem;border-radius:16px}.qopts{grid-template-columns:1fr}.qhero{padding:2rem 0 .5rem}}"""
+def quizbar(job_slug=None,job=None):
+    href="/quiz/"+("#j="+job_slug if job_slug else "")
+    t=f"Not sure which one fits <i>you</i>? Answer 3 questions and get the free pick, the paid pick worth it, and one to skip{' for this job' if job else ''}."
+    return f'<div class="quizbar" role="note"><span><b>30-second quiz:</b> {t}</span><a class="btn" href="{href}" data-umami-event="quiz-cta">Find your AI stack</a></div>'
 def kit_offer(variant="default",tool=None):
     head={"default":"Get the free 5-Minute AI Stack Kit","free":"Want the whole $0 Stack?","pricing":f"Get alerted when {tool} changes price" if tool else "Get price-change alerts","job":"Get the full stack for every job"}[variant]
     lead={"default":"Every job, our top pick, the real price and free-tier limits, checked weekly. Free.","free":"The free kit has the best free option for all 10 jobs, with the exact limits, plus 4 starter stacks under $50/mo.","pricing":"Subscribers hear first when a tool in our kit changes its price or free tier. You also get the free 5-Minute AI Stack Kit.","job":"The free kit covers all 10 jobs with prices, free tiers, starter stacks and a Skip List."}[variant]
@@ -99,7 +118,7 @@ def page(path,title,desc,body,ld=None,lastmod=None,noindex=False):
 <meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(desc)}"><meta property="og:url" content="{canon}"><meta property="og:type" content="website">
 <meta name="theme-color" content="#0a0b14"><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap"><link rel="stylesheet" href="/style.css">{ldj}
 <script>window.va=window.va||function(){{(window.vaq=window.vaq||[]).push(arguments)}};</script><script defer src="/_vercel/insights/script.js"></script>{um}</head><body>
-<a class="skip" href="#main">Skip to content</a><header><nav aria-label="Main"><a class="logo" href="/">⚡ {NAME}</a><a href="/use-cases/">Use cases</a><a href="/tools/">Tools</a><a href="/free/">Free tools</a><a href="/new/">New this week</a><a href="/about/">About</a><a href="#newsletter" class="pick" data-umami-event="kit-nav">Free kit</a></nav></header>
+<a class="skip" href="#main">Skip to content</a><header><nav aria-label="Main"><a class="logo" href="/">⚡ {NAME}</a><a href="/use-cases/">Use cases</a><a href="/tools/">Tools</a><a href="/free/">Free tools</a><a href="/new/">New this week</a><a href="/about/">About</a><a href="/quiz/" class="pick" data-umami-event="quiz-nav">Find your stack</a><a href="#newsletter" class="pick" data-umami-event="kit-nav">Free kit</a></nav></header>
 <main id="main" class="wrap">{body}</main>
 <section id="newsletter"><h2>Get the free 5-Minute AI Stack Kit</h2><p>Subscribe and we'll email you the kit: the best AI tool for each job with real prices and free-tier limits, the $0 Stack, 4 starter stacks under $50/mo, and a Skip List. Plus a 5-minute weekday brief on what launched, what changed, and what to try today. Free, one-click unsubscribe.</p><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="767b56cc-d716-4bab-a162-0baf03c34b2c"></script><p><small>Form not loading? <a href="https://usethissi.beehiiv.com/subscribe" rel="noopener">Subscribe on beehiiv</a>.</small></p></section>
 <footer>Some links are affiliate links. <a href="/about/#affiliates">Disclosure</a>. Directory data last checked {DATA_DATE}; each tool shows its own last-checked date. Contact: <a href="mailto:info@usethissi.com">info@usethissi.com</a></footer><script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script></body></html>'''
@@ -153,14 +172,14 @@ for u,L in uses.items():
     body=f'''{cb}<article><p class="pick">{ICON.get(u,"✨")} Use case</p><h1>Best AI tools to {E(u[0].lower()+u[1:])}</h1>
 <p class="tldr"><strong>Short answer:</strong> Use <a href="/tools/{t["slug"]}/">{E(t["tool"])}</a>. {E(t["reason"])}. Free tier: {E(t["free"])}. Paid from {E(t["price"])}. Alternatives: {", ".join(E(a["tool"]) for a in alts[:2])}.</p>
 <h2>Top pick: {E(t["tool"])}</h2><p>{E(t["reason"])}. Official site: {link(t)}</p>{KITBAR}
-<h2>All options</h2><ul class="grid">{"".join(tcard(d) for d in L)}</ul><h2>Compare</h2><div class="tablewrap"><table><thead><tr><th>Role</th><th>Tool</th><th>Why</th><th>Free tier</th><th>Paid from</th><th>Last checked</th></tr></thead><tbody>{rowsh}</tbody></table></div>
+<h2>All options</h2><ul class="grid">{"".join(tcard(d) for d in L)}</ul>{quizbar(s,u)}<h2>Compare</h2><div class="tablewrap"><table><thead><tr><th>Role</th><th>Tool</th><th>Why</th><th>Free tier</th><th>Paid from</th><th>Last checked</th></tr></thead><tbody>{rowsh}</tbody></table></div>
 {kit_offer("job")}{freelink}
 <p><small>Last checked is per tool (see the table). Page updated <time datetime="{lm}">{lm}</time>. Prices change, so confirm on the vendor's site.</small></p>{HOW}</article>'''
     ld=[{"@type":"CollectionPage","name":f"Best AI tools to {u}","url":f"{SITE}/use-cases/{s}/","dateModified":lm,"mainEntity":{"@type":"ItemList","name":f"AI tools to {u}","itemListElement":[{"@type":"ListItem","position":i+1,"url":f"{SITE}/tools/{d['slug']}/","name":d["tool"]} for i,d in enumerate(L)]}},cld]
     ld[0]["mainEntity"]["@type"]="ItemList"
     page(f"use-cases/{s}/index.html",f"Best AI tools to {u} (checked {mon(lm)}) | {NAME}",f"Top pick: {t['tool']}. {t['reason']}. Compare {len(L)} tools with prices and free tiers, each with its own last-checked date.",body,ld,lastmod=lm)
 page("use-cases/index.html",f"AI tools by use case | {NAME}","Pick the right AI tool for the job: one top pick per use case, plus alternatives.",
- "<h1>Use cases</h1>"+KITBAR+"<ul class=\"grid\">"+"".join(f'<li><a class="card" href="/use-cases/{s}/"><span class="ico" aria-hidden="true">{ICON.get(u,"✨")}</span><h3>{E(u)}</h3><p>Top pick: <span class="pick">{E(t["tool"])}</span></p></a></li>' for u,s,t in ucl)+"</ul>"+kit_offer(),
+ "<h1>Use cases</h1>"+quizbar()+"<ul class=\"grid\">"+"".join(f'<li><a class="card" href="/use-cases/{s}/"><span class="ico" aria-hidden="true">{ICON.get(u,"✨")}</span><h3>{E(u)}</h3><p>Top pick: <span class="pick">{E(t["tool"])}</span></p></a></li>' for u,s,t in ucl)+"</ul>"+kit_offer(),
  {"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":f"{SITE}/use-cases/{s}/","name":u} for i,(u,s,t) in enumerate(ucl)]})
 # ---- schema helpers
 def offers_for(d):
@@ -235,7 +254,7 @@ for u,F in FREEJOBS.items():
     cheap="; ".join('<a href="/tools/%s/">%s</a> from %s'%(d["slug"],E(d["tool"]),E(cprice(d["price"]))) for d in sorted(paid,key=pv)[:3])
     body=f'''{cb}<article><p class="pick">{ICON.get(u,"✨")} Free options · limits checked {nice(lc)}</p><h1>Free AI tools to {E(u[0].lower()+u[1:])}</h1>
 <p class="tldr"><strong>Short answer:</strong> start with <a href="/tools/{best["slug"]}/">{E(best["tool"])}</a> on its free plan{(" ("+E(fl(best["free"]))+")") if fl(best["free"])!="a free plan" else ""}. We found {len(F)} tools for this job with a free tier we verified in the last 30 days.{warn}</p>
-<h2>Every free option, with the catch</h2><div class="tablewrap"><table><thead><tr><th>Tool</th><th>Free tier, as listed</th><th>The catch</th><th>Paid from</th><th>Last checked</th></tr></thead><tbody>{rowsf}</tbody></table></div>
+{quizbar(s,u)}<h2>Every free option, with the catch</h2><div class="tablewrap"><table><thead><tr><th>Tool</th><th>Free tier, as listed</th><th>The catch</th><th>Paid from</th><th>Last checked</th></tr></thead><tbody>{rowsf}</tbody></table></div>
 {kit_offer("free")}
 <h2>When it's worth paying</h2><p>Upgrade when you hit the free limits every week, or when you need commercial rights. The cheapest verified paid plans for this job right now: {cheap}.</p>
 <p>See the full comparison, paid tools included: <a href="/use-cases/{s}/">best AI tools to {E(u[0].lower()+u[1:])}</a>.</p>{HOW}</article>'''
@@ -244,8 +263,31 @@ for u,F in FREEJOBS.items():
 if FREEJOBS:
     lcf=max(max(d["checked"] for d in F) for F in FREEJOBS.values())
     page("free/index.html",f"Free AI tools by job, limits checked | {NAME}","Free AI tools for every builder job, with the real free-tier limits and the catch, checked in the last 30 days.",
-     "<h1>Free AI tools by job</h1><p>Only tools whose free tier we verified on the vendor's site in the last 30 days.</p>"+KITBAR+"<ul class=\"grid\">"+"".join(f'<li><a class="card" href="/free/{slug(u)}/"><span class="ico" aria-hidden="true">{ICON.get(u,"✨")}</span><h3>{E(u)}</h3><p>{len(F)} free options. Start with <span class="pick">{E(F[0]["tool"])}</span>.</p></a></li>' for u,F in FREEJOBS.items())+"</ul>"+kit_offer("free"),
+     "<h1>Free AI tools by job</h1><p>Only tools whose free tier we verified on the vendor's site in the last 30 days.</p>"+quizbar()+"<ul class=\"grid\">"+"".join(f'<li><a class="card" href="/free/{slug(u)}/"><span class="ico" aria-hidden="true">{ICON.get(u,"✨")}</span><h3>{E(u)}</h3><p>{len(F)} free options. Start with <span class="pick">{E(F[0]["tool"])}</span>.</p></a></li>' for u,F in FREEJOBS.items())+"</ul>"+kit_offer("free"),
      {"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":f"{SITE}/free/{slug(u)}/","name":f"Free AI tools to {u}"} for i,u in enumerate(FREEJOBS)]},lastmod=lcf)
+# ---- /quiz/: "Find your AI stack in 30 seconds" (data from quiz.py, computed from data.csv at build time)
+import quiz as _quiz
+QUIZ=_quiz.build(uses,fresh,bad_price,cprice,fl,nice,slug)
+QUIZ_ELIG=QUIZ.pop("_eligible")
+QUIZ["defaultSkill"]=_quiz.DEFAULT_SKILL; QUIZ["freeJobs"]=[slug(u) for u in FREEJOBS]
+BEEHIIV_FORM="767b56cc-d716-4bab-a162-0baf03c34b2c"
+QUIZ_JS=open("src/quiz.js").read()
+def _qcell(t,extra=""):
+    return f'<a href="/tools/{t["slug"]}/">{E(t["tool"])}</a><br><small>{E(extra or t["price"])}</small>' if t else "None"
+_qrows="".join(f'<tr><td><a href="/use-cases/{j["slug"]}/">{E(j["name"])}</a></td><td>{_qcell(r["free"],"Free: "+r["free"]["freeShort"] if r["free"] else "")}</td><td>{_qcell(r["paid"])}</td><td>{_qcell(r["skip"],r["skip_note"])}</td></tr>' for j in QUIZ["jobs"] for r in [_quiz.result(QUIZ,"founder",j["slug"],"20","mid")])
+QUIZ_LM=max(t["checked"] for t in QUIZ["tools"])
+_qn=len(QUIZ["tools"])
+_qdata=json.dumps(QUIZ,separators=(",",":")).replace("</","<\\/")
+cb,cld=crumbs([("Home","/"),("Find your AI stack",None)])
+qbody=f"""{cb}<section class="qhero"><p class="pick">Free &middot; 30 seconds &middot; prices checked this week</p><h1>You don't need 40 AI tools. <span class="grad">You need 3.</span></h1><p class="lead">Answer 3 questions. Get the free pick, the paid pick worth it, and one to skip, prices checked this week.</p><p><span class="qnote">No paid placements.</span></p></section>
+<div id="quiz" class="quiz" data-form="{BEEHIIV_FORM}" aria-live="polite"><noscript><p>The quiz needs JavaScript. The same picks are in the table below, or browse <a href="/use-cases/">every use case</a>.</p></noscript><p class="qcount">Loading the quiz&hellip;</p></div>
+<aside class="kit" id="qcap" hidden aria-label="Get your full stack"><div><p class="eyebrow">Free for subscribers</p><h2>Get your full stack + the free Builder's 5-Minute AI Stack Kit.</h2><p>The kit covers all {len(uses)} jobs: the top pick, real price and free-tier limits, the $0 Stack, 4 starter stacks under $50/mo, and a Skip List. You also get the 5-minute weekday brief, so you hear when a price in your stack changes. Free, one-click unsubscribe.</p><div id="qform"></div><p id="qdone" class="tldr" hidden>You're in. Check your inbox for the kit.</p><p><small>Form not loading? <a id="qfallback" href="https://usethissi.beehiiv.com/subscribe?utm_source=quiz&amp;utm_medium=website&amp;utm_campaign=quiz" rel="noopener">Subscribe on beehiiv</a>.</small></p></div></aside>
+<section><h2>Quick picks by job</h2><p>What the quiz gives a solo builder on $20/mo or less. Your answers can change the picks: commercial work rules out non-commercial free tiers, beginners skip self-hosted tools, and the budget decides the paid pick.</p><div class="tablewrap"><table class="qpicks"><thead><tr><th>Job</th><th>Free pick</th><th>Paid pick ($20/mo or less)</th><th>Skip</th></tr></thead><tbody>{_qrows}</tbody></table></div></section>
+<section><h2>How the quiz picks</h2><ul><li>Only tools we checked in the last 30 days, with a verified free-tier listing and a verified starting price. Right now that's {_qn} listings. Anything we couldn't verify is left out.</li><li><b>Free pick:</b> the best free tier for your job that keeps working. One-time credits and trials rank lower, non-commercial free tiers rank lower if you do paid work, and self-hosted tools rank lower if you're new.</li><li><b>Paid pick:</b> our highest-ranked tool for the job whose cheapest monthly plan fits your budget. If your budget is $0, there isn't one.</li><li><b>Skip:</b> the tool with the clearest reason not to start there for you: no free plan, over budget, a free tier that runs out, or simply more than you need.</li><li>Every price and free tier is the vendor's own, with the date we checked it. Affiliate deals never affect a pick, and nobody can pay for a spot.</li></ul>{HOW}</section>
+<script type="application/json" id="qdata">{_qdata}</script><script>{QUIZ_JS}</script>"""
+qld=[{"@type":"WebApplication","name":"Find your AI stack in 30 seconds","url":f"{SITE}/quiz/","applicationCategory":"BusinessApplication","operatingSystem":"Web","browserRequirements":"Requires JavaScript","isAccessibleForFree":True,"offers":{"@type":"Offer","price":"0","priceCurrency":"USD"},"description":"Answer 3 questions about your job, main task and budget. Get a free pick, a paid pick that fits your budget, and one tool to skip, with prices checked in the last 30 days.","dateModified":QUIZ_LM,"publisher":{"@type":"Organization","name":NAME,"url":SITE}},
+ {"@type":"WebPage","name":"Find your AI stack in 30 seconds","url":f"{SITE}/quiz/","dateModified":QUIZ_LM},cld]
+page("quiz/index.html",f"Find your AI stack in 30 seconds: free quiz | {NAME}","You don't need 40 AI tools. You need 3. Answer 3 questions and get the free pick, the paid pick worth it, and one to skip, with prices checked this week. No paid placements.",qbody,qld,lastmod=QUIZ_LM)
 srt=sorted(tm.items())
 page("tools/index.html",f"All AI tools | {NAME}",f"Directory of {len(tm)} AI tools for builders, each with its free tier, starting price and last-checked date.",
  "<h1>All tools</h1>"+KITBAR+"<ul class=\"grid\">"+"".join(tcard(ds[0]) for s,ds in srt)+"</ul>"+kit_offer(),
@@ -262,7 +304,7 @@ pc=[c for c in changes if c["field"]=="starting_paid_price"][-6:]
 chg="".join(f'<li><time datetime="{c["date"]}">{nice(c["date"])}</time><a href="/tools/{slug(c["tool"])}/{"pricing/" if slug(c["tool"]) in PRICING else ""}">{E(c["tool"])}</a>: now {E(cprice(c["new"]))}</li>' for c in reversed(pc))
 chgsec=f'<section><h2>Recently verified prices</h2><ul class="chg">{chg}</ul></section>' if chg else ""
 page("index.html",f"{NAME}: the right AI tool for every job","One top pick per job for builders, vibe coders and game devs. Prices checked weekly, plus new releases.",
- f'<section class="hero"><p class="pick">For builders, vibe coders, agent tinkerers and game devs</p><h1>Stop guessing.<br><span class="grad">Use this AI</span> for that job.</h1><p class="lead">{NAME} picks the best AI tool for each job, with two alternatives and current pricing, plus a 5-minute weekday brief on what just launched.</p><a class="btn" href="#newsletter" data-umami-event="kit-hero">Get the free AI Stack Kit</a><a class="btn ghost" href="/use-cases/">Browse use cases</a><div class="stats"><div><b>{len(tm)}</b>tools</div><div><b>{len(ucl)}</b>use cases</div><div><b>{DATA_DATE}</b>last price check</div></div></section><section><h2>Top picks by job</h2><ul class="grid">{tops}</ul></section>{kit_offer()}{chgsec}<section><h2>New this week</h2><ol class="feed">{feed}</ol><a href="/new/">See all releases →</a></section>',
+ f'<section class="hero"><p class="pick">For builders, vibe coders, agent tinkerers and game devs</p><h1>Stop guessing.<br><span class="grad">Use this AI</span> for that job.</h1><p class="lead">{NAME} picks the best AI tool for each job, with two alternatives and current pricing, plus a 5-minute weekday brief on what just launched.</p><a class="btn" href="/quiz/" data-umami-event="quiz-hero">Find your AI stack in 30 seconds</a><a class="btn ghost" href="#newsletter" data-umami-event="kit-hero">Get the free AI Stack Kit</a><p class="qsmall" style="margin-top:.8rem">You don&#39;t need 40 AI tools. You need 3. Free quiz, no paid placements.</p><div class="stats"><div><b>{len(tm)}</b>tools</div><div><b>{len(ucl)}</b>use cases</div><div><b>{DATA_DATE}</b>last price check</div></div></section><section><h2>Top picks by job</h2><ul class="grid">{tops}</ul></section>{kit_offer()}{chgsec}<section><h2>New this week</h2><ol class="feed">{feed}</ol><a href="/new/">See all releases →</a></section>',
  {"@context":"https://schema.org","@type":"WebSite","name":NAME,"url":SITE})
 page("404.html",f"Not found | {NAME}","Page not found.",'<h1>Not found</h1><p><a href="/">Go home</a></p>')
 shutil.rmtree("dist",ignore_errors=True)
@@ -282,6 +324,9 @@ llms=f"""# {NAME}
 """+"".join(f"- [{u}]({SITE}/use-cases/{s}/): top pick {t['tool']}. {t['reason']}.\n" for u,s,t in ucl)+"""
 ## Free AI tools by job
 """+"".join(f"- [Free AI tools to {u}]({SITE}/free/{slug(u)}/): {len(F)} verified free tiers.\n" for u,F in FREEJOBS.items())+"""
+## Find your AI stack (quiz)
+- [Find your AI stack in 30 seconds]("""+SITE+"""/quiz/): answer 3 questions (role, main job, budget), get a free pick, a paid pick that fits the budget, and one to skip.
+
 ## Pricing pages (every plan, checked)
 """+"".join(f"- [{d['tool']} pricing]({SITE}/tools/{s}/pricing/)\n" for s,d in PRICING.items())+f"""
 ## Recent releases
