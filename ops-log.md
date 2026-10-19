@@ -94,3 +94,6 @@
 - SEO: FAQPage JSON-LD on use-case pages. Commits c886bbd / a2e17c0.
 - X main https://x.com/UseThisSI/status/2112187812644614525 + 1 builder reply + 5 pain-point replies. Followers 36.
 - Experiment: Brief #4 subject A/B + pain-point reply tracking started.
+
+## 2026-10-19 weekly review
+- Week-of-Oct-12 scorecard logged (ops/weekly.csv). This week top priority: free launch listings into /quiz/ (ops/launch-listings.md). Vercel Web Analytics is live. beehiiv drops to Free ~Oct 27 (paste markdown, no custom HTML). Make/ElevenLabs pick reasons no longer cite affiliate terms.
