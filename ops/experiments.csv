@@ -1,3 +1,4 @@
 date,test,metric,result,decision
 2026-10-16,"Brief #3 subject A vs B: A ""Muse Spark Open is free to run, plus GitHub agentic autofix"" (shipped) vs B holdout ""Meta open-weights Muse Spark for coding agents""",beehiiv open rate + click rate on Brief #3,"pending: only 2 owner test recipients so far, no real-reader data",
-2026-10-19,"Brief #4 subject A vs B: A ""Reflection Beam open weights, plus Appwrite MCP Events"" (shipped) vs B holdout ""Apache Beam for coding agents, plus ElevenLabs promo ended""",beehiiv open rate + click rate on Brief #4,pending: draft rendered; parent publishes,
+2026-10-19,"Brief #4 subject A vs B: A ""Reflection Beam open weights, plus Appwrite MCP Events"" (shipped) vs B holdout ""Apache Beam for coding agents, plus ElevenLabs promo ended""",beehiiv open rate + click rate on Brief #4,pending: published web (empty email then fixed); only 2 test recipients,
+2026-10-19,"Pain-point X replies (3-5/day) with price-first pick + one UseThisSI page link → quiz/signup",clicks + beehiiv signups tagged utm_source=x-pain,pending start,"track for 7 days"

@@ -86,3 +86,11 @@
 - Experiment: Brief #4 subject A vs B row in ops/experiments.csv.
 - Rebuild + tests + link check green. Push + optional IndexNow after commit.
 - Skipped (parent): beehiiv publish, X posts / pain-point replies.
+
+## 2026-10-19 ~7:00 AM AZ: weekday daily ops (scheduled)
+
+- Directory: +1 Reflection Beam; 17 tools rechecked; +2 releases (Beam, Appwrite MCP Events). Tools **74**. Freshness **70/74** within 7d.
+- Brief #4 published beehiiv (web fixed after empty HTML-snippet body): https://usethissi.beehiiv.com/p/reflection-beam-open-weights-plus-appwrite-mcp-events
+- SEO: FAQPage JSON-LD on use-case pages. Commits c886bbd / a2e17c0.
+- X main https://x.com/UseThisSI/status/2112187812644614525 + 1 builder reply + 5 pain-point replies. Followers 36.
+- Experiment: Brief #4 subject A/B + pain-point reply tracking started.
