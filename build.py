@@ -33,6 +33,8 @@ def fl(f):
     return "".join(m.groups()).strip() if m else ("a free plan" if f.strip().lower()=="yes" else f)
 def nice(c): return _dt.date.fromisoformat(c).strftime("%b %-d, %Y") if c else ""
 def mon(c): return _dt.date.fromisoformat(c).strftime("%b %Y")
+JOBP={"AI coding assistant":"for AI coding","Research":"for research","Voice and TTS":"for voice and TTS"}
+def jp(u): return JOBP.get(u) or "to "+u[0].lower()+u[1:]  # "to vibe-code an app", "for AI coding" (fixes "tools to AI coding assistant")
 def checked_html(d):
     c=d.get("checked","")
     return f'<time datetime="{E(c)}">{E(c)}</time>' if c else "no recorded check yet"
@@ -150,6 +152,12 @@ def page(path,title,desc,body,ld=None,lastmod=None,noindex=False):
 <section id="newsletter"><h2>Get the free 5-Minute AI Stack Kit</h2><p>Subscribe and we'll email you the kit: the best AI tool for each job with real prices and free-tier limits, the $0 Stack, 4 starter stacks under $50/mo, and a Skip List. Plus a 5-minute weekday brief on what launched, what changed, and what to try today. Free, one-click unsubscribe.</p><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="767b56cc-d716-4bab-a162-0baf03c34b2c"></script><p><small>Form not loading? <a href="https://usethissi.beehiiv.com/subscribe" rel="noopener">Subscribe on beehiiv</a>.</small></p></section>
 <footer>Some links are affiliate links. <a href="/about/#affiliates">Disclosure</a>. Directory data last checked {DATA_DATE}; each tool shows its own last-checked date. Contact: <a href="mailto:info@usethissi.com">info@usethissi.com</a></footer><script type="text/javascript" async src="https://subscribe-forms.beehiiv.com/attribution.js"></script></body></html>'''
 ICON={"Vibe-code an app or landing page":"🧱","AI coding assistant":"⌨️","Set up or run AI agents":"🤖","Automate workflows":"⚙️","Make game art and sprites":"🎮","Generate music and SFX":"🎵","Edit and generate video":"🎬","Write content":"✍️","Research":"🔎","Voice and TTS":"🎙️"}
+def short(p,n=40):
+    """Shorten a price for a badge at a word boundary (never mid-number, never a dangling '(')."""
+    if len(p)<=n: return p
+    c=p[:n+1]; c=c[:c.rfind(" ")] if " " in c else c[:n]
+    if c.count("(")>c.count(")"): c=c[:c.rfind("(")]
+    return c.rstrip(" ,;/(-")+"…"
 def badges(d):
     b=[]
     if d["role"]=="Top pick": b.append('<span class="badge b-top">Top pick</span>')
@@ -157,7 +165,7 @@ def badges(d):
     if f.startswith("yes"): b.append('<span class="badge b-free">Free tier</span>')
     elif f.startswith("no"): b.append('<span class="badge b-paid">Paid only</span>')
     p=d["price"].split(" [")[0].split(";")[0]
-    if p and "unverified" not in p.lower(): b.append(f'<span class="badge b-paid">{E(p[:40])}</span>')
+    if p and "unverified" not in p.lower(): b.append(f'<span class="badge b-paid">{E(short(p))}</span>')
     return "".join(b)
 def tcard(d): return f'<li><a class="card" href="/tools/{d["slug"]}/"><h3>{E(d["tool"])}</h3><p>{E(d["reason"])}</p><div>{badges(d)}</div></a></li>'
 def top(L): return next(d for d in L if d["role"]=="Top pick")
@@ -195,21 +203,21 @@ for u,L in uses.items():
     lm=max((d["checked"] for d in L if d["checked"]),default=DATA_DATE)
     rowsh="".join(f'<tr><td>{E(d["role"])}</td><td><a href="/tools/{d["slug"]}/">{E(d["tool"])}</a>{plink(d)}</td><td>{E(d["reason"])}</td><td>{E(d["free"])}</td><td>{E(d["price"])}</td><td>{checked_html(d)}</td></tr>' for d in L)
     cb,cld=crumbs([("Home","/"),("Use cases","/use-cases/"),(u,None)])
-    freelink=f'<p>Only want free options? See <a href="/free/{s}/">free AI tools to {E(u[0].lower()+u[1:])}</a>, with the limits spelled out.</p>' if u in FREEJOBS else ""
-    body=f'''{cb}<article><p class="pick">{ICON.get(u,"✨")} Use case</p><h1>Best AI tools to {E(u[0].lower()+u[1:])}</h1>
+    freelink=f'<p>Only want free options? See <a href="/free/{s}/">free AI tools {E(jp(u))}</a>, with the limits spelled out.</p>' if u in FREEJOBS else ""
+    body=f'''{cb}<article><p class="pick">{ICON.get(u,"✨")} Use case</p><h1>Best AI tools {E(jp(u))}</h1>
 <p class="tldr"><strong>Short answer:</strong> Use <a href="/tools/{t["slug"]}/">{E(t["tool"])}</a>. {E(t["reason"])}. Free tier: {E(t["free"])}. Paid from {E(t["price"])}. Alternatives: {", ".join(E(a["tool"]) for a in alts[:2])}.</p>
 <h2>Top pick: {E(t["tool"])}</h2><p>{E(t["reason"])}. Official site: {link(t)}</p>{KITBAR}
 <h2>All options</h2><ul class="grid">{"".join(tcard(d) for d in L)}</ul>{quizbar(s,u)}<h2>Compare</h2><div class="tablewrap"><table><thead><tr><th>Role</th><th>Tool</th><th>Why</th><th>Free tier</th><th>Paid from</th><th>Last checked</th></tr></thead><tbody>{rowsh}</tbody></table></div>
 {kit_offer("job")}{freelink}
 <p><small>Last checked is per tool (see the table). Page updated <time datetime="{lm}">{lm}</time>. Prices change, so confirm on the vendor's site.</small></p>{HOW}</article>'''
     faq={"@type":"FAQPage","mainEntity":[
-      {"@type":"Question","name":f"What is the best AI tool for {u}?","acceptedAnswer":{"@type":"Answer","text":f"Our top pick is {t['tool']}. {t['reason']}. Free tier: {t['free']}. Paid from {cprice(t['price'])}."}},
-      {"@type":"Question","name":f"How much do AI tools for {u} cost?","acceptedAnswer":{"@type":"Answer","text":f"Starting paid prices on this page range from free open-source options to paid plans. {t['tool']} starts at {cprice(t['price'])}. Each tool lists its own last-checked date."}},
+      {"@type":"Question","name":f"What is the best AI tool {jp(u)}?","acceptedAnswer":{"@type":"Answer","text":f"Our top pick is {t['tool']}. {t['reason']}. Free tier: {t['free']}. Paid from {cprice(t['price'])}."}},
+      {"@type":"Question","name":f"How much do AI tools {jp(u)} cost?","acceptedAnswer":{"@type":"Answer","text":f"Starting paid prices on this page range from free open-source options to paid plans. {t['tool']} starts at {cprice(t['price'])}. Each tool lists its own last-checked date."}},
       {"@type":"Question","name":"How do I pick a free vs paid AI tool for this job?","acceptedAnswer":{"@type":"Answer","text":f"Start with the free tier limits on this page, or take the 30-second quiz at {SITE}/quiz/ for a free pick, a paid pick that fits your budget, and one to skip."}},
     ]}
-    ld=[{"@type":"CollectionPage","name":f"Best AI tools to {u}","url":f"{SITE}/use-cases/{s}/","dateModified":lm,"mainEntity":{"@type":"ItemList","name":f"AI tools to {u}","itemListElement":[{"@type":"ListItem","position":i+1,"url":f"{SITE}/tools/{d['slug']}/","name":d["tool"]} for i,d in enumerate(L)]}},faq,cld]
+    ld=[{"@type":"CollectionPage","name":f"Best AI tools {jp(u)}","url":f"{SITE}/use-cases/{s}/","dateModified":lm,"mainEntity":{"@type":"ItemList","name":f"AI tools {jp(u)}","itemListElement":[{"@type":"ListItem","position":i+1,"url":f"{SITE}/tools/{d['slug']}/","name":d["tool"]} for i,d in enumerate(L)]}},faq,cld]
     ld[0]["mainEntity"]["@type"]="ItemList"
-    page(f"use-cases/{s}/index.html",f"Best AI tools to {u} (checked {mon(lm)}) | {NAME}",f"Top pick: {t['tool']}. {t['reason']}. Compare {len(L)} tools with prices and free tiers, each with its own last-checked date.",body,ld,lastmod=lm)
+    page(f"use-cases/{s}/index.html",f"Best AI tools {jp(u)} (checked {mon(lm)}) | {NAME}",f"Top pick: {t['tool']}. {t['reason']}. Compare {len(L)} tools with prices and free tiers, each with its own last-checked date.",body,ld,lastmod=lm)
 page("use-cases/index.html",f"AI tools by use case | {NAME}","Pick the right AI tool for the job: one top pick per use case, plus alternatives.",
  "<h1>Use cases</h1>"+quizbar()+"<ul class=\"grid\">"+"".join(f'<li><a class="card" href="/use-cases/{s}/"><span class="ico" aria-hidden="true">{ICON.get(u,"✨")}</span><h3>{E(u)}</h3><p>Top pick: <span class="pick">{E(t["tool"])}</span></p></a></li>' for u,s,t in ucl)+"</ul>"+kit_offer(),
  {"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":f"{SITE}/use-cases/{s}/","name":u} for i,(u,s,t) in enumerate(ucl)]})
@@ -267,8 +275,8 @@ for s,d in PRICING.items():
 {kit_offer("pricing",d["tool"])}
 <h2>What you'll actually pay in a year</h2><ul>{"".join(yr)}</ul>
 <h2>Price check log</h2>{histh}
-<h2>Cheaper or free alternatives for {E(d["use"][0].lower()+d["use"][1:])}</h2><div class="tablewrap"><table><thead><tr><th>Tool</th><th>Free tier</th><th>Paid from</th><th>Last checked</th></tr></thead><tbody>{alth}</tbody></table></div>
-<p>Full comparison: <a href="/use-cases/{slug(d["use"])}/">best AI tools to {E(d["use"][0].lower()+d["use"][1:])}</a>. Back to the <a href="/tools/{s}/">{E(d["tool"])} overview</a>.</p>{HOW}</article>'''
+<h2>Cheaper or free alternatives {E(jp(d["use"]))}</h2><div class="tablewrap"><table><thead><tr><th>Tool</th><th>Free tier</th><th>Paid from</th><th>Last checked</th></tr></thead><tbody>{alth}</tbody></table></div>
+<p>Full comparison: <a href="/use-cases/{slug(d["use"])}/">best AI tools {E(jp(d["use"]))}</a>. Back to the <a href="/tools/{s}/">{E(d["tool"])} overview</a>.</p>{HOW}</article>'''
     offs=[{"@type":"Offer","name":p["plan"],"price":str(num(p["per_month_monthly"]) if num(p["per_month_monthly"]) is not None else num(p["per_month_annual"])).replace(".0","") ,"priceCurrency":cur,"url":p["source_url"]} for p in P if (num(p["per_month_monthly"]) is not None or num(p["per_month_annual"]) is not None)]
     for o in offs:
         if o["price"].endswith(".") : o["price"]=o["price"][:-1]
@@ -284,19 +292,19 @@ for u,F in FREEJOBS.items():
     warn=(" Watch out: "+", ".join(E(x) for x in nonc)+" "+("doesn't" if len(nonc)==1 else "don't")+" allow commercial use on the free tier.") if nonc else ""
     pv=lambda d: float(re.search(r"\$([\d.]+)",cprice(d["price"])).group(1))
     cheap="; ".join('<a href="/tools/%s/">%s</a> from %s'%(d["slug"],E(d["tool"]),E(cprice(d["price"]))) for d in sorted(paid,key=pv)[:3])
-    body=f'''{cb}<article><p class="pick">{ICON.get(u,"✨")} Free options · limits checked {nice(lc)}</p><h1>Free AI tools to {E(u[0].lower()+u[1:])}</h1>
+    body=f'''{cb}<article><p class="pick">{ICON.get(u,"✨")} Free options · limits checked {nice(lc)}</p><h1>Free AI tools {E(jp(u))}</h1>
 <p class="tldr"><strong>Short answer:</strong> start with <a href="/tools/{best["slug"]}/">{E(best["tool"])}</a> on its free plan{(" ("+E(fl(best["free"]))+")") if fl(best["free"])!="a free plan" else ""}. We found {len(F)} tools for this job with a free tier we verified in the last 30 days.{warn}</p>
 {quizbar(s,u)}<h2>Every free option, with the catch</h2><div class="tablewrap"><table><thead><tr><th>Tool</th><th>Free tier, as listed</th><th>The catch</th><th>Paid from</th><th>Last checked</th></tr></thead><tbody>{rowsf}</tbody></table></div>
 {kit_offer("free")}
 <h2>When it's worth paying</h2><p>Upgrade when you hit the free limits every week, or when you need commercial rights. The cheapest verified paid plans for this job right now: {cheap}.</p>
-<p>See the full comparison, paid tools included: <a href="/use-cases/{s}/">best AI tools to {E(u[0].lower()+u[1:])}</a>.</p>{HOW}</article>'''
-    ld=[{"@type":"CollectionPage","name":f"Free AI tools to {u}","url":f"{SITE}/free/{s}/","dateModified":lc,"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":f"{SITE}/tools/{d['slug']}/","name":d["tool"]} for i,d in enumerate(F)]}},cld]
-    page(f"free/{s}/index.html",f"Free AI tools to {u} (limits checked {mon(lc)}) | {NAME}",f"{len(F)} free AI tools to {u[0].lower()+u[1:]}, with the exact free-tier limits and the catch for each. Checked {nice(lc)}.",body,ld,lastmod=lc)
+<p>See the full comparison, paid tools included: <a href="/use-cases/{s}/">best AI tools {E(jp(u))}</a>.</p>{HOW}</article>'''
+    ld=[{"@type":"CollectionPage","name":f"Free AI tools {jp(u)}","url":f"{SITE}/free/{s}/","dateModified":lc,"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":f"{SITE}/tools/{d['slug']}/","name":d["tool"]} for i,d in enumerate(F)]}},cld]
+    page(f"free/{s}/index.html",f"Free AI tools {jp(u)} (limits checked {mon(lc)}) | {NAME}",f"{len(F)} free AI tools {jp(u)}, with the exact free-tier limits and the catch for each. Checked {nice(lc)}.",body,ld,lastmod=lc)
 if FREEJOBS:
     lcf=max(max(d["checked"] for d in F) for F in FREEJOBS.values())
     page("free/index.html",f"Free AI tools by job, limits checked | {NAME}","Free AI tools for every builder job, with the real free-tier limits and the catch, checked in the last 30 days.",
      "<h1>Free AI tools by job</h1><p>Only tools whose free tier we verified on the vendor's site in the last 30 days.</p>"+quizbar()+"<ul class=\"grid\">"+"".join(f'<li><a class="card" href="/free/{slug(u)}/"><span class="ico" aria-hidden="true">{ICON.get(u,"✨")}</span><h3>{E(u)}</h3><p>{len(F)} free options. Start with <span class="pick">{E(F[0]["tool"])}</span>.</p></a></li>' for u,F in FREEJOBS.items())+"</ul>"+kit_offer("free"),
-     {"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":f"{SITE}/free/{slug(u)}/","name":f"Free AI tools to {u}"} for i,u in enumerate(FREEJOBS)]},lastmod=lcf)
+     {"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":f"{SITE}/free/{slug(u)}/","name":f"Free AI tools {jp(u)}"} for i,u in enumerate(FREEJOBS)]},lastmod=lcf)
 # ---- /quiz/: "Find your AI stack in 30 seconds" (data from quiz.py, computed from data.csv at build time)
 import quiz as _quiz
 QUIZ=_quiz.build(uses,fresh,bad_price,cprice,fl,nice,slug)
@@ -334,8 +342,10 @@ srt=sorted(tm.items())
 page("tools/index.html",f"All AI tools | {NAME}",f"Directory of {len(tm)} AI tools for builders, each with its free tier, starting price and last-checked date.",
  "<h1>All tools</h1>"+KITBAR+"<ul class=\"grid\">"+"".join(tcard(ds[0]) for s,ds in srt)+"</ul>"+kit_offer(),
  {"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":f"{SITE}/tools/{s}/","name":ds[0]["tool"]} for i,(s,ds) in enumerate(srt)]})
-page("new/index.html",f"New AI tool releases this week | {NAME}","The AI releases from the last two weeks that matter for builders.",
- "<h1>New <span class=\"grad\">this week</span></h1><p>Releases from the last 7 days that matter if you build things. Every item links to its source.</p>"+KITBAR+"<ol class=\"feed\" reversed>"+"".join(f'<li><time datetime="{E(a[:10])}">{E(a)}</time><p>{E(b)}</p><a href="{E(c)}" rel="noopener">Read the source →</a></li>' for a,b,c in reversed(rels))+"</ol>",lastmod=max(r[0][:10] for r in rels))
+WEEK=[r for r in rels if (TODAY-_dt.date.fromisoformat(r[0][:10])).days<=6]; EARLIER=[r for r in rels if r not in WEEK]
+def relli(a,b,c): return f'<li><time datetime="{E(a[:10])}">{E(a)}</time><p>{E(b)}</p><a href="{E(c)}" rel="noopener">Read the source →</a></li>'
+page("new/index.html",f"New AI tool releases this week | {NAME}","AI releases from the last 7 days that matter for builders, each linked to its source, plus earlier releases.",
+ "<h1>New <span class=\"grad\">this week</span></h1><p>Releases from the last 7 days that matter if you build things. Every item links to its source.</p>"+KITBAR+"<ol class=\"feed\" id=\"week\">"+("".join(relli(*r) for r in reversed(WEEK)) or "<li><p>No confirmed releases in the last 7 days yet.</p></li>")+"</ol>"+(f'<h2 id="earlier">Earlier releases</h2><ol class="feed">'+"".join(relli(*r) for r in reversed(EARLIER))+"</ol>" if EARLIER else ""),lastmod=max(r[0][:10] for r in rels))
 page("submit/index.html",f"Submit your AI tool | {NAME}","Submit an AI tool for review in the UseThisSI directory.",
  f'<h1>Submit your tool</h1><p>Every tool gets the same review, whether or not it pays. Featured placement will come later and will always be labeled.</p><p><a href="https://github.com/{REPO}/issues/new?template=submit-tool.yml">Submit your tool on GitHub</a> (needs a free GitHub account). We review submissions every week.</p>'+KITBAR)
 page("about/index.html",f"About and affiliate disclosure | {NAME}","How UseThisSI picks tools, and how affiliate links work.",
@@ -358,19 +368,29 @@ sm=[(SITE+"/"+p.replace("index.html",""),LASTMOD[p][0]) for p in pages if p!="40
 open("dist/sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"<url><loc>{u}</loc><lastmod>{m}</lastmod></url>\n" for u,m in sm)+"</urlset>\n")
 open("dist/robots.txt","w").write(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
 recent="\n".join(f"- {a}: {b} ({c})" for a,b,c in list(reversed(rels))[:8])
+def _nums(x): return sorted(re.findall(r"[$€]\s?[\d.,]*\d",cprice(x)))
+_pc=[c for c in changes if c["field"]=="starting_paid_price" and c["date"] and (TODAY-_dt.date.fromisoformat(c["date"])).days<=13 and _nums(c["old"]) and _nums(c["old"])!=_nums(c["new"]) and slug(c["tool"]) in tm]
+_seen=set(); _pcl=[]
+for c in reversed(_pc):
+    if c["tool"] in _seen: continue
+    _seen.add(c["tool"]); _pcl.append(c)
+pricechg="\n".join(f'- {c["date"]}: {c["tool"]} starting price was "{cprice(c["old"])}", now "{cprice(c["new"])}" ({SITE}/tools/{slug(c["tool"])}/)' for c in _pcl[:12])
 llms=f"""# {NAME}
 
 > One top AI tool pick per job for builders, vibe coders, AI agent tinkerers and indie game devs. Directory data last checked {DATA_DATE}; each tool page shows its own last-checked date.
 
 ## Use cases
-"""+"".join(f"- [{u}]({SITE}/use-cases/{s}/): top pick {t['tool']}. {t['reason']}.\n" for u,s,t in ucl)+"""
+"""+"".join(f"- [{u}]({SITE}/use-cases/{s}/): top pick {t['tool']}. {t['reason']}."+(f" Free tier: {t['free']}. Paid from {cprice(t['price'])} (checked {t['checked']})." if t["checked"] else "")+"\n" for u,s,t in ucl)+"""
 ## Free AI tools by job
-"""+"".join(f"- [Free AI tools to {u}]({SITE}/free/{slug(u)}/): {len(F)} verified free tiers.\n" for u,F in FREEJOBS.items())+"""
+"""+"".join(f"- [Free AI tools {jp(u)}]({SITE}/free/{slug(u)}/): {len(F)} verified free tiers.\n" for u,F in FREEJOBS.items())+"""
 ## Find your AI stack (quiz)
 - [Find your AI stack in 30 seconds]("""+SITE+"""/quiz/): answer 3 questions (role, main job, budget), get a free pick, a paid pick that fits the budget, and one to skip.
 
 ## Pricing pages (every plan, checked)
 """+"".join(f"- [{d['tool']} pricing]({SITE}/tools/{s}/pricing/)\n" for s,d in PRICING.items())+f"""
+## Recent price changes (last 14 days, from vendor pricing pages)
+{pricechg or "- No starting-price changes found in the last 14 days."}
+
 ## Recent releases
 {recent}
 

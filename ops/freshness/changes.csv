@@ -94,3 +94,48 @@ date,tool,field,old,new,source
 2026-10-19,Krea,last_checked,2026-10-18,2026-10-19,official pricing page
 2026-10-19,Lovable,starting_paid_price,$25/mo Pro,"$25/mo Pro ($21/mo billed annually) [official docs, Oct 19]",docs.lovable.dev/introduction/subscription-plans
 2026-10-19,Lovable,last_checked,2026-10-14,2026-10-19,docs.lovable.dev/introduction/subscription-plans
+2026-10-20,Bolt.new,last_checked,2026-10-16,2026-10-20,bolt.new/pricing
+2026-10-20,v0 by Vercel,last_checked,2026-10-16,2026-10-20,v0.app/pricing
+2026-10-20,Replit,last_checked,2026-10-16,2026-10-20,replit.com/pricing
+2026-10-20,Hostinger AI Builder,last_checked,2026-10-16,2026-10-20,hostinger.com/ai-website-builder
+2026-10-20,GitHub Copilot,last_checked,2026-10-16,2026-10-20,github.com/features/copilot/plans
+2026-10-20,Tabnine,last_checked,2026-10-16,2026-10-20,tabnine.com/pricing redirects to tricentis.com/contact-us
+2026-10-20,n8n,free_tier,Yes (self-host); Cloud 14-day trial,Yes (self-host Community Edition); Cloud free trial,n8n.io/pricing
+2026-10-20,n8n,last_checked,2026-10-16,2026-10-20,n8n.io/pricing
+2026-10-20,Lindy,last_checked,2026-10-16,2026-10-20,lindy.ai/pricing
+2026-10-20,Manus,free_tier,unverified,Yes (300 credits/day; Manus 2.0 Lite in Agent Mode),help.manus.im membership pricing article
+2026-10-20,Manus,last_checked,,2026-10-20,help.manus.im membership pricing article
+2026-10-20,CrewAI,last_checked,2026-10-16,2026-10-20,crewai.com/pricing
+2026-10-20,Relevance AI,removed,"$19/mo annual, $29 monthly",(removed from directory),"pricing page now lists only Enterprise / talk to sales (no self-serve plan), so it no longer fits a solo-builder pick"
+2026-10-20,Zapier,last_checked,2026-10-16,2026-10-20,zapier.com/pricing
+2026-10-20,Muse Code (Meta),free_tier,unverified,No (subscription or pay-as-you-go API),dev.meta.ai/products/muse-code
+2026-10-20,Muse Code (Meta),last_checked,,2026-10-20,dev.meta.ai/products/muse-code
+2026-10-20,Gemini agent (Google Cloud),free_tier,unverified,Trial only (30-day Gemini Enterprise Plus trial; agent features in early access),cloud.google.com/gemini-enterprise
+2026-10-20,Gemini agent (Google Cloud),last_checked,,2026-10-20,cloud.google.com/gemini-enterprise
+2026-10-20,CopilotKit CLiF,free_tier,unverified,No (Self-Learning is Enterprise early access; CopilotKit Developer plan is free),copilotkit.ai/pricing
+2026-10-20,CopilotKit CLiF,last_checked,2026-10-14,2026-10-20,copilotkit.ai/pricing
+2026-10-20,Magic Patterns (MagicOS),free_tier,Yes,Yes (limited),magicpatterns.com pricing FAQ
+2026-10-20,Magic Patterns (MagicOS),last_checked,2026-10-14,2026-10-20,magicpatterns.com pricing FAQ
+2026-10-20,Aider,last_checked,2026-10-15,2026-10-20,aider.chat + GitHub releases
+2026-10-20,Builder Agent-Native,free_tier,Yes (open source),"Yes (open source, MIT; Builder.io Free plan 60 agent credits/mo)",builder.io/pricing + GitHub
+2026-10-20,Builder Agent-Native,last_checked,2026-10-15,2026-10-20,builder.io/pricing + GitHub
+2026-10-20,Muse Spark Open (Meta),free_tier,Yes (weights; Muse Model License),"Yes (weights; Muse Model License, limited commercial terms)",research.meta.ai/blog/muse-spark-open
+2026-10-20,Muse Spark Open (Meta),last_checked,2026-10-16,2026-10-20,research.meta.ai/blog/muse-spark-open
+2026-10-20,TwelveLabs Jockey,last_checked,2026-10-16,2026-10-20,twelvelabs.io/pricing
+2026-10-20,Chainguard Workspaces,free_tier,Yes (30-day beta trial),Yes (beta: 500 free hours/month),chainguard.dev Workspaces launch post FAQ
+2026-10-20,Chainguard Workspaces,last_checked,2026-10-16,2026-10-20,chainguard.dev Workspaces launch post FAQ
+2026-10-20,Autonomous Harness,last_checked,2026-10-16,2026-10-20,GitHub README + autonomous.ai/harness-device
+2026-10-20,AWS Aidlc,last_checked,2026-10-16,2026-10-20,github.com/awslabs/aidlc-workflows (MIT-0)
+2026-10-20,MiniMax Code,added,,"$22/mo M Plan Go; API $0.15/$0.60 per 1M tokens [official, Oct 20]",agent.minimax.io + platform.minimax.io M Plan docs
+2026-10-20,Manus,starting_paid_price,$20/mo,"$20/mo Pro (4,000 credits; 17% off billed annually) [official help center, Oct 20]",help.manus.im membership pricing article
+2026-10-20,Zapier,starting_paid_price,"$19.99/mo Pro annual (750 tasks) [official, Oct 16]","$19.99/mo Professional (starting price) [official, Oct 20]",zapier.com/pricing
+2026-10-20,Muse Code (Meta),starting_paid_price,unverified (subscription),"$5/mo Everyday Usage; $15 High, $50 Power (adds Muse Wonder Full) [official, Oct 20]",dev.meta.ai/products/muse-code
+2026-10-20,Gemini agent (Google Cloud),starting_paid_price,unverified,"Not published separately; Gemini Enterprise via contact sales [official, Oct 20]",cloud.google.com/gemini-enterprise
+2026-10-20,CopilotKit CLiF,starting_paid_price,unverified (demo / early access),"Enterprise custom pricing (Self-Learning early access); not in Pro $39/mo [official, Oct 20]",copilotkit.ai/pricing
+2026-10-20,Magic Patterns (MagicOS),starting_paid_price,unverified,"$20/seat/mo Starter [official site FAQ, Oct 20]",magicpatterns.com pricing FAQ
+2026-10-20,Builder Agent-Native,starting_paid_price,Free OSS; Builder.io hosted option unverified,"Free OSS (MIT); Builder.io hosted Pro $24/user/mo [official, Oct 20]",builder.io/pricing + GitHub
+2026-10-20,Muse Spark Open (Meta),starting_paid_price,"Free weights; hosted via Fireworks/Groq/Together/etc [official, Oct 16]","Free weights; hosted via Baseten/Fireworks/Groq/Together/etc [official, Oct 20]",research.meta.ai/blog/muse-spark-open
+2026-10-20,Autonomous Harness,starting_paid_price,"Free OSS; optional Harness hardware $149 [official, Oct 16]","Free OSS (MIT); optional Harness device $149 [official, Oct 20]",GitHub README + autonomous.ai/harness-device
+2026-10-20,Bolt.new,starting_paid_price,"$25/mo Pro [official, Oct 16]","$25/mo Pro ($18/mo billed annually) [official, Oct 20]",bolt.new/pricing
+2026-10-20,Hostinger AI Builder,starting_paid_price,"$2.99/mo (48-mo term) [official, Oct 16]","$2.49/mo Premium (48-mo term; renews $10.99/mo) [official, Oct 20]",hostinger.com/ai-website-builder
+2026-10-20,Lindy,starting_paid_price,"$49.99/user/mo Team (5,000 credits) [official, Oct 16]","$29.99/user/mo Team (3,000 credits) [official, Oct 20]",lindy.ai/pricing

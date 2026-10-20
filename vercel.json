@@ -16,5 +16,17 @@
         }
       ]
     }
+  ],
+  "redirects": [
+    {
+      "source": "/tools/relevance-ai/",
+      "destination": "/use-cases/set-up-or-run-ai-agents/",
+      "permanent": true
+    },
+    {
+      "source": "/tools/relevance-ai",
+      "destination": "/use-cases/set-up-or-run-ai-agents/",
+      "permanent": true
+    }
   ]
 }

@@ -134,4 +134,22 @@ r.append(ok('id="qnothanks"' in qh and "No thanks, just show me" in qh and "/qui
 r.append(ok(all(x in qh for x in ('"/quiz/start/"','"/quiz/done/"','"/quiz/signup/"','"layout", "slim"','"utm_source", "quiz"','"utm_campaign", "quiz-" + job','data-pub="d420e641-998f-43f4-a9ec-f398fd8e23c6"')),"quiz tracks start/done/signup and loads the beehiiv slim form tagged utm_source=quiz, utm_campaign=quiz-<job>"))
 r.append(ok(IMPACT in qh and "vercel.app" not in qh,"quiz page keeps the Impact meta and has no vercel.app links"))
 r.append(ok('<details class="qseo">' in qh and "Quick picks by job" in qh,"no-JS SEO section kept, collapsed"))
+# ---- regressions added 2026-10-20 (live audit)
+import html as _h
+_today=_dt.datetime.now(__import__("zoneinfo").ZoneInfo("America/Phoenix")).date()
+nw=open("dist/new/index.html").read()
+_wk=re.search(r'<ol class="feed" id="week">(.*?)</ol>',nw,re.S)
+_wd=re.findall(r'<time datetime="(\d{4}-\d\d-\d\d)"',_wk.group(1)) if _wk else []
+r.append(ok(_wk is not None and all((_today-_dt.date.fromisoformat(x)).days<=6 for x in _wd) and ("Earlier releases" in nw)==bool(re.search(r'id="earlier"',nw)),f"/new/ 'last 7 days' list only holds releases from the last 7 days ({len(_wd)} items); older ones sit under Earlier releases"))
+_bad=[p for p in htmls if re.search(r"AI tools to (AI coding assistant|research|voice and TTS|aI )|tools? to aI |AI tool for (Set up|Vibe-code|AI coding assistant)",open(p).read())]
+r.append(ok(not _bad,f"use-case/free titles read naturally (no 'AI tools to AI coding assistant' / 'aI'); offenders: {_bad[:3]}"))
+_prices=[re.sub(r"\s*\[[^\]]*\]","",x[5]).split(" [")[0].split(";")[0].strip() for x in rows] if Q else []
+_bt=[_h.unescape(t) for p in htmls for t in re.findall(r'<span class="badge b-paid">([^<]*)</span>',open(p).read()) if t!="Paid only"]
+_cut=[t for t in set(_bt) if not any(pp.startswith(t.rstrip("…")) and (len(pp)==len(t.rstrip("…")) or not pp[len(t.rstrip("…"))].isalnum()) for pp in _prices)]
+r.append(ok(_bt and not _cut,f"{len(set(_bt))} price badges are cut at word boundaries, never mid-number (bad: {_cut[:3]})"))
+r.append(ok(re.search(r"## Recent price changes \(last 14 days",llms) is not None and re.search(r"top pick [^\n]*Paid from [^\n]*\(checked 20\d\d-\d\d-\d\d\)",llms) is not None,"llms.txt lists recent price changes and each top pick's price with its check date"))
+_vj=json.load(open("vercel.json"))
+_dslugs={os.path.basename(os.path.dirname(p)) for p in htmls if "/tools/" in p and p.count("/")==3}
+r.append(ok(all(x["destination"].startswith("/") and os.path.exists("dist"+x["destination"]+"index.html") for x in _vj.get("redirects",[])) and "relevance-ai" not in _dslugs,"removed tools redirect to a live page (relevance-ai -> agents use case)"))
+
 sys.exit(0 if all(r) else 1)
