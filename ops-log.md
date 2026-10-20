@@ -97,3 +97,14 @@
 
 ## 2026-10-19 weekly review
 - Week-of-Oct-12 scorecard logged (ops/weekly.csv). This week top priority: free launch listings into /quiz/ (ops/launch-listings.md). Vercel Web Analytics is live. beehiiv drops to Free ~Oct 27 (paste markdown, no custom HTML). Make/ElevenLabs pick reasons no longer cite affiliate terms.
+
+## 2026-10-20 ~7:30 AM AZ: weekday daily ops (executor)
+
+- Directory: +MiniMax Code, -Relevance AI (Enterprise-only, 308 to agents use case). **74 tools**. +6 releases (Kling 4.0, ElevenLabs Instant Soundtracks, MiniMax M3.1 Flash, Notion Agents, Copilot model retirements, Mintlify Autopilot).
+- 23 tools re-verified on official pages, incl. the 4 never-checked. Freshness **70/74 → 74/74** within 7d, 0 never checked.
+- Price changes: Lindy $29.99 start (correction), Hostinger $2.49, Bolt $18 annual, Zapier, Builder.io Pro $24, Magic Patterns $20, Manus $20, Muse Code $5/$15/$50.
+- Live audit fixes (~7 min found to live): /new/ 7-day list, "AI tools to AI coding" title grammar, mid-number price badges. Regression tests added.
+- SEO: llms.txt top-pick prices with check dates + recent price changes section.
+- Brief #5 drafted + rendered (newsletter/2026-10-20.md, paste file ready). Not published by executor.
+- Experiment: UTM-tagged pain-reply links (pain-1020). X plan: .ops-scratch/x-2026-10-20.md.
+- Commits e705fcc + notes commit. IndexNow 200 / 124 URLs.
