@@ -18,9 +18,9 @@ Rule: free only, no paid "fast track", no badge/backlink obligations unless Baz 
 | Site | Cost / conditions | Account | Status |
 |---|---|---|---|
 | Ignlab Launch https://launch.ignlab.net | free, no badge/backlink, reviewed | none | to submit |
-| AI Pulse https://firsto.co/sites/out/ai-pulse/submit | free, no backlink required, review up to 2 weeks | none | to submit |
+| AI Pulse https://firsto.co/sites/out/ai-pulse/submit | free, no backlink required, review up to 2 weeks | none | submitted Oct 19, email verified + Normal Review Oct 20 |
 | Best of AI https://bestofai.io/submit/ (form at submit.bestofai.io) | free, human review, dofollow | none listed | to submit |
-| ToolScout https://toolscout.ai/submit | free (paid boost optional, skip), review 1+ week | sign-in to edit | later |
+| ToolScout https://toolscout.ai/submit | free (paid boost optional, skip), review 1+ week | account required to submit (checked Oct 20) | later |
 | AlternativeTo, Product Hunt, Show HN | free | needs accounts; save PH for when the quiz + kit have proof | later |
 | BetaList, Futurepedia, OpenTools, Toolify | now paid (per submitator.com, Oct 18 2026) | - | skip |
 Source for paid/free status: https://submitator.com/blog/free-startup-directories (Oct 18, 2026) and each site's own submit page.
