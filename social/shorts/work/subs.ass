@@ -1,0 +1,34 @@
+[Script Info]
+ScriptType: v4.00+
+PlayResX: 720
+PlayResY: 1280
+WrapStyle: 2
+ScaledBorderAndShadow: yes
+
+[V4+ Styles]
+Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
+Style: Cap,Poppins Black,90,&H00FFFFFF,&H00FFFFFF,&H18140B0A,&H18140B0A,0,0,0,0,100,100,0,0,3,18,0,5,60,60,0,1
+Style: Hook,Poppins Black,112,&H00FFFFFF,&H00FFFFFF,&H18140B0A,&H18140B0A,0,0,0,0,100,100,0,0,3,20,0,5,50,50,0,1
+Style: Tag,Poppins Bold,30,&H40FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,2,0,1,2,0,8,60,60,0,1
+Style: End,Poppins Black,86,&H00FFFFFF,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,5,50,50,0,1
+Style: EndSub,Poppins SemiBold,50,&H00F0E0D8,&H00FFFFFF,&H00000000,&H00000000,0,0,0,0,100,100,0,0,1,0,0,5,50,50,0,1
+
+[Events]
+Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
+Dialogue: 0,0:00:00.00,0:00:32.00,Tag,,0,0,0,,{\pos(360,90)}USETHISSI.COM
+Dialogue: 1,0:00:00.00,0:00:02.20,Hook,,0,0,0,,{\pos(360,330)\fad(0,60)\fscx70\fscy70\t(0,140,\fscx100\fscy100)}Too many\NAI tools?
+Dialogue: 1,0:00:02.20,0:00:04.60,Cap,,0,0,0,,{\pos(360,330)\fscx85\fscy85\t(0,120,\fscx100\fscy100)}Wasting hours\Ntesting them?
+Dialogue: 1,0:00:04.60,0:00:07.00,Cap,,0,0,0,,{\pos(360,330)\fscx85\fscy85\t(0,120,\fscx100\fscy100)}Stop picking\Nby hype.
+Dialogue: 1,0:00:07.00,0:00:10.00,Hook,,0,0,0,,{\pos(360,330)\fscx70\fscy70\t(0,140,\fscx100\fscy100)}Pick by\Nthe {\c&H00EED322&}job.
+Dialogue: 1,0:00:10.00,0:00:12.50,Cap,,0,0,0,,{\pos(360,300)\fscx85\fscy85\t(0,120,\fscx100\fscy100)}{\c&H00EED322&}73 AI tools{\c&H00FFFFFF&}\Nsorted by\Nuse case
+Dialogue: 1,0:00:12.50,0:00:15.00,Cap,,0,0,0,,{\pos(360,300)\fs74\fscx85\fscy85\t(0,120,\fscx100\fscy100)}Writing · Coding\NVideo · Agents
+Dialogue: 1,0:00:15.00,0:00:17.50,Hook,,0,0,0,,{\pos(360,300)\fscx70\fscy70\t(0,140,\fscx100\fscy100)}{\c&H00EED322&}Real{\c&H00FFFFFF&}\Nprices.
+Dialogue: 1,0:00:17.50,0:00:20.00,Cap,,0,0,0,,{\pos(360,300)\fscx85\fscy85\t(0,120,\fscx100\fscy100)}{\c&H00EED322&}Last-checked{\c&H00FFFFFF&}\Ndates.
+Dialogue: 1,0:00:20.00,0:00:23.00,Cap,,0,0,0,,{\pos(360,300)\fscx85\fscy85\t(0,120,\fscx100\fscy100)}Plus a {\c&H00EED322&}free{\c&H00FFFFFF&}\N5-min brief
+Dialogue: 1,0:00:23.00,0:00:26.00,Hook,,0,0,0,,{\pos(360,300)\fscx70\fscy70\t(0,140,\fscx100\fscy100)}Every\Nweekday.
+Dialogue: 1,0:00:26.00,0:00:29.00,Cap,,0,0,0,,{\pos(360,300)\fscx85\fscy85\t(0,120,\fscx100\fscy100)}What launched.\NWhat changed.
+Dialogue: 1,0:00:29.00,0:00:32.00,Cap,,0,0,0,,{\pos(360,300)\fscx85\fscy85\t(0,120,\fscx100\fscy100)}What to\N{\c&H00EED322&}try today.
+Dialogue: 1,0:00:32.00,0:00:38.00,End,,0,0,0,,{\pos(360,420)\fad(250,0)}Get the free\N5-min AI brief
+Dialogue: 1,0:00:32.40,0:00:38.00,EndSub,,0,0,0,,{\pos(360,650)\fad(250,0)}Subscribe free at
+Dialogue: 1,0:00:32.40,0:00:38.00,End,,0,0,0,,{\pos(360,745)\fad(250,0)\c&H00EED322&\fs88}usethissi.com
+Dialogue: 1,0:00:33.00,0:00:38.00,EndSub,,0,0,0,,{\pos(360,860)\fad(250,0)\fs38\c&H00FAB5C4&}Weekdays · 5 minutes · No hype
