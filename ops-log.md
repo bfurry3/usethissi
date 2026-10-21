@@ -108,3 +108,13 @@
 - Brief #5 drafted + rendered (newsletter/2026-10-20.md, paste file ready). Not published by executor.
 - Experiment: UTM-tagged pain-reply links (pain-1020). X plan: .ops-scratch/x-2026-10-20.md.
 - Commits e705fcc + notes commit. IndexNow 200 / 124 URLs.
+
+## 2026-10-21 ~7:20 AM AZ: weekday daily ops (executor)
+
+- Directory: +Beacon (coding Alt), +Mirelo (music/SFX Alt). **76 tools**. +6 releases (Gemini small-business hub, Beacon, Perplexity Computer local on Mac, Vercel WebSockets GA, Amazon Polly upgrade, GemDB Code).
+- 16 tools re-verified on official pages, no starting-price moves; Rosebud free tier corrected (weekly refill only in eligible regions). Freshness **76/76** within 7d, 0 never checked.
+- Live audit fixes (~8 min found to live): meta descriptions over 160 chars on 23 pages; homepage price-change list showed wording edits. Regression tests added.
+- SEO/chatbot: llms.txt "All tools" section (all 76 tools with price + check date).
+- Brief #6 drafted + rendered (newsletter/2026-10-21.md, paste file ready). Not published by executor.
+- Experiment: pain-reply landing page test (utm_content). X plan: .ops-scratch/x-2026-10-21.md.
+- Commit 04dd7eb + notes commit. IndexNow 200 / 126 URLs. Not scripted: Make, Gamma, Perplexity, ChatGPT, Midjourney (403), still Oct 18.
