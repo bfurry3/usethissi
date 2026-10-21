@@ -139,3 +139,23 @@ date,tool,field,old,new,source
 2026-10-20,Bolt.new,starting_paid_price,"$25/mo Pro [official, Oct 16]","$25/mo Pro ($18/mo billed annually) [official, Oct 20]",bolt.new/pricing
 2026-10-20,Hostinger AI Builder,starting_paid_price,"$2.99/mo (48-mo term) [official, Oct 16]","$2.49/mo Premium (48-mo term; renews $10.99/mo) [official, Oct 20]",hostinger.com/ai-website-builder
 2026-10-20,Lindy,starting_paid_price,"$49.99/user/mo Team (5,000 credits) [official, Oct 16]","$29.99/user/mo Team (3,000 credits) [official, Oct 20]",lindy.ai/pricing
+2026-10-21,Claude Code,last_checked,2026-10-18,2026-10-21,claude.com/pricing (Claude Code included in Pro)
+2026-10-21,Windsurf (now Devin Desktop),last_checked,2026-10-18,2026-10-21,devin.ai/pricing (Free $0; Pro $20; Max $200)
+2026-10-21,Gumloop,last_checked,2026-10-18,2026-10-21,"gumloop.com/pricing (Pro from $37/mo, 14-day free trial)"
+2026-10-21,Scenario,last_checked,2026-10-18,2026-10-21,scenario.com/pricing (50 free daily credits)
+2026-10-21,Rosebud AI,free_tier,"Yes (8,000 credits/week)","Yes (8,000 credits; refill weekly in eligible regions)","rosebud.ai/pricing FAQ: Free plan 8,000 credits, weekly refill in eligible regions"
+2026-10-21,Rosebud AI,starting_paid_price,"$15/mo [official, Oct 18]","$15/mo Indie Dev [official, Oct 21]","rosebud.ai/pricing FAQ: Free plan 8,000 credits, weekly refill in eligible regions"
+2026-10-21,Rosebud AI,last_checked,2026-10-18,2026-10-21,"rosebud.ai/pricing FAQ: Free plan 8,000 credits, weekly refill in eligible regions"
+2026-10-21,Suno,last_checked,2026-10-18,2026-10-21,"suno.com/pricing (Free 50 credits/day; Pro $8/mo yearly, saves $24/yr)"
+2026-10-21,AIVA,last_checked,2026-10-18,2026-10-21,aiva.ai/pricing
+2026-10-21,Runway,last_checked,2026-10-18,2026-10-21,runwayml.com/pricing (Free 125 one-time credits)
+2026-10-21,Descript,last_checked,2026-10-18,2026-10-21,descript.com/pricing
+2026-10-21,Synthesia,last_checked,2026-10-18,2026-10-21,"synthesia.io/pricing (Basic $0: 10 min video/mo, watermark)"
+2026-10-21,Claude,last_checked,2026-10-18,2026-10-21,claude.com/pricing
+2026-10-21,Jasper,last_checked,2026-10-18,2026-10-21,jasper.ai/pricing
+2026-10-21,Copy.ai,last_checked,2026-10-18,2026-10-21,"copy.ai/prices (free plan not shown; 'Try for free' only, free_tier stays unverified)"
+2026-10-21,Gemini (Deep Research),last_checked,2026-10-18,2026-10-21,gemini.google/subscriptions
+2026-10-21,Cartesia,last_checked,2026-10-18,2026-10-21,cartesia.ai/pricing (Free 20K credits/mo)
+2026-10-21,ngram,last_checked,2026-10-18,2026-10-21,ngram.com/pricing
+2026-10-21,Beacon,added,,"Free OSS; Beacon Cloud Pro $20/mo billed annually [official, Oct 21]",beacon.sh/pricing + github.com/Asymptote-Labs/agent-beacon (MIT)
+2026-10-21,Mirelo,added,,"€20/mo Creator (about 40 min of SFX 2.0) [official, Oct 21]","mirelo.ai/pricing (Free 0 EUR 5,000 credits; Creator 20 EUR)"

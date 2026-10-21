@@ -28,6 +28,7 @@ def bad_price(p): return (not p) or bool(re.search(r"unverified|contact sales|ta
 def vprice(d): return fresh(d) and not bad_price(d["price"])
 def free_ok(d): return fresh(d) and d["free"].lower().startswith("yes")
 def cprice(p): return re.sub(r"\s*\[[^\]]*\]","",p).strip()
+def _nums(x): return sorted(re.findall(r"[$€]\s?[\d.,]*\d",cprice(x)))
 def fl(f):
     m=re.match(r"yes\s*\((.*)\)\s*$",f,re.I) or re.match(r"yes\s*\((.*?)\)(.*)$",f,re.I)
     return "".join(m.groups()).strip() if m else ("a free plan" if f.strip().lower()=="yes" else f)
@@ -135,7 +136,14 @@ def crumbs(items):
     ld={"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":i+1,"name":n,**({"item":SITE+u} if u else {})} for i,(n,u) in enumerate(items)]}
     return f'<nav class="crumbs" aria-label="Breadcrumb">{h}</nav>',ld
 HOW='<p class="how">How we check: every price and free tier on this page comes from the vendor\'s own pricing page, with the date we checked it. If we can\'t verify something, we say so. Found a wrong price? Email <a href="mailto:info@usethissi.com">info@usethissi.com</a> and we fix it within 24 hours.</p>'
+def mdesc(d,n=155):
+    """Meta descriptions over ~160 chars get cut off in search results: trim at a word boundary (fix 2026-10-21)."""
+    d=re.sub(r"\s+"," ",d).strip()
+    if len(d)<=n: return d
+    c=d[:n-1]; c=c[:c.rfind(" ")] if " " in c else c
+    return c.rstrip(" ,;:/(-")+"…"
 def page(path,title,desc,body,ld=None,lastmod=None,noindex=False):
+    desc=mdesc(desc)
     canon=SITE+"/"+path.replace("index.html","")
     if isinstance(ld,list): ld={"@context":"https://schema.org","@graph":ld}
     ldj=f'<script type="application/ld+json">{json.dumps(ld)}</script>' if ld else ""
@@ -352,9 +360,15 @@ page("about/index.html",f"About and affiliate disclosure | {NAME}","How UseThisS
  '<h1>About UseThisSI</h1><p>UseThisSI picks one AI tool per job for builders, vibe coders, agent tinkerers and game devs. Agents re-check pricing regularly, and every page shows when it was last checked.</p>'+KITBAR+'<h2 id="how">How we check</h2><p>Prices and free tiers come from each vendor\'s own pricing page, recorded with the date we checked. Tools we can\'t verify within 30 days are flagged and kept out of search until we can. Found a wrong price? We fix it within 24 hours.</p><h2 id="affiliates">Affiliate disclosure</h2><p>Some outbound links are affiliate links (marked rel="sponsored"). If you buy through one, we may earn a commission at no extra cost to you. Affiliate status never decides our top picks.</p><h2 id="contact">Contact</h2><p>Questions, corrections or sponsorships: <a href="mailto:info@usethissi.com">info@usethissi.com</a></p>')
 tops="".join(f'<li><a class="card" href="/use-cases/{s}/"><span class="ico" aria-hidden="true">{ICON.get(u,"✨")}</span><h3>{E(u)}</h3><p>Use <span class="pick">{E(t["tool"])}</span>. {E(t["reason"])}.</p></a></li>' for u,s,t in ucl)
 feed="".join(f'<li><time datetime="{E(a[:10])}">{E(a)}</time><p>{E(b)}</p></li>' for a,b,c in list(reversed(rels))[:3])
-pc=[c for c in changes if c["field"]=="starting_paid_price"][-6:]
-chg="".join(f'<li><time datetime="{c["date"]}">{nice(c["date"])}</time><a href="/tools/{slug(c["tool"])}/{"pricing/" if slug(c["tool"]) in PRICING else ""}">{E(c["tool"])}</a>: now {E(cprice(c["new"]))}</li>' for c in reversed(pc))
-chgsec=f'<section><h2>Recently verified prices</h2><ul class="chg">{chg}</ul></section>' if chg else ""
+_live={d["slug"] for L in uses.values() for d in L}
+def _realchg(c): return c["field"]=="starting_paid_price" and slug(c["tool"]) in _live and bool(_nums(c["old"])) and _nums(c["old"])!=_nums(c["new"])  # wording-only edits are not price changes (fix 2026-10-21)
+_pcall=[c for c in changes if _realchg(c)]; _ps=set(); pc=[]
+for c in reversed(_pcall):
+    if c["tool"] in _ps: continue
+    _ps.add(c["tool"]); pc.insert(0,c)
+pc=pc[-6:]
+chg="".join(f'<li><time datetime="{c["date"]}">{nice(c["date"])}</time><a href="/tools/{slug(c["tool"])}/{"pricing/" if slug(c["tool"]) in PRICING else ""}">{E(c["tool"])}</a>: was {E(cprice(c["old"]))}, now {E(cprice(c["new"]))}</li>' for c in reversed(pc))
+chgsec=f'<section><h2>Recent price changes</h2><ul class="chg">{chg}</ul></section>' if chg else ""
 page("index.html",f"{NAME}: the right AI tool for every job","One top pick per job for builders, vibe coders and game devs. Prices checked weekly, plus new releases.",
  f'<section class="hero"><p class="pick">For builders, vibe coders, agent tinkerers and game devs</p><h1>Stop guessing.<br><span class="grad">Use this AI</span> for that job.</h1><p class="lead">{NAME} picks the best AI tool for each job, with two alternatives and current pricing, plus a 5-minute weekday brief on what just launched.</p><a class="btn" href="/quiz/" data-umami-event="quiz-hero">Find your AI stack in 30 seconds</a><a class="btn ghost" href="#newsletter" data-umami-event="kit-hero">Get the free AI Stack Kit</a><p class="qsmall" style="margin-top:.8rem">You don&#39;t need 40 AI tools. You need 3. Free quiz, no paid placements.</p><div class="stats"><div><b>{len(tm)}</b>tools</div><div><b>{len(ucl)}</b>use cases</div><div><b>{DATA_DATE}</b>last price check</div></div></section><section><h2>Top picks by job</h2><ul class="grid">{tops}</ul></section>{kit_offer()}{chgsec}<section><h2>New this week</h2><ol class="feed">{feed}</ol><a href="/new/">See all releases →</a></section>',
  {"@context":"https://schema.org","@type":"WebSite","name":NAME,"url":SITE})
@@ -368,13 +382,16 @@ sm=[(SITE+"/"+p.replace("index.html",""),LASTMOD[p][0]) for p in pages if p!="40
 open("dist/sitemap.xml","w").write('<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+"".join(f"<url><loc>{u}</loc><lastmod>{m}</lastmod></url>\n" for u,m in sm)+"</urlset>\n")
 open("dist/robots.txt","w").write(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
 recent="\n".join(f"- {a}: {b} ({c})" for a,b,c in list(reversed(rels))[:8])
-def _nums(x): return sorted(re.findall(r"[$€]\s?[\d.,]*\d",cprice(x)))
 _pc=[c for c in changes if c["field"]=="starting_paid_price" and c["date"] and (TODAY-_dt.date.fromisoformat(c["date"])).days<=13 and _nums(c["old"]) and _nums(c["old"])!=_nums(c["new"]) and slug(c["tool"]) in tm]
 _seen=set(); _pcl=[]
 for c in reversed(_pc):
     if c["tool"] in _seen: continue
     _seen.add(c["tool"]); _pcl.append(c)
 pricechg="\n".join(f'- {c["date"]}: {c["tool"]} starting price was "{cprice(c["old"])}", now "{cprice(c["new"])}" ({SITE}/tools/{slug(c["tool"])}/)' for c in _pcl[:12])
+def _tline(d):
+    ch=f"checked {d['checked']}" if d["checked"] else "not yet checked"
+    return f"- [{d['tool']}]({SITE}/tools/{d['slug']}/) ({d['role']}): {d['reason']}. Free tier: {d['free'] or 'unverified'}. Paid from {cprice(d['price']) or 'unverified'} ({ch})."
+alltools="\n\n".join(f"### {u}\n"+"\n".join(_tline(d) for d in sorted(L,key=lambda d:(d['role']!='Top pick',d['tool'].lower()))) for u,L in uses.items())  # chatbot ship 2026-10-21: every tool's price + check date
 llms=f"""# {NAME}
 
 > One top AI tool pick per job for builders, vibe coders, AI agent tinkerers and indie game devs. Directory data last checked {DATA_DATE}; each tool page shows its own last-checked date.
@@ -388,6 +405,9 @@ llms=f"""# {NAME}
 
 ## Pricing pages (every plan, checked)
 """+"".join(f"- [{d['tool']} pricing]({SITE}/tools/{s}/pricing/)\n" for s,d in PRICING.items())+f"""
+## All tools (free tier, starting paid price, last checked)
+{alltools}
+
 ## Recent price changes (last 14 days, from vendor pricing pages)
 {pricechg or "- No starting-price changes found in the last 14 days."}
 

@@ -152,4 +152,19 @@ _vj=json.load(open("vercel.json"))
 _dslugs={os.path.basename(os.path.dirname(p)) for p in htmls if "/tools/" in p and p.count("/")==3}
 r.append(ok(all(x["destination"].startswith("/") and os.path.exists("dist"+x["destination"]+"index.html") for x in _vj.get("redirects",[])) and "relevance-ai" not in _dslugs,"removed tools redirect to a live page (relevance-ai -> agents use case)"))
 
+# 2026-10-21 regressions
+import html as _h2
+_md=[(p,len(_h2.unescape(re.search(r'<meta name="description" content="([^"]*)"',open(p).read()).group(1)))) for p in htmls]
+_long=[x for x in _md if x[1]>160]
+r.append(ok(not _long,f"meta descriptions are 160 chars or less so search results don't cut them off (offenders: {_long[:3]})"))
+_home=open("dist/index.html").read()
+_hc=re.search(r'<h2>Recent price changes</h2><ul class="chg">(.*?)</ul>',_home,re.S)
+_items=re.findall(r'</a>: was (.*?), now (.*?)</li>',_hc.group(1)) if _hc else []
+_num=lambda x: sorted(re.findall(r"[$€]\s?[\d.,]*\d",_h2.unescape(x)))
+r.append(ok(bool(_items) and all(_num(a) and _num(a)!=_num(b) for a,b in _items),f"homepage 'Recent price changes' only lists real price changes, not wording edits ({len(_items)} items)"))
+_csvtools=[x[2] for x in csv.reader(open("data.csv")) if x and len(x)>=9 and x[0]!="use_case" and x[0]!="release_date"][:200]
+_sec=llms.split("## All tools",1)[1].split("\n## ",1)[0] if "## All tools" in llms else ""
+_miss=[t for t in _csvtools if f"[{t}](" not in _sec]
+r.append(ok(_sec and not _miss and len(re.findall(r"Paid from .*\((checked 20\d\d-\d\d-\d\d|not yet checked)\)",_sec))==len(_csvtools),f"llms.txt 'All tools' lists every one of {len(_csvtools)} tools with price and check date (missing: {_miss[:3]})"))
+
 sys.exit(0 if all(r) else 1)
