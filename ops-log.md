@@ -119,7 +119,7 @@
 - Experiment: pain-reply landing page test (utm_content). X plan: .ops-scratch/x-2026-10-21.md.
 - Commit 04dd7eb + notes commit. IndexNow 200 / 126 URLs. Not scripted: Make, Gamma, Perplexity, ChatGPT, Midjourney (403), still Oct 18.
 
-## 2026-10-22 ~7:45 AM AZ: weekday daily ops (executor)
+## 2026-10-22 ~7:23 AM AZ: weekday daily ops (executor)
 
 - Directory: +Recursive Flint (coding Alt, free open weights). **77 tools**. +5 releases (Claude Duet, Recursive Flint, HeyGen Video, Stripe Treasury for agents, OpenAI on Google Cloud).
 - 12 tools re-verified from the Oct 18 backlog, no starting-price moves; corrections: Murf (Falcon $0.01/1K chars, $10 free credit), Kling (free Basic plan, kling.ai domain), Udio free detail. Freshness **77/77** within 7d, 0 never checked; Make, PixelLab, Antigravity still Oct 18.
