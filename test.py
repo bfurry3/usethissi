@@ -167,4 +167,29 @@ _sec=llms.split("## All tools",1)[1].split("\n## ",1)[0] if "## All tools" in ll
 _miss=[t for t in _csvtools if f"[{t}](" not in _sec]
 r.append(ok(_sec and not _miss and len(re.findall(r"Paid from .*\((checked 20\d\d-\d\d-\d\d|not yet checked)\)",_sec))==len(_csvtools),f"llms.txt 'All tools' lists every one of {len(_csvtools)} tools with price and check date (missing: {_miss[:3]})"))
 
+# 2026-10-21 under-$20 pages
+_u=[p for p in htmls if re.search(r"dist/under-20/[^/]+/index.html$",p)]
+r.append(ok(len(_u)>=8 and os.path.exists("dist/under-20/index.html"),f"{len(_u)} under-$20 job pages plus the /under-20/ hub"))
+_ub=[]
+_rows=[x for x in csv.reader(open("data.csv")) if x and len(x)>=9 and x[0] not in("use_case","release_date")]
+_pr={x[2]:re.sub(r"\s*\[[^\]]*\]","",x[5]).strip() for x in _rows}
+for p in _u:
+    h=_h2.unescape(open(p).read())
+    if not re.search(r"<title>Best AI tool for [^<]+ under \$20 \(checked [A-Z][a-z]{2} 20\d\d\)",h): _ub.append((p,"title"))
+    if "767b56cc-d716-4bab-a162-0baf03c34b2c" not in h or h.find('class="u20form"')>h.find('class="grid u20grid"'): _ub.append((p,"signup near top"))
+    if "full ranked list" not in h or 'href="/quiz/' not in h or IMPACT not in h or '"FAQPage"' not in h: _ub.append((p,"carrot/quiz/impact/faq"))
+    cards=re.findall(r'<h3><a href="/tools/[^"]+/">([^<]+)</a></h3>\s*<p class="u20price"><b>([^<]+)</b>',h)
+    if not 2<=len(cards)<=3: _ub.append((p,"pick count"))
+    for t,pr in cards:
+        if _pr.get(t)!=pr: _ub.append((p,t,"price not verbatim from data.csv"))
+        lows=[float(n) for n in re.findall(r"\$(\d+(?:\.\d+)?)(?:/(?:user/|seat/)?mo\b|\s+(?:annual|monthly))",pr)]
+        if not lows or min(lows)>20: _ub.append((p,t,"not at or under $20"))
+    if "<loc>https://www.usethissi.com/"+p[5:].replace("index.html","")+"</loc>" not in sm: _ub.append((p,"sitemap"))
+    s2=p.split("/")[2]
+    if f'href="/under-20/{s2}/"' not in open(f"dist/use-cases/{s2}/index.html").read(): _ub.append((p,"use-case link"))
+for _ in _ub[:5]: print("  ",_)
+r.append(ok(not _ub,"under-$20 pages: query title, signup near top, carrot, 2-3 picks with verbatim data.csv prices at or under $20, sitemap and use-case links"))
+r.append(ok("/under-20/" in llms and 'href="/under-20/"' in open("dist/index.html").read(),"under-$20 hub linked from llms.txt, nav and homepage"))
+r.append(ok("You host it yourself" not in open("dist/free/ai-coding-assistant/index.html").read().split("Cursor",1)[1][:600],"catch(): 'limited' no longer matches 'mit' (open-source license)"))
+
 sys.exit(0 if all(r) else 1)
