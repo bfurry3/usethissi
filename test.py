@@ -175,9 +175,9 @@ _rows=[x for x in csv.reader(open("data.csv")) if x and len(x)>=9 and x[0] not i
 _pr={x[2]:re.sub(r"\s*\[[^\]]*\]","",x[5]).strip() for x in _rows}
 for p in _u:
     h=_h2.unescape(open(p).read())
-    if not re.search(r"<title>Best AI tool for [^<]+ under \$20 \(checked [A-Z][a-z]{2} 20\d\d\)",h): _ub.append((p,"title"))
+    if not re.search(r"<title>Best AI (?:tool )?for [^<]+ under \$20(?: \([A-Z][a-z]{2} 20\d\d\)|/mo)",h): _ub.append((p,"title"))
     if "767b56cc-d716-4bab-a162-0baf03c34b2c" not in h or h.find('class="u20form"')>h.find('class="grid u20grid"'): _ub.append((p,"signup near top"))
-    if "full ranked list" not in h or 'href="/quiz/' not in h or IMPACT not in h or '"FAQPage"' not in h: _ub.append((p,"carrot/quiz/impact/faq"))
+    if 'u20carrot' not in h or 'href="/quiz/' not in h or IMPACT not in h or '"FAQPage"' not in h: _ub.append((p,"carrot/quiz/impact/faq"))
     cards=re.findall(r'<h3><a href="/tools/[^"]+/">([^<]+)</a></h3>\s*<p class="u20price"><b>([^<]+)</b>',h)
     if not 2<=len(cards)<=3: _ub.append((p,"pick count"))
     for t,pr in cards:
@@ -191,5 +191,21 @@ for _ in _ub[:5]: print("  ",_)
 r.append(ok(not _ub,"under-$20 pages: query title, signup near top, carrot, 2-3 picks with verbatim data.csv prices at or under $20, sitemap and use-case links"))
 r.append(ok("/under-20/" in llms and 'href="/under-20/"' in open("dist/index.html").read(),"under-$20 hub linked from llms.txt, nav and homepage"))
 r.append(ok("You host it yourself" not in open("dist/free/ai-coding-assistant/index.html").read().split("Cursor",1)[1][:600],"catch(): 'limited' no longer matches 'mit' (open-source license)"))
+
+# 2026-10-22 regressions: under-$20 locked teaser only when hidden picks exist; honest check-date range; titles fit 60 chars (SEO)
+_lk=[];_tl=[]
+for p in _u+["dist/under-20/index.html"]:
+    h=_h2.unescape(open(p).read())
+    t=re.search(r"<title>(.*?)</title>",h).group(1)
+    if len(t)>60: _tl.append((p,len(t)))
+    if p.endswith("under-20/index.html"): continue
+    m=re.search(r"There (?:is|are) (\d+) more verified pick",h); locks=h.count("Locked pick")
+    if m and not 1<=locks<=int(m.group(1)): _lk.append((p,"locks vs more"))
+    if not m and (locks or "full under-$20 list" in h or "full ranked list" in h): _lk.append((p,"teaser shown with nothing hidden"))
+    ds=re.findall(r'Checked <time datetime="([\d-]+)"',h); hd=re.search(r"prices checked ([^<]+)</p>",h).group(1)
+    if ds and len(set(ds))>1 and " to " not in hd: _lk.append((p,"header hides older check dates"))
+for _ in (_lk+_tl)[:5]: print("  ",_)
+r.append(ok(not _lk,"under-$20: locked teaser and 'full list' promise only when more picks exist; header shows the check-date range"))
+r.append(ok(not _tl,"under-$20 titles fit in 60 characters (SEO)"))
 
 sys.exit(0 if all(r) else 1)

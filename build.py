@@ -342,6 +342,9 @@ if FREEJOBS:
     page("free/index.html",f"Free AI tools by job, limits checked | {NAME}","Free AI tools for every builder job, with the real free-tier limits and the catch, checked in the last 30 days.",
      "<h1>Free AI tools by job</h1><p>Only tools whose free tier we verified on the vendor's site in the last 30 days.</p>"+quizbar()+"<ul class=\"grid\">"+"".join(f'<li><a class="card" href="/free/{slug(u)}/"><span class="ico" aria-hidden="true">{ICON.get(u,"✨")}</span><h3>{E(u)}</h3><p>{len(F)} free options. Start with <span class="pick">{E(F[0]["tool"])}</span>.</p></a></li>' for u,F in FREEJOBS.items())+"</ul>"+kit_offer("free"),
      {"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":f"{SITE}/free/{slug(u)}/","name":f"Free AI tools {jp(u)}"} for i,u in enumerate(FREEJOBS)]},lastmod=lcf)
+def fit60(opts):
+    """SEO 2026-10-22: first title option that fits Google's ~60-char display, so the price and month aren't cut off."""
+    return next((t for t in opts if len(t)<=60),opts[-1])
 # ---- /under-20/<job>/ pages
 U20FORM='<div class="u20form"><p><b>Get the full under-$20 list free.</b> Plus price-drop alerts and the 5-minute weekday brief.</p><script async src="https://subscribe-forms.beehiiv.com/v3/loader.js" data-beehiiv-form="767b56cc-d716-4bab-a162-0baf03c34b2c"></script><p><small>Form not loading? <a href="https://usethissi.beehiiv.com/subscribe?utm_source=site&amp;utm_medium=under-20" rel="noopener">Subscribe on beehiiv</a>.</small></p></div>'
 def _usd(v): return ("$%g"%v)
@@ -353,16 +356,19 @@ for u,Q in U20.items():
 <p class="u20price"><b>{E(cprice(d["price"]))}</b></p><p>{E(d["reason"])}.</p><p class="qcatch">The catch: {E(u20_catch(d))}.</p>
 <p><small>Free tier: {E(d["free"])} · Checked <time datetime="{d["checked"]}">{nice(d["checked"])}</time>{plink(d)}</small></p></li>'''
     cards="".join(_card(i,d) for i,d in enumerate(P))
-    nlock=max(len(rest),1)
-    lock='<div class="qlocked" aria-hidden="true">'+"".join('<div class="qcard q-paid"><span class="qlock">&#128274;</span><p class="qlabel">More under $20</p><h3>Locked pick</h3><p class="qbar"></p><p class="qbar s"></p></div>' for _ in range(min(nlock,2)))+"</div>"
-    restline=(f"There {'is' if len(rest)==1 else 'are'} {len(rest)} more verified pick{'s' if len(rest)!=1 else ''} under $20 for this job" if rest else "We re-rank this list as prices change")
+    # fix 2026-10-22: no locked teaser cards (and no "full list" promise) when every verified pick is already shown
+    lock=('<div class="qlocked" aria-hidden="true">'+"".join('<div class="qcard q-paid"><span class="qlock">&#128274;</span><p class="qlabel">More under $20</p><h3>Locked pick</h3><p class="qbar"></p><p class="qbar s"></p></div>' for _ in range(min(len(rest),2)))+"</div>") if rest else ""
+    restline=(f"There {'is' if len(rest)==1 else 'are'} {len(rest)} more verified pick{'s' if len(rest)!=1 else ''} under $20 for this job" if rest else "These are all the verified picks under $20 for this job today. We re-rank them as prices change")
+    form=U20FORM if rest else U20FORM.replace("<b>Get the full under-$20 list free.</b> Plus price-drop alerts","<b>Get price-drop alerts for these picks free.</b> Plus new under-$20 picks")
+    carh=("Want the full ranked list?","The full ranked list, every under-$20 pick and price-drop alerts come in the free 5-minute weekday Brief.","Send me the full list") if rest else ("Want to know when these prices drop?","Price-drop alerts and new under-$20 picks come in the free 5-minute weekday Brief.","Send me price drops")
+    cks=sorted({d["checked"] for d in P}); ckt=nice(cks[0]) if len(cks)==1 else f"{nice(cks[0])} to {nice(cks[-1])}"  # fix 2026-10-22: header showed only the newest check date
     cb,cld=crumbs([("Home","/"),("Under $20","/under-20/"),(u,None)])
     names=", ".join(f"{d['tool']} {_usd(u20_low(d))}" for d in P)
-    body=f'''{cb}<article><p class="pick">{ICON.get(u,"✨")} Under $20/mo · prices checked {nice(lc)}</p><h1>Best AI tool for {E(q)} under $20</h1>
+    body=f'''{cb}<article><p class="pick">{ICON.get(u,"✨")} Under $20/mo · prices checked {ckt}</p><h1>Best AI tool for {E(q)} under $20</h1>
 <p class="tldr"><strong>Short answer:</strong> start with <a href="/tools/{P[0]["slug"]}/">{E(P[0]["tool"])}</a> at {E(cprice(P[0]["price"]))}. We found {len(Q)} tools for {E(q)} with a verified paid plan at $20 a month or less. Prices come from each vendor's pricing page, with the date we checked.</p>
-{U20FORM}
-<h2>Top {len(P)} picks under $20/mo</h2><ul class="grid u20grid">{cards}</ul>
-<section class="kit u20carrot" aria-label="Full list in the free brief"><div><p class="eyebrow">Free for subscribers</p><h2>Want the full ranked list?</h2><p>{restline}. The full ranked list, every under-$20 pick and price-drop alerts come in the free 5-minute weekday Brief.</p>{lock}</div><a class="btn" href="#newsletter" data-umami-event="u20-carrot" data-umami-event-job="{s}">Send me the full list</a></section>
+{form}
+<h2>{"Top "+str(len(P)) if rest else ("Both" if len(P)==2 else "All "+str(len(P)))} picks under $20/mo</h2><ul class="grid u20grid">{cards}</ul>
+<section class="kit u20carrot" aria-label="Full list in the free brief"><div><p class="eyebrow">Free for subscribers</p><h2>{carh[0]}</h2><p>{restline}. {carh[1]}</p>{lock}</div><a class="btn" href="#newsletter" data-umami-event="u20-carrot" data-umami-event-job="{s}">{carh[2]}</a></section>
 {quizbar(s,u)}
 <p>Compare every option, any price: <a href="/use-cases/{s}/">best AI tools {E(jp(u))}</a>.{(' Only want free? <a href="/free/'+s+'/">Free AI tools '+E(jp(u))+'</a>.') if u in FREEJOBS else ""} More budget picks: <a href="/under-20/">all under-$20 pages</a>.</p>
 <p><small>"Under $20" means the cheapest paid plan we verified is $20/mo or less, monthly or billed annually as labeled. Prices exclude tax. Some links are affiliate links; they never decide the order.</small></p>{HOW}</article>'''
@@ -370,11 +376,11 @@ for u,Q in U20.items():
       {"@type":"Question","name":f"What is the best AI tool for {q} under $20?","acceptedAnswer":{"@type":"Answer","text":f"Our top pick under $20/mo is {P[0]['tool']} at {cprice(P[0]['price'])} (checked {P[0]['checked']}). {P[0]['reason']}."}},
       {"@type":"Question","name":f"Which AI tools for {q} cost $20 a month or less?","acceptedAnswer":{"@type":"Answer","text":"Top picks: "+"; ".join(f"{d['tool']}: {cprice(d['price'])}" for d in P)+". Prices from vendor pricing pages, each with its own check date."}}]}
     ld=[{"@type":"CollectionPage","name":f"Best AI tool for {q} under $20","url":f"{SITE}/under-20/{s}/","dateModified":lc,"mainEntity":{"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":f"{SITE}/tools/{d['slug']}/","name":d["tool"]} for i,d in enumerate(P)]}},faq,cld]
-    page(f"under-20/{s}/index.html",f"Best AI tool for {q} under $20 (checked {mon(lc)}) | {NAME}",f"Best AI tool for {q} under $20/mo: {names}. Real prices and the catch, checked {mon(lc)}.",body,ld,lastmod=lc)
+    page(f"under-20/{s}/index.html",fit60([f"Best AI tool for {q} under $20 ({mon(lc)}) | {NAME}",f"Best AI for {q} under $20 ({mon(lc)}) | {NAME}",f"Best AI for {q} under $20 ({mon(lc)})",f"Best AI for {q} under $20/mo"]),f"Best AI tool for {q} under $20/mo: {names}. Real prices and the catch, checked {mon(lc)}.",body,ld,lastmod=lc)
     u20list.append((u,s,q,P,Q))
 if U20:
     lcu=max(max(d["checked"] for d in Q) for Q in U20.values())
-    page("under-20/index.html",f"Best AI tools under $20 a month, by job (checked {mon(lcu)}) | {NAME}",f"Best AI tools under $20/mo for {len(U20)} jobs: real prices, the catch, and the top pick for each. Checked {mon(lcu)}.",
+    page("under-20/index.html",fit60([f"Best AI tools under $20 a month, by job ({mon(lcu)}) | {NAME}",f"Best AI tools under $20/mo, by job ({mon(lcu)}) | {NAME}"]),f"Best AI tools under $20/mo for {len(U20)} jobs: real prices, the catch, and the top pick for each. Checked {mon(lcu)}.",
      f"<h1>Best AI tools under $20 a month</h1><p>For each job: tools with a verified paid plan at $20/mo or less, with the price, the catch and the date we checked.</p>{U20FORM}<ul class=\"grid\">"+"".join(f'<li><a class="card" href="/under-20/{s}/"><span class="ico" aria-hidden="true">{ICON.get(u,"✨")}</span><h3>AI for {E(q)} under $20</h3><p>{len(Q)} picks. Start with <span class="pick">{E(P[0]["tool"])}</span> ({E(_usd(u20_low(P[0])))}/mo).</p></a></li>' for u,s,q,P,Q in u20list)+"</ul>"+quizbar()+kit_offer("job"),
      {"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":f"{SITE}/under-20/{s}/","name":f"Best AI tool for {q} under $20"} for i,(u,s,q,P,Q) in enumerate(u20list)]},lastmod=lcu)
 # ---- /quiz/: "Find your AI stack in 30 seconds" (data from quiz.py, computed from data.csv at build time)

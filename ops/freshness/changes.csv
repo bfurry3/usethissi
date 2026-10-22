@@ -159,3 +159,22 @@ date,tool,field,old,new,source
 2026-10-21,ngram,last_checked,2026-10-18,2026-10-21,ngram.com/pricing
 2026-10-21,Beacon,added,,"Free OSS; Beacon Cloud Pro $20/mo billed annually [official, Oct 21]",beacon.sh/pricing + github.com/Asymptote-Labs/agent-beacon (MIT)
 2026-10-21,Mirelo,added,,"€20/mo Creator (about 40 min of SFX 2.0) [official, Oct 21]","mirelo.ai/pricing (Free 0 EUR 5,000 credits; Creator 20 EUR)"
+2026-10-22,Midjourney,last_checked,2026-10-18,2026-10-22,"docs.midjourney.com Comparing Midjourney Plans (Basic $10 monthly, $96/yr)"
+2026-10-22,Leonardo.Ai,last_checked,2026-10-18,2026-10-22,leonardo.ai/pricing (Free 150 fast tokens/day; Essential $12/month ex. tax)
+2026-10-22,Ideogram,last_checked,2026-10-18,2026-10-22,"ideogram.ai/pricing (Plus $15/mo, $180/yr; free accounts get weekly credits)"
+2026-10-22,Udio,free_tier,Yes (10 credits/day),"Yes (10 credits/day, 100/mo)","udio.com/pricing (Free 10 credits/day, 100/mo; Standard $10, $8/mo annual)"
+2026-10-22,Udio,last_checked,2026-10-18,2026-10-22,"udio.com/pricing (Free 10 credits/day, 100/mo; Standard $10, $8/mo annual)"
+2026-10-22,CapCut,starting_paid_price,"$19.99/mo (US, monthly; yearly up to 30% off) [official, Oct 18]","$19.99/mo Pro (US, monthly; yearly up to 30% off) [official, Oct 22]",capcut.com/pricing (Pro USD 19.99/month)
+2026-10-22,CapCut,last_checked,2026-10-18,2026-10-22,capcut.com/pricing (Pro USD 19.99/month)
+2026-10-22,Kling AI,correction,unverified,Yes (Basic $0: credits monthly by logging in),"klingai.com/membership/membership-plan (Basic $0 free forever, credits by logging in; Standard $79.2/yr, list $120); klingai.com 301 -> kling.ai"
+2026-10-22,Kling AI,correction,https://klingai.com,https://kling.ai,"klingai.com/membership/membership-plan (Basic $0 free forever, credits by logging in; Standard $79.2/yr, list $120); klingai.com 301 -> kling.ai"
+2026-10-22,Kling AI,last_checked,2026-10-18,2026-10-22,"klingai.com/membership/membership-plan (Basic $0 free forever, credits by logging in; Standard $79.2/yr, list $120); klingai.com 301 -> kling.ai"
+2026-10-22,ChatGPT,last_checked,2026-10-18,2026-10-22,"help.openai.com What is ChatGPT Plus ($20/month billed monthly, no annual) + chatgpt.com/pricing (Free GPT-6)"
+2026-10-22,Gamma,last_checked,2026-10-18,2026-10-22,"gamma.app/pricing ($9/seat/mo, $108/seat/yr) + help.gamma.app (Free 400 credits at signup, no refresh)"
+2026-10-22,Perplexity,last_checked,2026-10-18,2026-10-22,perplexity.ai/pro + perplexity.ai/hub/pricing (Pro $17/mo billed annually; Free $0)
+2026-10-22,NotebookLM,last_checked,2026-10-18,2026-10-22,notebooklm.google/plans (Free up to 50 sources; AI Plus 100) + gemini.google/subscriptions ($4.99/month)
+2026-10-22,Murf AI,correction,Yes (free credits),"Yes ($10 free API credit, no card)",murf.ai/pricing (Free trial $10 for API calls; Falcon $0.01/1000 chars; Studio TTS $0.03/1000 chars)
+2026-10-22,Murf AI,correction,"API from $0.03 per 1,000 chars (Studio TTS) [official, Oct 18]","API from $0.01 per 1,000 chars (Falcon); Studio TTS $0.03 [official, Oct 22]",murf.ai/pricing (Free trial $10 for API calls; Falcon $0.01/1000 chars; Studio TTS $0.03/1000 chars)
+2026-10-22,Murf AI,last_checked,2026-10-18,2026-10-22,murf.ai/pricing (Free trial $10 for API calls; Falcon $0.01/1000 chars; Studio TTS $0.03/1000 chars)
+2026-10-22,Speechify,last_checked,2026-10-18,2026-10-22,speechify.com/pricing (Free up to 1.5x; Premium $29/Month billed monthly)
+2026-10-22,Recursive Flint,added,,"Free (open weights; runs on your own hardware) [official, Oct 22]",recursive.com/updates/introducing-recursive-flint + huggingface.co/RecursiveSI/flint (Apache 2.0)
