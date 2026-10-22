@@ -178,6 +178,7 @@
 - 2026-10-18: Copy.ai starting price was "$29/mo", now "$24/mo billed yearly, $29 monthly" (https://www.usethissi.com/tools/copy-ai/)
 
 ## Recent releases
+- 2026-10-21: Claude Duet research preview: a proactive Claude agent app (iOS, Android, claude.ai) for US Pro and Max subscribers by waitlist, included in those plans at no extra cost (https://claude.com/resources/articles/claude-duet)
 - 2026-10-21: OpenAI models and Codex are coming to Google Cloud Model Garden (GA planned in the coming weeks), and soon to Google Antigravity (https://openai.com/index/openai-models-google-cloud)
 - 2026-10-21: Stripe Treasury for agents: let ChatGPT or Claude check balances, pay invoices, move funds and convert currencies, with human approval controls (https://stripe.com/newsroom/news/treasury-for-agents)
 - 2026-10-21: HeyGen Video (heygen-video-1): 5 to 15 second clips with picture and sound from one prompt, via the HeyGen API (paid API keys) and Creative Studio (https://www.heygen.com/blog/introducing-heygen-video)
@@ -185,7 +186,6 @@
 - 2026-10-21: GemDB Code: free VS Code extension for an ACID object database where the code is the schema (no migration scripts) (https://www.businesswire.com/news/home/20261021228398/en/GemDB-Makes-Code-the-Schema-Eliminating-Database-Migration-Bottlenecks-to-Accelerate-AI-Driven-Development)
 - 2026-10-20: Perplexity Computer runs fully local on Mac (Pro, Max and Enterprise; Apple silicon with 36GB+ unified memory; Qwen 3.6 or PPLX Pro local models) (https://www.perplexity.ai/hub/blog/perplexity-computer-now-runs-fully-local-on-mac)
 - 2026-10-20: Amazon Polly Generative engine upgraded: more natural speech, 14 new voices, Hindi and Finnish (https://aws.amazon.com/about-aws/whats-new/2026/10/polly-generative/)
-- 2026-10-20: Vercel WebSocket support in Functions is generally available (same limits and pricing as other Function invocations) (https://vercel.com/changelog/websocket-support-is-now-generally-available)
 
 ## FAQ
 - Q: How do you pick a top tool? A: One Top pick per use case based on fit for builders, plus honest free-tier and starting paid price with a per-tool last-checked date.

@@ -1,0 +1,43 @@
+Subject: Claude Duet opens a waitlist, plus Recursive Flint
+Preheader: Anthropic opened a Claude Duet waitlist, Recursive shipped a local coding model, and HeyGen launched a video model.
+
+(Paste everything below this line into the beehiiv default editor. Subject and Preheader go in beehiiv's own fields. No HTML blocks.)
+
+---
+
+Five minutes, only what matters if you build things.
+
+## Today in 30 seconds
+- **Claude Duet:** Anthropic's new proactive agent app opened a waitlist for US Pro and Max subscribers.
+- **Recursive Flint:** An open-weights coding model built to run on your own laptop.
+- **HeyGen Video:** One prompt now makes a short clip with its sound in the same pass.
+
+## The big one
+### Claude Duet: a Claude agent that comes to you first (Oct 21)
+**What happened:** Anthropic opened a research preview of Claude Duet, a separate app on iOS, Android and claude.ai. It sends a morning brief from your connected apps, works on tasks in its own cloud computer, and asks before it sends a message, makes a payment, signs a document or deletes anything.
+**Why it matters for builders:** It carries over your Claude memory, skills and connectors, so there is little setup. Solo founders can hand it inbox triage, unpaid invoice reminders in Stripe or QuickBooks, and meeting briefs. During the preview it is included in Pro and Max at no extra cost.
+**The catch:** It shares your plan's usage limits, and its background check-ins count too, so you may hit limits sooner. It is US-only, waitlist-only, not on Team or Enterprise yet, and Microsoft 365 is not available yet.
+**How to try it:** Join the waitlist with the email on your Claude account. Not on a paid plan yet? Claude Pro is $17/mo billed annually or $20 monthly (checked Oct 21) on our [Claude pricing page](https://www.usethissi.com/tools/claude/pricing/).
+[Read the source](https://claude.com/resources/articles/claude-duet)
+
+## Quick hits
+- **HeyGen Video (Oct 21):** A general video model that makes 5 to 15 second clips with dialogue, ambience and sound effects from one prompt, up to 2K. It runs on paid HeyGen API keys and in Creative Studio. [Source](https://www.heygen.com/blog/introducing-heygen-video)
+- **Stripe Treasury for agents (Oct 21):** Startups can let AI agents check balances, pay invoices, move funds between accounts and convert currencies, and choose which actions need a human approval first. [Source](https://stripe.com/newsroom/news/treasury-for-agents)
+- **OpenAI on Google Cloud (Oct 21):** OpenAI models and Codex workflows are coming to Google Cloud Model Garden, with general availability planned in the coming weeks. Teams with Google Cloud commitments can spend them on it. [Source](https://openai.com/index/openai-models-google-cloud)
+
+## Tool of the day
+### Recursive Flint
+**Use it for:** Everyday coding help that never leaves your machine. It works offline, keeps your code private and has no API bill.
+**Price:** Free. Open weights under Apache 2.0 on Hugging Face, and you run it on your own hardware.
+**Why we like it:** Recursive reports more than 125 tokens per second on an M4 Pro MacBook Pro, and it works with Ollama, LM Studio, llama.cpp and vLLM. Recursive says it needs more guidance than big paid assistants, so break large tasks into small steps.
+[Try it on UseThisSI](https://www.usethissi.com/tools/recursive-flint/)
+
+## Price watch
+- **Murf AI:** The cheapest API rate is Falcon at $0.01 per 1,000 characters, and new API accounts get $10 of free credit with no card. We had only listed Studio TTS at $0.03, now fixed. [Source](https://murf.ai/pricing)
+- **Kling AI:** There is a free Basic plan that gives credits for logging in. We had it as unverified, now fixed. Standard is still $10/mo, with $6.99 for the first month. Kling also moved to kling.ai. [Source](https://klingai.com/membership/membership-plan)
+- **No other moves:** We rechecked 12 tools on their own pages today, including ChatGPT, Perplexity, Midjourney, Gamma and Ideogram. None changed. [Full list](https://www.usethissi.com/tools/)
+
+## One tip to try
+**Write your agent's approval rule once:** Before you connect any agent to email or payments, paste this into its instructions: `Before you send, pay, sign or delete anything, show me the exact action and wait for my yes.` Then test it with a harmless draft before you trust it with a real one.
+
+77 tools across 10 jobs, prices re-checked weekly: https://www.usethissi.com

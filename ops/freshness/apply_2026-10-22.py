@@ -22,6 +22,7 @@ NEW=[
 ]
 NEWSRC={"Recursive Flint":"recursive.com/updates/introducing-recursive-flint + huggingface.co/RecursiveSI/flint (Apache 2.0)"}
 REL=[
+["2026-10-21","Claude Duet research preview: a proactive Claude agent app (iOS, Android, claude.ai) for US Pro and Max subscribers by waitlist, included in those plans at no extra cost","https://claude.com/resources/articles/claude-duet"],
 ["2026-10-21","Recursive Flint: free open-weights coding model (40B total, 2.5B active) built to run locally; 125+ tokens/sec on an M4 Pro MacBook Pro, Apache 2.0","https://recursive.com/updates/introducing-recursive-flint"],
 ["2026-10-21","HeyGen Video (heygen-video-1): 5 to 15 second clips with picture and sound from one prompt, via the HeyGen API (paid API keys) and Creative Studio","https://www.heygen.com/blog/introducing-heygen-video"],
 ["2026-10-21","Stripe Treasury for agents: let ChatGPT or Claude check balances, pay invoices, move funds and convert currencies, with human approval controls","https://stripe.com/newsroom/news/treasury-for-agents"],
