@@ -128,3 +128,4 @@
 - Brief #7 drafted + rendered (newsletter/2026-10-22.md, paste file ready). Not published by executor.
 - Experiment: big-account pain-reply test (ops/pain-reply-test.csv). X plan: .ops-scratch/x-2026-10-22.md.
 - Commit c093550 + notes commit. Followers 38.
+- 2026-10-22 ~7:32 AM AZ (browser): Brief #7 published (https://usethissi.beehiiv.com/p/claude-duet-opens-a-waitlist-plus-recursive-flint, 2 test recipients). X: main + 3 builder + 4 pain (3 big, 1 small) + 3 direct replies, no warnings, followers 38.
