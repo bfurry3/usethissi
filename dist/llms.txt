@@ -25,6 +25,18 @@
 - [Free AI tools for research](https://www.usethissi.com/free/research/): 6 verified free tiers.
 - [Free AI tools for voice and TTS](https://www.usethissi.com/free/voice-and-tts/): 5 verified free tiers.
 
+## Best AI tools under $20/mo by job
+- [Best AI tool for building apps under $20](https://www.usethissi.com/under-20/vibe-code-an-app-or-landing-page/): Bolt.new $25/mo Pro ($18/mo billed annually) (checked 2026-10-20); Replit $20/mo Core ($18 annual) (checked 2026-10-20); Hostinger AI Builder $2.49/mo Premium (48-mo term; renews $10.99/mo) (checked 2026-10-20)
+- [Best AI tool for coding under $20](https://www.usethissi.com/under-20/ai-coding-assistant/): Cursor $8/mo Plus (Grok models only); $30/mo Premium (checked 2026-10-19); Claude Code $17/mo annual, $20 monthly via Claude Pro (checked 2026-10-21); GitHub Copilot $10/mo Pro (checked 2026-10-20)
+- [Best AI tool for AI agents under $20](https://www.usethissi.com/under-20/set-up-or-run-ai-agents/): Manus $20/mo Pro (4,000 credits; 17% off billed annually) (checked 2026-10-20); Muse Code (Meta) $5/mo Everyday Usage; $15 High, $50 Power (adds Muse Wonder Full) (checked 2026-10-20); Browserbase $20/mo Developer (checked 2026-10-19)
+- [Best AI tool for workflow automation under $20](https://www.usethissi.com/under-20/automate-workflows/): Make $9/mo Core billed annually (10,000 credits) (checked 2026-10-18); Zapier $19.99/mo Professional (starting price) (checked 2026-10-20)
+- [Best AI tool for game art under $20](https://www.usethissi.com/under-20/make-game-art-and-sprites/): Scenario $15/mo Starter (monthly; annual saves 33%) (checked 2026-10-21); PixelLab $12/mo Tier 1 Pixel Apprentice (checked 2026-10-18); Midjourney $10/mo Basic ($8/mo billed annually) (checked 2026-10-18)
+- [Best AI tool for music and sound effects under $20](https://www.usethissi.com/under-20/generate-music-and-sfx/): Suno $8/mo Pro billed yearly, $10 monthly (checked 2026-10-21); ElevenLabs Music and SFX $6/mo Starter (music commercial use; $1 promo ended) (checked 2026-10-19); Udio $8/mo Standard billed annually, $10 monthly (checked 2026-10-18)
+- [Best AI tool for video under $20](https://www.usethissi.com/under-20/edit-and-generate-video/): Runway $12/mo Standard billed annually, $15 monthly (checked 2026-10-21); Descript $16/mo Hobbyist annual, $24 monthly (checked 2026-10-21); CapCut $19.99/mo (US, monthly; yearly up to 30% off) (checked 2026-10-18)
+- [Best AI tool for writing under $20](https://www.usethissi.com/under-20/write-content/): Claude $17/mo Pro annual, $20 monthly (checked 2026-10-21); ChatGPT $20/mo Plus (monthly only) (checked 2026-10-18); Gamma $9/seat/mo Plus billed annually (checked 2026-10-18)
+- [Best AI tool for research under $20](https://www.usethissi.com/under-20/research/): Perplexity $17/mo Pro billed annually (checked 2026-10-18); Gemini (Deep Research) $4.99/mo Google AI Plus; $19.99/mo AI Pro (checked 2026-10-21); NotebookLM $4.99/mo via Google AI Plus (checked 2026-10-18)
+- [Best AI tool for voice and text to speech under $20](https://www.usethissi.com/under-20/voice-and-tts/): ElevenLabs $6/mo Starter (annual ~$5; $1 first-month promo ended Oct 18) (checked 2026-10-19); Cartesia $5/mo Pro (checked 2026-10-21)
+
 ## Find your AI stack (quiz)
 - [Find your AI stack in 30 seconds](https://www.usethissi.com/quiz/): answer 3 questions (role, main job, budget), get a free pick, a paid pick that fits the budget, and one to skip.
 

@@ -74,3 +74,5 @@ footer{border-top:1px solid var(--line);color:var(--mut);font-size:.88rem;paddin
 body:has(#quiz) .crumbs,body:has(#quiz) #newsletter{display:none}.qframe{max-width:440px;margin:0 auto}
 @media (max-width:640px){.qopts{grid-template-columns:1fr}.qopt{min-height:58px}.qhero{padding:1.4rem 0 0}.qsticky:not([hidden]){display:flex}body:has(#quiz) nav{flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none}body:has(#quiz) nav .logo{width:auto;flex:none}body:has(#quiz) nav a{flex:none}}
 @media (prefers-reduced-motion:reduce){.qstep,.qres,.qin{animation:none}}
+.u20form{margin:1.4rem 0;padding:1rem 1.2rem;border-radius:16px;border:1px solid #8b5cf699;background:linear-gradient(135deg,#8b5cf622,#22d3ee12);text-align:center}.u20form p{margin:.2rem 0 .6rem;color:var(--mut)}.u20form b{color:var(--txt)}.u20form iframe{max-width:100%;border-radius:12px}
+.u20 h3 a{color:var(--txt)}.u20price{color:var(--c)!important;font-size:1rem!important}.u20 .qcatch{color:#fcd34d}.u20carrot .qlocked{margin-top:.8rem}.u20carrot .qcard{min-height:90px}
