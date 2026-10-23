@@ -48,3 +48,6 @@ Already in progress: **Lovable** (Top pick, Vibe-code) pays up to $100 one-time 
 3. Apply to Runway with https://x.com/UseThisSI and https://www.usethissi.com.
 4. When a program asks for bank or tax details, stop and send Baz the secure form link. Never enter them ourselves.
 5. After approval, add the links with rel="sponsored" and update the affiliate_program column in data.csv.
+
+## Status update 2026-10-22
+- ElevenLabs (PartnerStack) DECLINED our application (email to bazfurry@mail.grokbot.com, 2026-10-22 5:27 AM AZ). Still pending: Lovable (Impact), Gamma (PartnerStack). 0 approved.
