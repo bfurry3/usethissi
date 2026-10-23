@@ -139,3 +139,4 @@
 - Brief #8 drafted + rendered (newsletter/2026-10-23.md, paste file ready). Not published by executor.
 - Experiment: big-account pain-reply test day 2; Oct 22 rows backfilled. X plan: .ops-scratch/x-2026-10-23.md. Followers 38.
 - Commits 960de05 + 0e5b423 + notes commit. IndexNow 200 / 139 URLs.
+- 2026-10-23 ~7:24 AM AZ (browser): Brief #8 published (https://usethissi.beehiiv.com/p/openai-ships-a-decisions-api-plus-mistral-voxtral-3, 2 test recipients). X: main 2113636994488373316 + 3 builder + 4 pain (3 big, 1 small) + 1 direct, no warnings, followers 38. Stray empty beehiiv automation "New Automation (2)" created by keystrokes (Q6 cleanup).
