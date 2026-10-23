@@ -129,3 +129,13 @@
 - Experiment: big-account pain-reply test (ops/pain-reply-test.csv). X plan: .ops-scratch/x-2026-10-22.md.
 - Commit c093550 + notes commit. Followers 38.
 - 2026-10-22 ~7:32 AM AZ (browser): Brief #7 published (https://usethissi.beehiiv.com/p/claude-duet-opens-a-waitlist-plus-recursive-flint, 2 test recipients). X: main + 3 builder + 4 pain (3 big, 1 small) + 3 direct replies, no warnings, followers 38.
+
+## 2026-10-23 ~7:20 AM AZ: weekday daily ops (executor)
+
+- Directory: +Mistral Voxtral 3 (Voice and TTS Alt). **78 tools**. +5 releases (Voxtral 3, OpenAI Decisions API, 1Password for Agents, Pictory 3, Claude on Google Cloud GA).
+- 16 tools re-verified on official pages; ElevenLabs $1 first-month promo back until Nov 1; corrections: Antigravity, Exa, LangGraph, Fish Audio (bytes not chars), Lovable (30/mo free cap). Freshness **78/78** within 7d and 30d, 0 never checked; Make, PixelLab (Oct 18) and Krea need a browser check.
+- Live audit fix (~2 min found to live): 1Password release linked a timed-out wire page; now the vendor press page. Regression test added.
+- Chatbot/SEO: llms.txt "Time-limited prices" section with promo end dates + test.
+- Brief #8 drafted + rendered (newsletter/2026-10-23.md, paste file ready). Not published by executor.
+- Experiment: big-account pain-reply test day 2; Oct 22 rows backfilled. X plan: .ops-scratch/x-2026-10-23.md. Followers 38.
+- Commits 960de05 + 0e5b423 + notes commit. IndexNow 200 / 139 URLs.
