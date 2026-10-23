@@ -29,7 +29,7 @@ NEWSRC={"Mistral Voxtral 3":"mistral.ai/news/voxtral-3 (Mini TTS 3 $13/1M chars;
 REL=[
 ["2026-10-20","Mistral Voxtral 3 (public preview): speech-to-text, text-to-speech and a voice agent API; TTS $13 per 1M chars, transcription from $0.0035/min, voice agents from $0.04/min","https://mistral.ai/news/voxtral-3/"],
 ["2026-10-22","OpenAI Decisions API is generally available: bounded yes/no and multiple-choice decisions on GPT-6 Luna, up to 400 questions per request, $0.10 per 1M input tokens and no output-token charges","https://openai.com/index/decisions-api/"],
-["2026-10-22","1Password for Agents: AI agents sign in to sites without ever seeing your passwords, and you approve each use on your own device","https://www.businesswire.com/news/home/20261022810032/en/1Password-for-Agents-Launches-as-the-Trust-Layer-for-Personal-AI-Agents"],
+["2026-10-22","1Password for Agents: AI agents sign in to sites without ever seeing your passwords, and you approve each use on your own device","https://1password.com/press/2026/october/1password-for-agents-trust-layer-personal-ai-agents"],
 ["2026-10-22","Pictory 3: an AI video agent that turns a brief, doc, URL, slide deck or audio into a script, scenes and a preview video","https://pictory.ai/blog/introducing-pictory-3"],
 ["2026-10-23","Claude models on Google Cloud, run by Anthropic, are generally available: same prices, Google Cloud billing and IAM, and day-one Claude Platform features","https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud"],
 ]

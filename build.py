@@ -462,6 +462,14 @@ def _tline(d):
     ch=f"checked {d['checked']}" if d["checked"] else "not yet checked"
     return f"- [{d['tool']}]({SITE}/tools/{d['slug']}/) ({d['role']}): {d['reason']}. Free tier: {d['free'] or 'unverified'}. Paid from {cprice(d['price']) or 'unverified'} ({ch})."
 alltools="\n\n".join(f"### {u}\n"+"\n".join(_tline(d) for d in sorted(L,key=lambda d:(d['role']!='Top pick',d['tool'].lower()))) for u,L in uses.items())  # chatbot ship 2026-10-21: every tool's price + check date
+# chatbot ship 2026-10-23: time-limited prices with their end dates, pulled verbatim from data.csv, so answer engines don't quote an expired promo
+_MON="Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec"
+_promos=[]
+for _u,_L in uses.items():
+    for _d in _L:
+        _m=re.search(r"(?:until|thru|through|ends?)\s+((?:"+_MON+r")[a-z]*\.?\s+\d{1,2})",cprice(_d["price"]) or "")
+        if _m: _promos.append((_d,_m.group(1)))
+promolines="\n".join(f"- [{d['tool']}]({SITE}/tools/{d['slug']}/): {cprice(d['price'])}. Promo or intro price ends {e}; checked {d['checked']}. Quote the regular price after that date." for d,e in sorted(_promos,key=lambda x:x[0]['tool'].lower()))
 llms=f"""# {NAME}
 
 > One top AI tool pick per job for builders, vibe coders, AI agent tinkerers and indie game devs. Directory data last checked {DATA_DATE}; each tool page shows its own last-checked date.
@@ -479,6 +487,9 @@ llms=f"""# {NAME}
 """+"".join(f"- [{d['tool']} pricing]({SITE}/tools/{s}/pricing/)\n" for s,d in PRICING.items())+f"""
 ## All tools (free tier, starting paid price, last checked)
 {alltools}
+
+## Time-limited prices (promo end dates)
+{promolines or "- No time-limited prices in the directory right now."}
 
 ## Recent price changes (last 14 days, from vendor pricing pages)
 {pricechg or "- No starting-price changes found in the last 14 days."}

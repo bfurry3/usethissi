@@ -164,6 +164,12 @@
 - [Murf AI](https://www.usethissi.com/tools/murf-ai/) (Alt): Studio voiceovers. Free tier: Yes ($10 free API credit, no card). Paid from API from $0.01 per 1,000 chars (Falcon); Studio TTS $0.03 (checked 2026-10-22).
 - [Speechify](https://www.usethissi.com/tools/speechify/) (Alt): Read docs aloud plus a voice studio. Free tier: Yes (up to 1.5x speed). Paid from $29/mo Premium billed monthly (checked 2026-10-22).
 
+## Time-limited prices (promo end dates)
+- [ElevenLabs](https://www.usethissi.com/tools/elevenlabs/): $6/mo Starter ($1 first month until Nov 1). Promo or intro price ends Nov 1; checked 2026-10-23. Quote the regular price after that date.
+- [ElevenLabs Music and SFX](https://www.usethissi.com/tools/elevenlabs-music-and-sfx/): $6/mo Starter, music commercial use ($1 first month until Nov 1). Promo or intro price ends Nov 1; checked 2026-10-23. Quote the regular price after that date.
+- [Fish Audio](https://www.usethissi.com/tools/fish-audio/): $10/M UTF-8 bytes Drama 3 API promo thru Nov 12 (list $50); app Plus $11/mo annual. Promo or intro price ends Nov 12; checked 2026-10-23. Quote the regular price after that date.
+- [Google AI Studio](https://www.usethissi.com/tools/google-ai-studio/): Free tier; Argon API $2/$10 per 1M tokens thru Nov 30, then $4/$20. Promo or intro price ends Nov 30; checked 2026-10-23. Quote the regular price after that date.
+
 ## Recent price changes (last 14 days, from vendor pricing pages)
 - 2026-10-23: ElevenLabs starting price was "$6/mo Starter (annual ~$5; $1 first-month promo ended Oct 18)", now "$6/mo Starter ($1 first month until Nov 1)" (https://www.usethissi.com/tools/elevenlabs/)
 - 2026-10-20: Lindy starting price was "$49.99/user/mo Team (5,000 credits)", now "$29.99/user/mo Team (3,000 credits)" (https://www.usethissi.com/tools/lindy/)
@@ -181,7 +187,7 @@
 ## Recent releases
 - 2026-10-23: Claude models on Google Cloud, run by Anthropic, are generally available: same prices, Google Cloud billing and IAM, and day-one Claude Platform features (https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud)
 - 2026-10-22: Pictory 3: an AI video agent that turns a brief, doc, URL, slide deck or audio into a script, scenes and a preview video (https://pictory.ai/blog/introducing-pictory-3)
-- 2026-10-22: 1Password for Agents: AI agents sign in to sites without ever seeing your passwords, and you approve each use on your own device (https://www.businesswire.com/news/home/20261022810032/en/1Password-for-Agents-Launches-as-the-Trust-Layer-for-Personal-AI-Agents)
+- 2026-10-22: 1Password for Agents: AI agents sign in to sites without ever seeing your passwords, and you approve each use on your own device (https://1password.com/press/2026/october/1password-for-agents-trust-layer-personal-ai-agents)
 - 2026-10-22: OpenAI Decisions API is generally available: bounded yes/no and multiple-choice decisions on GPT-6 Luna, up to 400 questions per request, $0.10 per 1M input tokens and no output-token charges (https://openai.com/index/decisions-api/)
 - 2026-10-21: Claude Duet research preview: a proactive Claude agent app (iOS, Android, claude.ai) for US Pro and Max subscribers by waitlist, included in those plans at no extra cost (https://claude.com/resources/articles/claude-duet)
 - 2026-10-21: OpenAI models and Codex are coming to Google Cloud Model Garden (GA planned in the coming weeks), and soon to Google Antigravity (https://openai.com/index/openai-models-google-cloud)

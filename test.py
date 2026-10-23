@@ -208,4 +208,19 @@ for _ in (_lk+_tl)[:5]: print("  ",_)
 r.append(ok(not _lk,"under-$20: locked teaser and 'full list' promise only when more picks exist; header shows the check-date range"))
 r.append(ok(not _tl,"under-$20 titles fit in 60 characters (SEO)"))
 
+# 2026-10-23 regression: release rows from Oct 22 on link the vendor's own page, not a wire service that times out for readers
+import csv as _c3, io as _io3
+_rel=list(_c3.reader(_io3.StringIO(open("data.csv").read().split("\n\n",1)[1].strip())))[1:]
+_wire=[x for x in _rel if x[0]>="2026-10-22" and re.search(r"businesswire\.com|prnewswire\.com|globenewswire\.com|streetinsider\.com",x[2])]
+for _ in _wire[:5]: print("  ",_[0],_[2])
+r.append(ok(not _wire and all(x[2].startswith("https://") for x in _rel),"releases from Oct 22 on use vendor-owned https sources (no wire-service links)"))
+
+# 2026-10-23 chatbot ship: llms.txt lists every time-limited price (until/thru/ends + date) from data.csv, verbatim
+_ll=open("dist/llms.txt").read()
+_sec=_ll.split("## Time-limited prices (promo end dates)",1)[1].split("\n## ",1)[0] if "## Time-limited prices" in _ll else ""
+_tp=[x for x in csv.DictReader(_io3.StringIO(open("data.csv").read().split("\n\n",1)[0])) if re.search(r"(?:until|thru|through|ends?)\s+(?:Jan|Feb|Mar|Apr|May|Jun|Jul|Aug|Sep|Oct|Nov|Dec)[a-z]*\.?\s+\d",x["starting_paid_price"])]
+_miss=[x["tool"] for x in _tp if f"[{x['tool']}](" not in _sec or x["starting_paid_price"].split(" [")[0] not in _sec]
+for _ in _miss[:5]: print("  ",_)
+r.append(ok(_tp and not _miss,"llms.txt time-limited prices section lists every promo price verbatim with its end date"))
+
 sys.exit(0 if all(r) else 1)
