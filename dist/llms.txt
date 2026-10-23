@@ -6,7 +6,7 @@
 - [Vibe-code an app or landing page](https://www.usethissi.com/use-cases/vibe-code-an-app-or-landing-page/): top pick Lovable. Chat-to-full-stack app with hosting; easiest on-ramp. Free tier: Yes (5 build credits/day, up to 30/mo on Free). Paid from $25/mo Pro ($21/mo billed annually) (checked 2026-10-23).
 - [AI coding assistant](https://www.usethissi.com/use-cases/ai-coding-assistant/): top pick Cursor. Leading AI IDE with cloud agents. Free tier: Yes (limited). Paid from $8/mo Plus (Grok models only); $30/mo Premium (checked 2026-10-23).
 - [Set up or run AI agents](https://www.usethissi.com/use-cases/set-up-or-run-ai-agents/): top pick n8n. Open-source agent and workflow builder. Free tier: Yes (self-host Community Edition); Cloud free trial. Paid from €20/mo Starter, billed annually (checked 2026-10-20).
-- [Automate workflows](https://www.usethissi.com/use-cases/automate-workflows/): top pick Make. Visual automation at less than half Zapier's entry price. Free tier: Yes (1,000 credits/mo). Paid from $9/mo Core billed annually (10,000 credits) (checked 2026-10-18).
+- [Automate workflows](https://www.usethissi.com/use-cases/automate-workflows/): top pick Make. Visual automation at less than half Zapier's entry price. Free tier: Yes (1,000 credits/mo). Paid from $12/mo Core billed annually, $16 monthly (10,000 credits) (checked 2026-10-23).
 - [Make game art and sprites](https://www.usethissi.com/use-cases/make-game-art-and-sprites/): top pick Scenario. Style-trained, consistent game assets. Free tier: Yes (50 credits/day; personal use only). Paid from $15/mo Starter (monthly; annual saves 33%) (checked 2026-10-21).
 - [Generate music and SFX](https://www.usethissi.com/use-cases/generate-music-and-sfx/): top pick Suno. Best song gen with commercial rights on Pro. Free tier: Yes (50 credits/day, no commercial use). Paid from $8/mo Pro billed yearly, $10 monthly (checked 2026-10-21).
 - [Edit and generate video](https://www.usethissi.com/use-cases/edit-and-generate-video/): top pick Runway. Pro-grade generative video. Free tier: Yes (125 one-time credits). Paid from $12/mo Standard billed annually, $15 monthly (checked 2026-10-21).
@@ -29,11 +29,11 @@
 - [Best AI tool for building apps under $20](https://www.usethissi.com/under-20/vibe-code-an-app-or-landing-page/): Bolt.new $25/mo Pro ($18/mo billed annually) (checked 2026-10-20); Replit $20/mo Core ($18 annual) (checked 2026-10-20); Hostinger AI Builder $2.49/mo Premium (48-mo term; renews $10.99/mo) (checked 2026-10-20)
 - [Best AI tool for coding under $20](https://www.usethissi.com/under-20/ai-coding-assistant/): Cursor $8/mo Plus (Grok models only); $30/mo Premium (checked 2026-10-23); Claude Code $17/mo annual, $20 monthly via Claude Pro (checked 2026-10-21); GitHub Copilot $10/mo Pro (checked 2026-10-20)
 - [Best AI tool for AI agents under $20](https://www.usethissi.com/under-20/set-up-or-run-ai-agents/): Manus $20/mo Pro (4,000 credits; 17% off billed annually) (checked 2026-10-20); Muse Code (Meta) $5/mo Everyday Usage; $15 High, $50 Power (adds Muse Wonder Full) (checked 2026-10-20); Browserbase $20/mo Developer (checked 2026-10-23)
-- [Best AI tool for workflow automation under $20](https://www.usethissi.com/under-20/automate-workflows/): Make $9/mo Core billed annually (10,000 credits) (checked 2026-10-18); Zapier $19.99/mo Professional (starting price) (checked 2026-10-20)
-- [Best AI tool for game art under $20](https://www.usethissi.com/under-20/make-game-art-and-sprites/): Scenario $15/mo Starter (monthly; annual saves 33%) (checked 2026-10-21); PixelLab $12/mo Tier 1 Pixel Apprentice (checked 2026-10-18); Midjourney $10/mo Basic ($8/mo billed annually) (checked 2026-10-22)
+- [Best AI tool for workflow automation under $20](https://www.usethissi.com/under-20/automate-workflows/): Make $12/mo Core billed annually, $16 monthly (10,000 credits) (checked 2026-10-23); Zapier $19.99/mo Professional (starting price) (checked 2026-10-20)
+- [Best AI tool for game art under $20](https://www.usethissi.com/under-20/make-game-art-and-sprites/): Scenario $15/mo Starter (monthly; annual saves 33%) (checked 2026-10-21); PixelLab $12/mo Tier 1 Pixel Apprentice ($99/yr) (checked 2026-10-23); Midjourney $10/mo Basic ($8/mo billed annually) (checked 2026-10-22)
 - [Best AI tool for music and sound effects under $20](https://www.usethissi.com/under-20/generate-music-and-sfx/): Suno $8/mo Pro billed yearly, $10 monthly (checked 2026-10-21); ElevenLabs Music and SFX $6/mo Starter, music commercial use ($1 first month until Nov 1) (checked 2026-10-23); Udio $8/mo Standard billed annually, $10 monthly (checked 2026-10-22)
 - [Best AI tool for video under $20](https://www.usethissi.com/under-20/edit-and-generate-video/): Runway $12/mo Standard billed annually, $15 monthly (checked 2026-10-21); Descript $16/mo Hobbyist annual, $24 monthly (checked 2026-10-21); CapCut $19.99/mo Pro (US, monthly; yearly up to 30% off) (checked 2026-10-22)
-- [Best AI tool for writing under $20](https://www.usethissi.com/under-20/write-content/): Claude $17/mo Pro annual, $20 monthly (checked 2026-10-21); ChatGPT $20/mo Plus (monthly only) (checked 2026-10-22); Gamma $9/seat/mo Plus billed annually (checked 2026-10-22)
+- [Best AI tool for writing under $20](https://www.usethissi.com/under-20/write-content/): Claude $17/mo Pro annual, $20 monthly (checked 2026-10-21); ChatGPT $20/mo Plus (monthly only) (checked 2026-10-22); Gamma $9/seat/mo Plus billed annually, $12 monthly (checked 2026-10-23)
 - [Best AI tool for research under $20](https://www.usethissi.com/under-20/research/): Perplexity $17/mo Pro billed annually (checked 2026-10-22); Gemini (Deep Research) $4.99/mo Google AI Plus; $19.99/mo AI Pro (checked 2026-10-21); NotebookLM $4.99/mo via Google AI Plus (checked 2026-10-22)
 - [Best AI tool for voice and text to speech under $20](https://www.usethissi.com/under-20/voice-and-tts/): ElevenLabs $6/mo Starter ($1 first month until Nov 1) (checked 2026-10-23); Cartesia $5/mo Pro (checked 2026-10-21); Fish Audio $10/M UTF-8 bytes Drama 3 API promo thru Nov 12 (list $50); app Plus $11/mo annual (checked 2026-10-23)
 
@@ -110,17 +110,17 @@
 - [Snyk Evo](https://www.usethissi.com/tools/snyk-evo/) (Alt): Agentic AppSec that finds, fixes, and blocks vulns in agent-written code. Free tier: No on Free/Team (Evo needs Enterprise). Paid from Enterprise / talk to sales (Team plan $25/mo is non-Evo) (checked 2026-10-23).
 
 ### Automate workflows
-- [Make](https://www.usethissi.com/tools/make/) (Top pick): Visual automation at less than half Zapier's entry price. Free tier: Yes (1,000 credits/mo). Paid from $9/mo Core billed annually (10,000 credits) (checked 2026-10-18).
+- [Make](https://www.usethissi.com/tools/make/) (Top pick): Visual automation at less than half Zapier's entry price. Free tier: Yes (1,000 credits/mo). Paid from $12/mo Core billed annually, $16 monthly (10,000 credits) (checked 2026-10-23).
 - [Gumloop](https://www.usethissi.com/tools/gumloop/) (Alt): AI-native automation. Free tier: No free plan shown (14-day trial). Paid from $37/mo Pro (checked 2026-10-21).
 - [Zapier](https://www.usethissi.com/tools/zapier/) (Alt): Largest integration catalog. Free tier: Yes (100 tasks/mo). Paid from $19.99/mo Professional (starting price) (checked 2026-10-20).
 
 ### Make game art and sprites
 - [Scenario](https://www.usethissi.com/tools/scenario/) (Top pick): Style-trained, consistent game assets. Free tier: Yes (50 credits/day; personal use only). Paid from $15/mo Starter (monthly; annual saves 33%) (checked 2026-10-21).
 - [Ideogram](https://www.usethissi.com/tools/ideogram/) (Alt): Best text-in-image (logos, UI). Free tier: Yes (weekly free credits). Paid from $15/mo Plus billed annually, $20 monthly (checked 2026-10-22).
-- [Krea](https://www.usethissi.com/tools/krea/) (Alt): Real-time image and video gen. Free tier: Yes (100 units/day). Paid from $5.25/mo Basic billed annually, $9 monthly; Pro $21 annual, $35 monthly (checked 2026-10-19).
+- [Krea](https://www.usethissi.com/tools/krea/) (Alt): Real-time image and video gen. Free tier: Yes (100 units/day). Paid from $5.25/mo Basic billed annually, $9 monthly; Pro $21 annual, $35 monthly (checked 2026-10-23).
 - [Leonardo.Ai](https://www.usethissi.com/tools/leonardo-ai/) (Alt): Image gen with game presets. Free tier: Yes (150 fast tokens/day). Paid from $12/mo Essential, ex. tax (checked 2026-10-22).
 - [Midjourney](https://www.usethissi.com/tools/midjourney/) (Alt): Top-tier concept art. Free tier: No. Paid from $10/mo Basic ($8/mo billed annually) (checked 2026-10-22).
-- [PixelLab](https://www.usethissi.com/tools/pixellab/) (Alt): Pixel-art sprites and animation. Free tier: Yes (free trial: 40 fast generations). Paid from $12/mo Tier 1 Pixel Apprentice (checked 2026-10-18).
+- [PixelLab](https://www.usethissi.com/tools/pixellab/) (Alt): Pixel-art sprites and animation. Free tier: Yes (40 fast generations, then 5 slower generations/day). Paid from $12/mo Tier 1 Pixel Apprentice ($99/yr) (checked 2026-10-23).
 - [Rosebud AI](https://www.usethissi.com/tools/rosebud-ai/) (Alt): Vibe-code browser games. Free tier: Yes (8,000 credits; refill weekly in eligible regions). Paid from $15/mo Indie Dev (checked 2026-10-21).
 
 ### Generate music and SFX
@@ -145,7 +145,7 @@
 - [Claude](https://www.usethissi.com/tools/claude/) (Top pick): Best long-form writing voice. Free tier: Yes. Paid from $17/mo Pro annual, $20 monthly (checked 2026-10-21).
 - [ChatGPT](https://www.usethissi.com/tools/chatgpt/) (Alt): All-rounder; GPT-6 on all tiers. Free tier: Yes (GPT-6). Paid from $20/mo Plus (monthly only) (checked 2026-10-22).
 - [Copy.ai](https://www.usethissi.com/tools/copy-ai/) (Alt): GTM copy workflows. Free tier: unverified. Paid from $24/mo billed yearly, $29 monthly (checked 2026-10-21).
-- [Gamma](https://www.usethissi.com/tools/gamma/) (Alt): AI decks, docs and sites. Free tier: Yes (400 one-time credits). Paid from $9/seat/mo Plus billed annually (checked 2026-10-22).
+- [Gamma](https://www.usethissi.com/tools/gamma/) (Alt): AI decks, docs and sites. Free tier: Yes (400 one-time credits). Paid from $9/seat/mo Plus billed annually, $12 monthly (checked 2026-10-23).
 - [Jasper](https://www.usethissi.com/tools/jasper/) (Alt): Brand-voice marketing copy. Free tier: No (7-day trial). Paid from $59/mo Pro annual, $69 monthly (checked 2026-10-21).
 
 ### Research
@@ -171,6 +171,7 @@
 - [Google AI Studio](https://www.usethissi.com/tools/google-ai-studio/): Free tier; Argon API $2/$10 per 1M tokens thru Nov 30, then $4/$20. Promo or intro price ends Nov 30; checked 2026-10-23. Quote the regular price after that date.
 
 ## Recent price changes (last 14 days, from vendor pricing pages)
+- 2026-10-23: Make starting price was "$9/mo Core billed annually (10,000 credits)", now "$12/mo Core billed annually, $16 monthly (10,000 credits)" (https://www.usethissi.com/tools/make/)
 - 2026-10-23: ElevenLabs starting price was "$6/mo Starter (annual ~$5; $1 first-month promo ended Oct 18)", now "$6/mo Starter ($1 first month until Nov 1)" (https://www.usethissi.com/tools/elevenlabs/)
 - 2026-10-20: Lindy starting price was "$49.99/user/mo Team (5,000 credits)", now "$29.99/user/mo Team (3,000 credits)" (https://www.usethissi.com/tools/lindy/)
 - 2026-10-20: Hostinger AI Builder starting price was "$2.99/mo (48-mo term)", now "$2.49/mo Premium (48-mo term; renews $10.99/mo)" (https://www.usethissi.com/tools/hostinger-ai-builder/)
@@ -182,7 +183,6 @@
 - 2026-10-18: Murf AI starting price was "$19/mo Creator", now "API from $0.03 per 1,000 chars (Studio TTS)" (https://www.usethissi.com/tools/murf-ai/)
 - 2026-10-18: Gemini (Deep Research) starting price was "$19.99/mo Google AI Pro", now "$4.99/mo Google AI Plus; $19.99/mo AI Pro" (https://www.usethissi.com/tools/gemini-deep-research/)
 - 2026-10-18: Perplexity starting price was "$20/mo Pro", now "$17/mo Pro billed annually" (https://www.usethissi.com/tools/perplexity/)
-- 2026-10-18: Gamma starting price was "$12/mo Plus", now "$9/seat/mo Plus billed annually" (https://www.usethissi.com/tools/gamma/)
 
 ## Recent releases
 - 2026-10-23: Claude models on Google Cloud, run by Anthropic, are generally available: same prices, Google Cloud billing and IAM, and day-one Claude Platform features (https://cloud.google.com/blog/products/ai-machine-learning/expanding-claude-availability-on-google-cloud)
