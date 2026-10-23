@@ -13,6 +13,7 @@
 - [Write content](https://www.usethissi.com/use-cases/write-content/): top pick Claude. Best long-form writing voice. Free tier: Yes. Paid from $17/mo Pro annual, $20 monthly (checked 2026-10-21).
 - [Research](https://www.usethissi.com/use-cases/research/): top pick Perplexity. Fast cited answers. Free tier: Yes. Paid from $17/mo Pro billed annually (checked 2026-10-22).
 - [Voice and TTS](https://www.usethissi.com/use-cases/voice-and-tts/): top pick ElevenLabs. Most realistic voices. Free tier: Yes (10k credits). Paid from $6/mo Starter ($1 first month until Nov 1) (checked 2026-10-23).
+- [Customer service](https://www.usethissi.com/use-cases/customer-service/): top pick Intercom (Fin). AI agent Fin plus shared inbox, ticketing and help center in one. Free tier: No (14-day free trial). Paid from $19/seat/mo Essential billed annually (new-customer price, list $29) + $0.99 per Fin outcome (checked 2026-10-23).
 
 ## Free AI tools by job
 - [Free AI tools to vibe-code an app or landing page](https://www.usethissi.com/free/vibe-code-an-app-or-landing-page/): 5 verified free tiers.
@@ -24,6 +25,7 @@
 - [Free AI tools to write content](https://www.usethissi.com/free/write-content/): 3 verified free tiers.
 - [Free AI tools for research](https://www.usethissi.com/free/research/): 6 verified free tiers.
 - [Free AI tools for voice and TTS](https://www.usethissi.com/free/voice-and-tts/): 6 verified free tiers.
+- [Free AI tools to customer service](https://www.usethissi.com/free/customer-service/): 3 verified free tiers.
 
 ## Best AI tools under $20/mo by job
 - [Best AI tool for building apps under $20](https://www.usethissi.com/under-20/vibe-code-an-app-or-landing-page/): Bolt.new $25/mo Pro ($18/mo billed annually) (checked 2026-10-20); Replit $20/mo Core ($18 annual) (checked 2026-10-20); Hostinger AI Builder $2.49/mo Premium (48-mo term; renews $10.99/mo) (checked 2026-10-20)
@@ -36,6 +38,7 @@
 - [Best AI tool for writing under $20](https://www.usethissi.com/under-20/write-content/): Claude $17/mo Pro annual, $20 monthly (checked 2026-10-21); ChatGPT $20/mo Plus (monthly only) (checked 2026-10-22); Gamma $9/seat/mo Plus billed annually, $12 monthly (checked 2026-10-23)
 - [Best AI tool for research under $20](https://www.usethissi.com/under-20/research/): Perplexity $17/mo Pro billed annually (checked 2026-10-22); Gemini (Deep Research) $4.99/mo Google AI Plus; $19.99/mo AI Pro (checked 2026-10-21); NotebookLM $4.99/mo via Google AI Plus (checked 2026-10-22)
 - [Best AI tool for voice and text to speech under $20](https://www.usethissi.com/under-20/voice-and-tts/): ElevenLabs $6/mo Starter ($1 first month until Nov 1) (checked 2026-10-23); Cartesia $5/mo Pro (checked 2026-10-21); Fish Audio $10/M UTF-8 bytes Drama 3 API promo thru Nov 12 (list $50); app Plus $11/mo annual (checked 2026-10-23)
+- [Best AI tool for customer service under $20](https://www.usethissi.com/under-20/customer-service/): Intercom (Fin) $19/seat/mo Essential billed annually (new-customer price, list $29) + $0.99 per Fin outcome (checked 2026-10-23); Zendesk $25/agent/mo Support Team ($19 annual) (checked 2026-10-23); Freshdesk (Freddy AI) Growth $19 annual per agent/mo (monthly rate not listed) (checked 2026-10-23)
 
 ## Find your AI stack (quiz)
 - [Find your AI stack in 30 seconds](https://www.usethissi.com/quiz/): answer 3 questions (role, main job, budget), get a free pick, a paid pick that fits the budget, and one to skip.
@@ -163,6 +166,14 @@
 - [Mistral Voxtral 3](https://www.usethissi.com/tools/mistral-voxtral-3/) (Alt): Speech-to-text, text-to-speech and a voice agent API from one vendor, with EU or US endpoints or self-hosting. Free tier: Yes (Mistral Free plan includes Studio access). Paid from $13 per 1M chars TTS (Voxtral Mini TTS 3); voice agents from $0.04/min (preview) (checked 2026-10-23).
 - [Murf AI](https://www.usethissi.com/tools/murf-ai/) (Alt): Studio voiceovers. Free tier: Yes ($10 free API credit, no card). Paid from API from $0.01 per 1,000 chars (Falcon); Studio TTS $0.03 (checked 2026-10-22).
 - [Speechify](https://www.usethissi.com/tools/speechify/) (Alt): Read docs aloud plus a voice studio. Free tier: Yes (up to 1.5x speed). Paid from $29/mo Premium billed monthly (checked 2026-10-22).
+
+### Customer service
+- [Intercom (Fin)](https://www.usethissi.com/tools/intercom-fin/) (Top pick): AI agent Fin plus shared inbox, ticketing and help center in one. Free tier: No (14-day free trial). Paid from $19/seat/mo Essential billed annually (new-customer price, list $29) + $0.99 per Fin outcome (checked 2026-10-23).
+- [Crisp](https://www.usethissi.com/tools/crisp/) (Alt): Flat per-workspace pricing, no per-seat or per-conversation fees. Free tier: Yes (2 seats, chat widget and shared inbox; no AI credits). Paid from $45/mo Mini per workspace, 4 seats (checked 2026-10-23).
+- [Freshdesk (Freddy AI)](https://www.usethissi.com/tools/freshdesk-freddy-ai/) (Alt): Email ticketing with Freddy AI Agent, first 500 sessions included. Free tier: No (14-day free trial). Paid from Growth $19 annual per agent/mo (monthly rate not listed) (checked 2026-10-23).
+- [Help Scout](https://www.usethissi.com/tools/help-scout/) (Alt): Friendly shared inbox and docs; AI Answers billed per resolution. Free tier: Yes (5 users, 1 inbox, 1 Docs site, 100 contacts/mo). Paid from $25/user/mo Standard (annual saves 16%) (checked 2026-10-23).
+- [Tidio](https://www.usethissi.com/tools/tidio/) (Alt): Live chat plus Lyro AI agent, built for small online stores. Free tier: Yes (50 billable conversations/mo; 50 one-time Lyro AI conversations). Paid from $29/mo Starter ($24.17/mo billed annually) (checked 2026-10-23).
+- [Zendesk](https://www.usethissi.com/tools/zendesk/) (Alt): Proven ticketing; AI agents included, 5 automated resolutions/agent/mo. Free tier: No (14-day free trial). Paid from $25/agent/mo Support Team ($19 annual) (checked 2026-10-23).
 
 ## Time-limited prices (promo end dates)
 - [ElevenLabs](https://www.usethissi.com/tools/elevenlabs/): $6/mo Starter ($1 first month until Nov 1). Promo or intro price ends Nov 1; checked 2026-10-23. Quote the regular price after that date.
