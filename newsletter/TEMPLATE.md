@@ -16,12 +16,16 @@ WRITING RULES
 - Dedupe: each tool/company appears in ONE section only (Today in 30 seconds is the only exception, as a summary).
   Price changes go ONLY in Price watch. Tool of the day must be a different tool than The big one.
 - The big one must include **The catch:** with one skeptical point (license limits, hardware cost, or hosted vs local tradeoff).
+- SUBJECT: lead with the hook (what the builder gets), vary shape day to day (question, number, "now you can..."). The "X, plus Y" pattern is retired; the guard rejects ", plus ".
+- EDITORIAL: every story must be something a builder can use (API, model, dev tool, price). Drop or reframe consumer/small-business items (e.g. Oct 21 "Gemini small-business hub"). Keep The catch, dated fact-checks "(Oct 22)" and How to try it.
+- LINKS: never paste a bare URL; always [text](url). Footer: "[78 tools across 10 jobs, prices re-checked weekly](https://www.usethissi.com)".
+- PRE-SEND GUARD: python3 scripts/newsletter_guard.py newsletter/DATE-beehiiv-paste.md must PASS before scheduling; after beehiiv preview, save the web version HTML and run --rendered. Schedule at python3 scripts/newsletter_guard.py --send-time (7:15 AM AZ; missed window -> next weekday 7:15, never send late).
 - render.py runs these checks and exits non-zero on failure. Fix the brief; never use --force to ship.
 - Keep section headings exactly as below; the renderer keys on them. Drop a section only if there is truly nothing (Price watch / tip can be skipped).
 -->
 # Brief #N | Mon D, YYYY | 5-min read
 
-Subject: Accurate lead story in 6-9 words, plus second hook (no hype)
+Subject: Hook first: the one builder payoff of the lead story, 6-9 words (no "X, plus Y"; vary the shape daily)
 Preheader: One complete sentence that tells the reader what is inside today.
 
 ## Today in 30 seconds
